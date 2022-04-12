@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jan Krause-Bilvin">
+  <meta name="dcterms.date" content="2022-04-11">
+  <title>HEG-796-22-030</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">HEG-796-22-030</h1>
+  <p class="subtitle">TP</p>
+  <p class="author">Jan Krause-Bilvin</p>
+  <p class="date">2022-04-11</p>
+</section>
+
+<section>
+<section id="exercice-0-prise-en-main" class="title-slide slide level1">
+<h1>Exercice 0 : prise en main</h1>
+
+</section>
+<section class="slide level6">
+
+<p>Télécharger et extraire zip de l’exercice (par exemple sur le bureau). Ouvrir un teminal anaconda prompt et se rendre dans le répertoire dézippé:</p>
+<pre><code>cd Desktop\SHACL\</code></pre>
+<p>Vérifier que le fichier <em>dossier.ttl</em> est conforme aux contraintes <em>shacl.ttl</em>:</p>
+<pre><code>python shacl.py dossier.ttl</code></pre>
+<p><strong><em>A rendre: néant</em></strong></p>
+</section>
+<section class="slide level6">
+
+</section></section>
+<section>
+<section id="exercice-1-ajouter-des-contraintes-sur-le-titre-des-dossiers" class="title-slide slide level1">
+<h1>Exercice 1 : ajouter des contraintes sur le titre des dossiers</h1>
+
+</section>
+<section class="slide level6">
+
+<p>Compléter la section de “archvd:DossierShape” du fichier <em>shacl.ttl</em> en y ajoutant la contrainte suivante:</p>
+<pre><code>sh:property [
+    sh:path rico:title;
+    rdfs:comment &quot;Exacly one title (Name)&quot; ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    ] ;</code></pre>
+<p>Puis compléter cette contrainte <em>sh:property</em>, de façon a ce que le titre:</p>
+<ul>
+<li>soit obligatoirement de type <em>xsd:string</em></li>
+<li>et soit limité à 100 caratères au maximum.</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Vérifier que:</p>
+<ul>
+<li>en l’état <em>dossier.ttl</em> est valide ;</li>
+<li>en effaçant temporairement le titre (<em>rico:title</em>) vérifier que si <em>dossier.ttl</em> ne contient plus de titre il n’est pas valide ;</li>
+<li>en dupliquant le titre, vérifier que si <em>dossier.ttl</em> contient deux titres, il n’est pas valdie non plus;</li>
+<li>en allongeant le titre que ci celui-ci fait plus de 500 caractères, <em>dossier.ttl</em> n’est pas valide .</li>
+</ul>
+<p><strong><em>A rendre: shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
+
+</section></section>
+<section>
+<section id="exercice-2-les-dossiers-doivent-avoir-des-dates-de-début-et-de-fin-valides" class="title-slide slide level1">
+<h1>Exercice 2 : les dossiers doivent avoir des dates de début et de fin valides</h1>
+
+</section>
+<section class="slide level6">
+
+<p>Vérifier que le fichier <em>dossier.ttl</em> est bien valide:</p>
+<pre><code>python shacl.py dossier.ttl</code></pre>
+<p>Toujours dans le même le fichier <em>shacl.ttl</em>, ajouter une contrainte <em>sh:property</em> à de façon à s’assurer que les dossiers dans <em>dossier.ttl</em> possèdent au moins un champ <em>rico:hasBeginningDate</em>.</p>
+<p>En pratique, vous pouvez vous inspirer de la contrainte existante sur le champ <em>rico:hasEndDate</em>.</p>
+<p>Vérifier que, si le champ <em>rico:hasBeginningDate</em> est supprimé dans <em>dossier.ttl</em>, celui-ci n’est pas valide.</p>
+<p><strong><em>A rendre: shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
+
+</section></section>
+<section>
+<section id="exercice-3-validation-des-documents" class="title-slide slide level1">
+<h1>Exercice 3 : validation des documents</h1>
+
+</section>
+<section class="slide level6">
+
+<p>Dans le fichier <em>shacl.ttl</em>, ajouter des règles de validation <em>archvd:DocumentShape</em> en vous inspirant de <em>archvd:DossierShape</em>.</p>
+<p>Ces règles dovent cibler les docuement apartenant à la classe <em>archvd:Document</em>, qui est utilisée pour qualifier les documents dans <em>document.ttl</em>. c’est-à-dire être de la forme:</p>
+</section>
+<section class="slide level6">
+
+<pre><code>archvd:DocumentShape
+    a sh:NodeShape ; 
+    sh:targetClass  archvd:Document ;
+
+        sh:property [
+                      (contraintes)
+        ];
+        
+        ...
+
+        sh:property [
+                      (contraintes) 
+        ].
+        </code></pre>
+</section>
+<section class="slide level6">
+
+<p>Compéter les <em>sh:property</em> de façon à s’assurer que les documents ont bien:</p>
+<ul>
+<li>exactement un titre (<em>rico:title</em>)</li>
+<li>que le titre est une chaîne de caratètes (utiliser: <em>xsd:string</em>)</li>
+<li>que le titre fait au maximum 200 caractères (utilier: <em>sh:maxlength</em>)</li>
+<li>au maximum une descroption (<em>rico:scopeAndContent</em>)</li>
+<li>exactement une date de fin (<em>rico:hasEndDate</em>)</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Vérifier que le fichier <em>document.ttl</em> est bien valide:</p>
+<pre><code>python shacl.py document.ttl</code></pre>
+<p><strong><em>A rendre: shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/search/search.js"></script>
+  <script src="reveal.js/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

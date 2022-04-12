@@ -1,0 +1,43 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix ldp:     <http://www.w3.org/ns/ldp#> .
+@prefix rico:    <https://www.ica.org/standards/RiC/ontology#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix premis:  <http://id.loc.gov/vocabulary/preservation/> .
+@prefix archvd:  <http://vd.ch/archives/ex#> .
+
+
+<http://localhost:8080/rest/records/acv/dossiers/D000000169/documents/1>
+
+			a                       	archvd:Document ;
+			rico:type              		<http://localhost:8080/rest/types/document> ;
+			rdf:type                	ldp:BasicContainer ;
+			rdf:type                	ldp:Resource ;
+			rdf:type                	fedora:Resource ;
+			rdf:type                	ldp:RDFSource ;
+			rdf:type                	ldp:Container ;
+			rdf:type                	fedora:Container ;
+
+			rico:hasInstantiation  		<http://localhost:8080/rest/records/acv/dossiers/D000000169/documents/1/I1> ;
+			ldp:contains            	<http://localhost:8080/rest/records/acv/dossiers/D000000169/documents/1/I1> ;
+
+			rico:title             		"OAIS Introduction" ;
+			rico:scopeAndContent   		"Considerations on ISO 14721." ;
+
+			rico:hasEndDate         	_:endDate ;
+			
+			rico:hasCreator				_:creator ;
+
+			fedora:created          	"2022-03-31T20:03:50.417324600Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+			fedora:lastModified     	"2022-03-31T20:03:50.417324600Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+		
+_:endDate   a                           rico:SigleDate ;
+            rico:normalizedDateValue    "2022-04-01"^^xsd:date .
+			 
+_:creator	a							rico:Agent ;
+			a 							archvd:AgentPerson ;
+			rico:hasOrHadName			"Jan Krause" ;
+			rico:identifier             "765.1234.5678.16" ;
+			rico:hasModificationDate    "2022-01-01"^^xsd:date .
+			

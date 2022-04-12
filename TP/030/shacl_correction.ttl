@@ -1,0 +1,81 @@
+@prefix rico:    <https://www.ica.org/standards/RiC/ontology#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix premis:  <http://id.loc.gov/vocabulary/preservation/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp:     <http://www.w3.org/ns/ldp#> .
+@prefix archvd:  <http://vd.ch/archives/ex#> .
+
+
+archvd:DossierShape
+	a sh:NodeShape ; 
+	sh:targetClass  archvd:Dossier ;
+
+
+		sh:property [
+			sh:path rico:title;
+			rdfs:comment "Exacly one title (Name)" ;
+			sh:datatype xsd:string ;
+			sh:maxlength 100 ;
+			sh:minCount 1 ;
+			sh:maxCount 1 ;
+		] ;	
+		sh:property [
+			sh:path rico:scopeAndContent ;
+			rdfs:comment "one optional scoapeAndContent" ;
+			sh:datatype xsd:string ;
+			sh:minCount 0 ;
+			sh:maxCount 1 ;
+		] ;	
+		sh:property [
+			sh:path rico:hasBeginningDate ;
+			rdfs:comment "beginning date is mandatory" ;
+			sh:nodeKind sh:BlankNode ;
+			sh:minCount 1 ;
+		] ;
+		sh:property [
+			sh:path rico:hasEndDate ;
+			rdfs:comment "end date is mandatory" ;
+			sh:nodeKind sh:BlankNode ;
+			sh:minCount 1 ;
+		] .
+
+archvd:DocumentShape
+	a sh:NodeShape ; 
+	sh:targetClass  archvd:Document ;
+
+		sh:property [
+			sh:path rico:title;
+			rdfs:comment "Exacly one title (Name)" ;
+			sh:datatype xsd:string ;
+			sh:maxlength 500 ;
+			sh:minCount 1 ;
+			sh:maxCount 1 ;
+		] ;	
+		sh:property [
+			sh:path rico:scopeAndContent ;
+			rdfs:comment "one optional scoapeAndContent" ;
+			sh:datatype xsd:string ;
+			sh:minCount 0 ;
+			sh:maxCount 1 ;
+		] ;	
+		sh:property [
+			sh:path rico:hasEndDate ;
+			rdfs:comment "end date is mandatory" ;
+			sh:nodeKind sh:BlankNode ;
+			sh:minCount 1 ;
+		] .
+
+archvd:SingleDateShape
+	a sh:NodeShape ; 
+	sh:targetClass  rico:SingleDate ;
+	sh:property [
+		sh:path rico:normalizedDateValue ;
+		rdfs:comment "normalized date is mandatory" ;
+		sh:datatype xsd:date ;
+		sh:minCount 1 ;
+	] .

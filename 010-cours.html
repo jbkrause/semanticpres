@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jan Krause-Bilvin">
+  <meta name="dcterms.date" content="2022-04-12">
+  <title>HEG-796-22-010</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">HEG-796-22-010</h1>
+  <p class="subtitle">OAIS et LDP</p>
+  <p class="author">Jan Krause-Bilvin</p>
+  <p class="date">2022-04-12</p>
+</section>
+
+<section>
+<section id="descriptif-du-cours" class="title-slide slide level1">
+<h1>Descriptif du cours</h1>
+
+</section>
+<section class="slide level2">
+
+<div class="fragment" data-fragment-index="1">
+<p>Ce cours approfondit les bonnes pratiques et outils de préservation des données liées (linked data) dans le domaine de l’information documentaire.</p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p>Thèmes de cette session:</p>
+<ul>
+<li>Préservation digitale: information package (<a href="https://fr.wikipedia.org/wiki/Open_Archival_Information_System">OAIS</a>)</li>
+<li>Web sémantique: Linked Data Platform (<a href="https://en.wikipedia.org/wiki/Linked_Data_Platform">LDP</a>)</li>
+<li>L’exemple de <a href="https://duraspace.org/fedora/">Fedora Commons</a></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="open-archival-information-system-oais" class="title-slide slide level1">
+<h1>Open Archival Information System (OAIS)</h1>
+
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="media/OAIS-schema-general.png" alt="OAIS schema" /><figcaption aria-hidden="true">OAIS schema</figcaption>
+</figure>
+<div class="fragment" data-fragment-index="1">
+<p>Préservation numérique = stockage de paquets (AIP).</p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p>Source = données, publications, objets métiers (SIP).</p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>Web sémantique = réseau de triplets décentraclisé.</p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p>Comment concilier ces trois univers?</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="linked-data-platform-ldp" class="title-slide slide level1">
+<h1>Linked Data Platform (LDP)</h1>
+
+</section>
+<section class="slide level2">
+
+<p>Références concernant cette recommendation du <em>World Wide Web Consortium</em> :</p>
+<table>
+<thead>
+<tr class="header">
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://www.w3.org/TR/ldp-primer/">Primer</a></td>
+<td>Introduction.</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.w3.org/TR/ldp/">Recommendation W3C</a></td>
+<td>Recommendation formelle.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="ressources">Ressources</h3>
+<p>LDP définit deux types de <strong><em>ressources</em></strong> (ldp:Ressource):</p>
+<ul>
+<li>RDF</li>
+<li>non-RDF (i.e. binaires, p.ex. une image, un document PDF, etc.)</li>
+</ul>
+<p><img data-src="media/LDP-ressources.png" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="containers">Containers</h3>
+<p>Les ressources peuvent être organisées dans des <strong><em>containers</em></strong>.</p>
+<p><img data-src="media/LDP-container-010.png" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="hiérarchie-de-containers">Hiérarchie de containers</h3>
+<p>Les containers peuvent être organisés hiérarchiquement.</p>
+<p><img data-src="media/LDP-container-030.png" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="identification">Identification</h3>
+<p>Chaque ressource, chaque container est idientifié par son … URL.</p>
+</section>
+<section id="récapitulation" class="slide level2">
+<h2>Récapitulation</h2>
+<ul>
+<li>Les ressources LDP (ldp:Ressource) peuvent être de type RDF ou non-RDF.</li>
+<li>Les ressources peuvent être organisées dans des containers LDP (ldp:Container).</li>
+<li>Les containers peuvent être emboîtés.</li>
+<li>Chaque container/ressource est idientifié par son URL.</li>
+</ul>
+</section>
+<section id="applications" class="slide level2">
+<h2>Applications</h2>
+<p>Exemple d’objets pouvant être placés dans des containers LDP:</p>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li><strong><em>Bibliothèque</em></strong> <a href="https://en.wikipedia.org/wiki/Functional_Requirements_for_Bibliographic_Records">FRBR</a>/RDA : Colleciton, Oeuvre, Expression, Manifestation, Item</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li><strong><em>Musées</em></strong> <a href="https://www.cidoc-crm.org/">CIDOC-CRM</a> : Site, Person, Physical object, Physical feature,…</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="3">
+<ul>
+<li><strong><em>Archives</em></strong> <a href="https://www.ica.org/fr/records-in-contexts-modele-conceptuel">RiC</a>/ISAG(G) : Fonds, Sous-fonds, Séries, Dossiers, Pièces, Instanciations, …</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="4">
+<ul>
+<li><strong><em>Données de rechreche</em></strong> : Collections, Sous-collections, Records, Fichiers, …</li>
+</ul>
+</div>
+</section>
+<section id="rappel-turtle-13" class="slide level2">
+<h2>Rappel Turtle 1/3</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 36%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sujet</th>
+<th>Prédicat</th>
+<th>Objet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mona Lisa</td>
+<td>a pour créateur</td>
+<td>Léonard de Vinci</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.wikidata.org/entity/Q12418" class="uri">http://www.wikidata.org/entity/Q12418</a></td>
+<td><a href="http://www.wikidata.org/prop/direct/P170" class="uri">http://www.wikidata.org/prop/direct/P170</a></td>
+<td><a href="http://www.wikidata.org/entity/Q762" class="uri">http://www.wikidata.org/entity/Q762</a></td>
+</tr>
+</tbody>
+</table>
+<p>En notation Turtle:</p>
+<pre><code>&lt;http://www.wikidata.org/entity/Q12418&gt; &lt;http://www.wikidata.org/prop/direct/P170&gt; &lt;http://www.wikidata.org/entity/Q762&gt; .</code></pre>
+</section>
+<section id="rappel-turtle-23" class="slide level2">
+<h2>Rappel Turtle 2/3</h2>
+<p><em>URLs complets:</em></p>
+<pre><code>&lt;http://www.wikidata.org/entity/Q12418&gt; &lt;http://www.wikidata.org/prop/direct/P170&gt; &lt;http://www.wikidata.org/entity/Q762&gt; .</code></pre>
+<p><em>Notation avec déclaration de préfixes:</em></p>
+<pre><code>PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
+PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
+
+wd:Q12418 wdp:P170 wd:Q762.</code></pre>
+</section>
+<section id="rappel-turtle-33" class="slide level2">
+<h2>Rappel Turtle 3/3</h2>
+<p><em>Plusieurs triplets</em></p>
+<pre><code>PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
+PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt; .
+
+wd:Q12418 
+            dc:title   &quot;Mona Lisa&quot;;
+            wdp:P170   [ wd:Q762 ;
+                         wd:Q123   ] .</code></pre>
+</section>
+<section class="slide level2">
+
+<h3 id="exemple-description-archivistique">Exemple: description archivistique</h3>
+<p><a href="https://vaud.archivescommunales.ch/journal-1998-72">Journal du Mont, n°72</a></p>
+<p><img data-src="media/LDP-archival-fonds/010exemple1-pageweb.png" /></p>
+</section>
+<section class="slide level2">
+
+<p><img data-src="media/LDP-archival-fonds/010exemple1.png" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="manipulation-des-ressourcescontainers">Manipulation des ressources/containers</h3>
+<p>Via HTTP, par les verbes standard:</p>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>Accéder : GET</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>Créer / Mettre à jour : POST / PUT</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="3">
+<ul>
+<li>Supprimer : DELETE</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>L’usage pratique de LDP sera développé au prochian cours.</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/search/search.js"></script>
+  <script src="reveal.js/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

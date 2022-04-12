@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jan Krause-Bilvin">
+  <meta name="dcterms.date" content="2022-04-11">
+  <title>HEG-796-22-020</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">HEG-796-22-020</h1>
+  <p class="subtitle">LDP en pratique</p>
+  <p class="author">Jan Krause-Bilvin</p>
+  <p class="date">2022-04-11</p>
+</section>
+
+<section>
+<section id="thème-de-cette-session" class="title-slide slide level1">
+<h1>Thème de cette session</h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Plateforme LDP <a href="https://duraspace.org/fedora/">Fedora Commons</a></li>
+<li>Description archivistique <a href="https://www.ica.org/fr/records-in-contexts-modele-conceptuel">Records in Context</a> et l’ontologie <a href="https://www.ica.org/fr/records-in-contexts-ontology">RiC-O</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="records-in-context" class="title-slide slide level1">
+<h1>Records in Context</h1>
+
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="media/RiC-CM-overview.jpg" alt="RiC overview" /><figcaption aria-hidden="true">RiC overview</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p>Quelques concepts clés de rico (centrés sur les records):</p>
+<p>Url de l’ontologie: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html">https://www.ica.org/standards/RiC/RiC-O_v0-2.html</a></p>
+<ul>
+<li>Intitulé, titre: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title">rico:title</a></li>
+<li>Créateur: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasCreator">rico:hasCreator</a></li>
+<li>Type: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasRecordSetType">rico:hasRecordSetType</a></li>
+<li>Hierarchie: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasOrHadPart">rico:hasOrHadPart</a> , <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#isOrWasPartOf">rico:isOrWasPartOf</a></li>
+<li>État: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasRecordState">rico:hasRecordState</a></li>
+<li>Date: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasBeginningDate">rico:hasBeginningDate</a> , <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasEndDate">rico:hasEndDate</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rappel-du-cours-précédent" class="title-slide slide level1">
+<h1>Rappel du cours précédent</h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Les ressources LDP (ldp:Ressource) peuvent être de type RDF ou non-RDF.</li>
+<li>Les ressources peuvent être organisées dans des containers LDP (ldp:Container).</li>
+<li>Les containers peuvent être emboîtés.</li>
+<li>Chaque container/ressource est idientifié par son URL.</li>
+</ul>
+</section>
+<section id="correctif-exercice-tp" class="slide level2">
+<h2>Correctif exercice TP</h2>
+<p><img data-src="media/LDP-archival-fonds/010ex1-correction.png" /></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="gesion-des-containers-via-linterface-web" class="title-slide slide level1">
+<h1>Gesion des containers via l’interface web</h1>
+
+</section>
+<section id="créer-un-container-interface-web" class="slide level2">
+<h2>Créer un container (interface Web)</h2>
+<p><img data-src="media/FCREPO-create.png" /></p>
+</section>
+<section class="slide level2">
+
+<p>Dans la boite de dialogue “RDF Turtle”, insérer:</p>
+<pre><code>&lt;&gt;   
+&lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;   
+&quot;Le titre du record&quot;.</code></pre>
+<p>Cliquer ensuite sur le bouton “Add” comme dans la capture d’écran ci-avant.</p>
+<p>A noter que le container est créé comme enfant du container courrant.</p>
+</section>
+<section id="modifier-un-container-web" class="slide level2">
+<h2>Modifier un container (Web)</h2>
+<p><img data-src="media/FCREPO-update.png" /></p>
+</section>
+<section class="slide level2">
+
+<p>Dans la boite de dialogue “Update Properties”, remplacer:</p>
+<pre><code>DELETE { }
+INSERT { }</code></pre>
+<p>Par</p>
+<pre><code>DELETE{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;  &quot;Le titre du record&quot;. }
+INSERT{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;  &quot;Le nouveau titre du record&quot;. }</code></pre>
+<p>Puis cliquer sur le bouton “Update”.</p>
+<p>Cf. capture d’écran ci-avant.</p>
+</section>
+<section id="créer-une-ressouce-binaire" class="slide level2">
+<h2>Créer une ressouce binaire</h2>
+<p><img data-src="media/FCREPO-create-binary.png" /></p>
+</section>
+<section class="slide level2">
+
+<p>Dans la section “Create New Child Ressource”, choisir “Type” : “binary” dans la liste déroulante comme dans la capture d’écran précédente.</p>
+<p>Puis cliquer sur “Parcourir” (ou “Browse”) pour sélectionner le fichier à envoyer dans Fedora.</p>
+<p>Valider en cliquant sur le bouton “Add”.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="gestion-des-containers-par-http" class="title-slide slide level1">
+<h1>Gestion des containers par HTTP</h1>
+
+</section>
+<section class="slide level2">
+
+<p>Les verbes standard standard sont utilisés (<a href="https://fr.wikipedia.org/wiki/Representational_state_transfer">API rest</a>):</p>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>Accéder : GET</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>Créer / Mettre à jour : POST / PUT</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="3">
+<ul>
+<li>Supprimer : DELETE</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="rappel-python">Rappel: python</h3>
+<p>Dans le contexte de la HEG, python est installé sur les postes via l’outil Anaconda.</p>
+<p>Pour l’exécutér, ouvrir:</p>
+<pre><code>Windows &gt; Menu démarrer &gt; Anaconda prompt</code></pre>
+<p>Puis tapper:</p>
+<pre><code>python</code></pre>
+<p>et enter.</p>
+</section>
+<section id="accéder-à-une-ressource" class="slide level2">
+<h2>Accéder à une ressource</h2>
+<pre><code>import requests
+url = &#39;http://localhost:8080/rest/records/acv/D000002513&#39;
+r = requests.get(url)
+print(&#39;Status code:&#39;, r.status_code)
+print(r.text)
+</code></pre>
+</section>
+<section id="créer-un-container" class="slide level2">
+<h2>Créer un container</h2>
+<pre><code>import requests
+url = &#39;http://localhost:8080/rest/records/acv/D9999&#39;
+headers = {&quot;Content-Type&quot;: &quot;text/turtle&quot;}
+auth = (&#39;fedoraAdmin&#39;, &#39;fedoraAdmin&#39;)
+data = &quot;&quot;&quot; &lt;&gt;  &lt;rico:title&gt; &#39;Ceci est le titre&#39;.
+           &lt;&gt;  &lt;rico:scopeAndContent&gt;   &#39;Voilà la description&#39;.
+           &quot;&quot;&quot;
+r = requests.put(url, auth=auth, data=data.encode(&#39;utf-8&#39;), headers=headers)
+print( &#39;Status:&#39;, r.status_code )
+print( r.text )</code></pre>
+</section>
+<section id="mettre-à-jour-un-container" class="slide level2">
+<h2>Mettre à jour un container</h2>
+<pre><code>import requests
+url = &#39;http://localhost:8080/rest/records/acv/D9999&#39;
+headers = {&quot;Content-Type&quot;: &quot;text/turtle&quot;}
+auth = (&#39;fedoraAdmin&#39;, &#39;fedoraAdmin&#39;)
+data = &quot;&quot;&quot; &lt;&gt;  &lt;rico:title&gt; &#39;Ceci est le titre mis-à-jour.&#39;.
+           &lt;&gt;  &lt;rico:scopeAndContent&gt;   &#39;Et la description revue&#39;.
+           &quot;&quot;&quot;
+r = requests.put(url, auth=auth, data=data.encode(&#39;utf-8&#39;), headers=headers)
+print( &#39;Status:&#39;, r.status_code )
+print( r.text )</code></pre>
+<p>Voir les section Versionning : “View Versions”</p>
+</section>
+<section id="créer-une-ressource-binaire" class="slide level2">
+<h2>Créer une ressource binaire</h2>
+<p>Le code suivant suppose qu’une ressouce binaire nomée “image.jpg” se trouve dans le répertoire “Images” (et que Python a été lancé depuis votre répertoire personnel racine).</p>
+<pre><code>import requests
+filename = &#39;Pictures\\image.jpg&#39;
+mimetype = &#39;image/jpeg&#39;
+data = open(filename,&#39;rb&#39;).read()
+url = &#39;http://localhost:8080/rest/records/acv/D9999/binary&#39;
+auth = (&#39;fedoraAdmin&#39;, &#39;fedoraAdmin&#39;)
+headers = { &quot;Content-Type&quot;: mimetype,
+            &quot;Link&quot; :&quot;&lt;http://www.w3.org/ns/ldp#NonRDFSource&gt;; rel=type&quot;}
+r = requests.put(url, auth=auth, data=data, headers=headers)
+print( &#39;Status:&#39;, r.status_code )
+print( r.text )</code></pre>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="versionning-rfc7099-memento" class="title-slide slide level1">
+<h1>Versionning RFC7099 (Memento)</h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Par défaut, Fedora Commons conserve toutes les versions des ressources.</li>
+<li>Il est possible de personnaliser ce fonctionnement.</li>
+<li>Cela perment de naviguer dans le temps (p.ex. mise à jour du plan de classement)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/search/search.js"></script>
+  <script src="reveal.js/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
