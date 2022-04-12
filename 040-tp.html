@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jan Krause-Bilvin">
+  <meta name="dcterms.date" content="2022-04-11">
+  <title>HEG-796-22-040</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">HEG-796-22-040</h1>
+  <p class="subtitle">TP</p>
+  <p class="author">Jan Krause-Bilvin</p>
+  <p class="date">2022-04-11</p>
+</section>
+
+<section><section id="exercice-1-hiérarchie-ocfl" class="title-slide slide level1"><h1>Exercice 1 : hiérarchie OCFL</h1></section><section class="slide level6">
+
+<p>Comme indiqué dans le cours, Fedora organise ses AIP de la façon suivante:</p>
+<pre><code>hash := sha256( fedoraId )
+chemin = hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
+<p>Démmarez Fedora commons (cf. TP 010 et 020).</p>
+<p>Au moiyen du script <em>id2storage.py</em>, localisez la ressource http://localhost:8080/rest/records/acv/dossiers/D000003962 .</p>
+<p>Pour ce faire, ouvrez un terminal Anaconda (<em>Anaconda prompt</em>), rendez-vous dans le répertoire ou vous avez dézippé Fedora Commons et exécutez:</p>
+<pre><code>python id2storage.py records/acv/dossiers/D000003962</code></pre>
+<p>Vous obtenez le chemin vers l’AIP contenant ce dossier relativement à la racine OCFL. Celui ci est indiqué par “Storage path”.</p>
+<p>Pour localiser ce dossier commencez par ouvrir la racine OCFL situé dans le sous répertoire <em>fcrepo-home-root</em> . Suivez ensuite le chemin indiqué par le script.</p>
+<p>La hiérarchie de stockage que vous venez de parcourir a pour but de répartir les AIP dans différents répertoires de manière a évéter des problèmes de surcharge quelque soit le système de stockage utilisé.</p>
+<p><strong><em>Rendu: capture d’écran de l’explorateur windows affichant le dossier de l’AIP (paquet OCFL) correspondant. Nom du fichier tp4ex1.png.</em></strong></p>
+</section><section class="slide level6">
+
+</section></section>
+<section><section id="exercice-2-manifeste-ocfl" class="title-slide slide level1"><h1>Exercice 2 : manifeste OCFL</h1></section><section class="slide level6">
+
+<p>Depuis le répertoire localisé, accédez à la version 3, répertoire <em>v3</em>, du dossier, et ouvrez le fichier <em>manifest.json</em> dans Firefox.</p>
+<p>Retrouver la version 3 du fichier <em>fcr-container.nt</em> contenant les métadonnées du dossier (i.e. le RDF en format NT).</p>
+<p>Pour ce faire:</p>
+<ol type="1">
+<li>Localiser la section “version” et la sous section “v3” dans le manifeste.</li>
+<li>Localiser le fichier “fcr-container.nt” de la “v3”.</li>
+<li>Copier ou “noter” le checksum correspondant à ce fichier.</li>
+<li>Dans la section “manifest” en haut du fichier manifest.json, sur la base du checksum copié, trouver le chemin de stockage du fichier “fcr-container.nt” recherché.</li>
+</ol>
+<p>Vous constaterez qu’un fichier déposé déjà enregistré dans une version précédente d’un AIP OCFL n’est pas dupliqué dans les versions ultérieurs, même si il en fait toujours partie.</p>
+<p>En résumé, cette structure permet: * de stoquer toutes les versions d’un AIP * éviter les doublons de fichier au sein d’un AIP (économie d’espace de stockage) * d’associer checksum à chaque fichier (métadonnées et données) et ainsi de pourvoir garantir son intégrité</p>
+<p><strong><em>Rendu: déposer la version v3 fcr-container.nt" sur cyberlearn en la nommant tp4ex2.nt.</em></strong></p>
+</section><section class="slide level6">
+
+</section></section>
+<section><section id="exercice-3-unité-darchivage" class="title-slide slide level1"><h1>Exercice 3 : unité d’archivage</h1></section><section class="slide level6">
+
+<p>Dans l’ineterface web de Fedora Commons, se rendre à l’adresse http://localhost:8080/records/acv/dossiers/</p>
+<p>Y créer un nouveau dossier, i.e. “BasicContainer” avec l’id “conteneur”. Ajouter un nouveau fichier de votre choix dans ce container.</p>
+<p>Revenir dans http://localhost:8080/records/acv/dossiers/ .</p>
+<p>Créer cette fois un conteneur de type “Archival group” avec l’id “aip”. Ajoueter le même fichier à ce nouveau conteneur.</p>
+<p>Au moyen du script id2storage.py utilisé à l’exercice 1, localisez et comparer les AIP OFCL correspondants.</p>
+<p>Quelle est la principale différence entre les deux?</p>
+</section><section class="slide level6">
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

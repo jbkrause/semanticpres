@@ -9,20 +9,25 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="reveal.js/dist/reset.css">
-  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
-  <style>
-    .reveal .sourceCode {  /* see #7635 */
-      overflow: visible;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div class="reveal">
@@ -35,47 +40,33 @@
   <p class="date">2022-04-11</p>
 </section>
 
-<section>
-<section id="thème-de-cette-session" class="title-slide slide level1">
-<h1>Thème de cette session</h1>
-
-</section>
-<section class="slide level2">
+<section><section id="thème-de-cette-session" class="title-slide slide level1"><h1>Thème de cette session</h1></section><section class="slide level2">
 
 <ul>
 <li>Archival Informatin Pacakges (AIP) : paquets d’information archivistiques.</li>
 <li>Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d’information.</li>
 </ul>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 </section></section>
-<section>
-<section id="aips" class="title-slide slide level1">
-<h1>AIPs</h1>
-
-</section>
-<section class="slide level2">
+<section><section id="aips" class="title-slide slide level1"><h1>AIPs</h1></section><section class="slide level2">
 
 <p>Rappel - schéma d’un système de préservation OAIS :</p>
 <figure>
-<img data-src="media/OAIS-schema-general.png" alt="OAIS schema" /><figcaption aria-hidden="true">OAIS schema</figcaption>
+<img data-src="media/OAIS-schema-general.png" alt="OAIS schema" /><figcaption>OAIS schema</figcaption>
 </figure>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <ul>
 <li>Les AIPs sont autonomes : ils contiennent toutes les données et métadonnées d’une “unité archivistique”.</li>
 <li>Au coeur du module de stockage OAIS, ils sont structurés de façon à ce que celui-ci puisse remplir ses foncions.</li>
 </ul>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <figure>
-<img data-src="media/OAIS-AIP.jpg" alt="OAIS schema" /><figcaption aria-hidden="true">OAIS schema</figcaption>
+<img data-src="media/OAIS-AIP.jpg" alt="OAIS schema" /><figcaption>OAIS schema</figcaption>
 </figure>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <p>Dans Fedora Commons</p>
 <ul>
@@ -83,23 +74,16 @@
 <li>Il est possible d’attibuer la fonction “archival unit” a un container LDP.</li>
 <li>Ceci a pour effet que ce container et tout ses enfants (définis par <em>ldp:contains</em>) sont “physiquement” stoqués dans le même AIP.</li>
 </ul>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 </section></section>
-<section>
-<section id="ocfl" class="title-slide slide level1">
-<h1>OCFL</h1>
-
-</section>
-<section class="slide level2">
+<section><section id="ocfl" class="title-slide slide level1"><h1>OCFL</h1></section><section class="slide level2">
 
 <p><a href="https://ocfl.io/">Oxford Common File Layout</a> est une sécificiation. Selon <a href="https://ocfl.io/">ocfl.io</a> :</p>
 <blockquote>
 <p>This Oxford Common File Layout (OCFL) specification describes an application-independent approach to the storage of digital information in a structured, transparent, and predictable manner. It is designed to promote long-term object management best practices within digital repositories.</p>
 </blockquote>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <p>Toujours selon <a href="https://ocfl.io/">ocfl.io</a>, ses bénéfices :</p>
 <ul>
@@ -109,8 +93,7 @@
 <li><strong><em>Versioning</em></strong>, so repositories can make changes to objects allowing their history to persist</li>
 <li><strong><em>Storage diversity</em></strong>, to ensure content can be stored on diverse storage infrastructures including conventional filesystems and cloud object stores</li>
 </ul>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <p>En pratique, OCFL définit:</p>
 <ul>
@@ -123,207 +106,60 @@
 <li>i.e. la structure des paquets eux-mêmes</li>
 </ul></li>
 </ul>
-</section>
-<section id="la-hiérachie-de-stockage-ocfl" class="slide level2">
+</section><section id="la-hiérachie-de-stockage-ocfl" class="slide level2">
 <h2>La hiérachie de stockage OCFL</h2>
 <p>Elle doit être déterministe. Dans le cas de Fedora Commons, la règle déterministe pour calculer le chemin des paquets est la suivante:</p>
 <pre><code>hash := sha256( fedoraId )
-chemin = hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
+chemin := hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
 <p>Exemple:</p>
 <pre><code>fedoraId = records/acv/dossiers/D1
 chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...</code></pre>
-</section>
-<section id="la-structuctue-des-paquets-ocfl" class="slide level2">
+</section><section id="la-structuctue-des-paquets-ocfl" class="slide level2">
 <h2>La structuctue des paquets OCFL</h2>
 <ul>
 <li>un répertoire par version v1, v2, v3, …</li>
-<li>pour chaque version, il y a:
+<li>dans chaque répertoire de version, il y a:
 <ul>
-<li>un inventaire:
+<li>un fichier manifeste, <em>manifest.json</em>, comprenant:
 <ul>
-<li>listing des fichiers et de leur checksum</li>
+<li>listing des fichiers (avec leur chemin) composant la version courrante (ainsi que pour les versions antérieures)</li>
+<li>le checksum correspondant à chaque fichier</li>
+<li>au début du manifeste, le checksum permet de localiser tout fichier, même si il stoqué dans une version précédent</li>
 </ul></li>
-<li>un répertoire “content*:
-<ul>
-<li>fichiers à préserver</li>
-</ul></li>
+<li>un répertoire "content* fichiers ajoutés ou modifiés dans la version courrante</li>
 </ul></li>
 </ul>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <p>Exemple:</p>
 <figure>
-<img data-src="media/OCFL-package-exemple.png" alt="OCFL package" /><figcaption aria-hidden="true">OCFL package</figcaption>
+<img data-src="media/OCFL-package-exemple.png" alt="OCFL package" /><figcaption>OCFL package</figcaption>
 </figure>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <p>Démo : exemple d’un dossier dans Fedora Commons.</p>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/dist/reveal.js"></script>
-
-  <!-- reveal.js plugins -->
-  <script src="reveal.js/plugin/notes/notes.js"></script>
-  <script src="reveal.js/plugin/search/search.js"></script>
-  <script src="reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://revealjs.com/config/
+      // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Display controls in the bottom right corner
-        controls: true,
-
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: true,
-
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'bottom-right',
-
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: false,
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
         // Push each slide change to the browser history
-        history: false,
+        history: true,
 
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: true,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: true,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'fade',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // reveal.js plugins
-        plugins: [
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
