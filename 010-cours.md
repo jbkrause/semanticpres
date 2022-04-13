@@ -170,8 +170,7 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/> .
 
 wd:Q12418 
             dc:title   "Mona Lisa";
-            wdp:P170   [ wd:Q762 ;
-                         wd:Q123   ] .
+            wdp:P170    wd:Q762, wd:Q123  .
 ```
 
 ---
