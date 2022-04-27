@@ -1,8 +1,8 @@
 ---
 author: "Jan Krause-Bilvin"
-title: "HEG-796-22-EXA"
+title: "HEG-796-22-EXA-8"
 subtitle: "Questions d'examen"
-date: 2022-04-15
+date: 2022-04-27
 lang: fr-CH
 encoding: utf-8
 presention: "pandoc -t revealjs -s -o EXA.html EXA.md -V revealjs-url=reveal.js -V theme=white --katex; pandoc -t html5 -o 030-tp.pdf 030-tp.md"
@@ -33,7 +33,7 @@ versions:
        - 20a5c089f45d : "documents/1/I2/file0" 
 ```
 
-Combien de fichers existe-il dans la version 2?
+Combien de fichers existe-il dans la version v2?
 
 Quels fichiers ont été mis-à-jour entre la version v1 et v2?
 

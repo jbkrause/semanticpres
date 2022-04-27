@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jan Krause-Bilvin">
+  <meta name="dcterms.date" content="2022-04-27">
+  <title>HEG-796-22-EXA-8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">HEG-796-22-EXA-8</h1>
+  <p class="subtitle">Questions d’examen</p>
+  <p class="author">Jan Krause-Bilvin</p>
+  <p class="date">2022-04-27</p>
+</section>
+
+<section id="question-8-ocfl---invnetaire" class="slide level1">
+<h1>Question 8 : OCFL - invnetaire</h1>
+<p>Considérons la représentation simplifiée d’un inventaire OCFL:</p>
+<pre><code>manifest:
+  - 50a5c087f450 : &quot;v1/content/fcr-container.nt&quot;
+  - 30a510691454 : &quot;v1/content/documents/1/I1/file0&quot;
+  - 40152f82f455 : &quot;v2/content/fcr-container.nt&quot;
+  - 20a5c089f45d : &quot;v1/content/documents/1/I2/file0&quot;
+
+versions:
+  - v1
+    - state
+       - 50a5c087f450 : &quot;fcr-container.nt&quot;
+       - 30a510691454 : &quot;documents/1/I1/file0&quot;  
+  - v2
+    - state
+       - 40152f82f455 : &quot;fcr-container.nt&quot;
+       - 30a510691454 : &quot;documents/1/I1/file0&quot;  
+       - 20a5c089f45d : &quot;documents/1/I2/file0&quot; </code></pre>
+<p>Combien de fichers existe-il dans la version v2?</p>
+<p>Quels fichiers ont été mis-à-jour entre la version v1 et v2?</p>
+<p>Quels fichiers ont été ajoutés entre la version v1 et v2?</p>
+<p>Quels fichiers ont été supprimés entre la version v1 et v2?</p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

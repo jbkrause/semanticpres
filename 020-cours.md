@@ -219,14 +219,15 @@ pip install requests
 ```
 
 
-*** Sous Windows:***
+***Sous Windows:***
+
 
 ```
 python -m pip install requests
 ```
 
 
-*** Sous MacOS:***
+***Sous MacOS:***
 
 ```
 sudo easy_install pip
@@ -293,7 +294,13 @@ Voir les section Versionning : "View Versions"
 
 ## Créer une ressource binaire
 
-Le code suivant suppose qu'une ressouce binaire nomée "image.jpg" se trouve dans le répertoire "Pictures" (le répertoire d'images par défaut sous Windows) et que Python a été lancé depuis votre répertoire personnel racine.
+Le code suivant suppose qu'une ressouce binaire nomée "image.jpg" se
+trouve dans le répertoire "Pictures" (le répertoire d'images par
+défaut sous Windows) et que Python a été lancé depuis votre répertoire
+personnel racine.
+
+---
+
 
 ```
 import requests

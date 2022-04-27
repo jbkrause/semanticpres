@@ -1,6 +1,6 @@
 ---
 author: "Jan Krause-Bilvin"
-title: "HEG-796-22-EXA"
+title: "HEG-796-22-EXA-7"
 subtitle: "Questions d'examen"
 date: 2022-04-15
 lang: fr-CH
