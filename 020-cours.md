@@ -61,14 +61,14 @@ RiC-O : [principes](https://www.ica.org/standards/RiC/ontology.html#design-princ
 
 * Ontologies de référence/domaine de l'archivage
 * Utilisable immédiatement
-* Flexible (granularité variables)
+* Flexible (granularité variable)
 * Nouveaux potentiels (interprétable/SPARQL, instantiations)
 * Extensible (autre contextes que les archives, combinaison)
 
 
 ---
 
-Des concepts spécifiques [ont été développés](https://www.ica.org/standards/RiC/ontology.html#fromRiCCM-to-RiCO) pour créer RiC-O, p.ex.:
+Des concepts complétant RiC-CM [ont été développés](https://www.ica.org/standards/RiC/ontology.html#fromRiCCM-to-RiCO) pour créer RiC-O, p.ex.:
 
 * [rico:Type](https://www.ica.org/standards/RiC/ontology.html#Type) : gestion de types d'entités, utiles pour caractériser les entités et se lier à d'autres ontologies/vocabulaires comme [W3C-SKOS](https://www.w3.org/TR/skos-reference/).
 * [rico:Proxy](https://www.ica.org/standards/RiC/ontology.html#Proxy) : intéger un record dans plusieurs record sets (ex: un document élaboré par deux services).
@@ -203,7 +203,9 @@ et enter.
 
 ### Python sur ordinateur personnel
 
-Dans le cadre d'une installation classique de Python 3, installer le paquet "requests" si ce n'est pas déjà fait:
+Dans le cadre d'une installation classique de Python 3 ([téléchargement](https://www.python.org/downloads/)), installer le paquet "requests" si ce n'est pas déjà fait:
+
+***Sous Linux:***
 
 ```
 pip3 install requests
@@ -216,7 +218,24 @@ ou
 pip install requests
 ```
 
+
+*** Sous Windows:***
+
+```
+python -m pip install requests
+```
+
+
+*** Sous MacOS:***
+
+```
+sudo easy_install pip
+sudo pip install --upgrade pip 
+
+```
+
 ---
+
 
 
 ## Accéder à une ressource
@@ -274,7 +293,7 @@ Voir les section Versionning : "View Versions"
 
 ## Créer une ressource binaire
 
-Le code suivant suppose qu'une ressouce binaire nomée "image.jpg" se trouve dans le répertoire "Images" (et que Python a été lancé depuis votre répertoire personnel racine).
+Le code suivant suppose qu'une ressouce binaire nomée "image.jpg" se trouve dans le répertoire "Pictures" (le répertoire d'images par défaut sous Windows) et que Python a été lancé depuis votre répertoire personnel racine.
 
 ```
 import requests

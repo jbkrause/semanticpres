@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="reveal.js_bad/dist/reset.css">
-  <link rel="stylesheet" href="reveal.js_bad/dist/reveal.css">
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
   <style>
     .reveal .sourceCode {  /* see #7635 */
       overflow: visible;
@@ -21,8 +21,9 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="reveal.js_bad/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -105,14 +106,14 @@
 <ul>
 <li>Ontologies de référence/domaine de l’archivage</li>
 <li>Utilisable immédiatement</li>
-<li>Flexible (granularité variables)</li>
+<li>Flexible (granularité variable)</li>
 <li>Nouveaux potentiels (interprétable/SPARQL, instantiations)</li>
 <li>Extensible (autre contextes que les archives, combinaison)</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p>Des concepts spécifiques <a href="https://www.ica.org/standards/RiC/ontology.html#fromRiCCM-to-RiCO">ont été développés</a> pour créer RiC-O, p.ex.:</p>
+<p>Des concepts complétant RiC-CM <a href="https://www.ica.org/standards/RiC/ontology.html#fromRiCCM-to-RiCO">ont été développés</a> pour créer RiC-O, p.ex.:</p>
 <ul>
 <li><a href="https://www.ica.org/standards/RiC/ontology.html#Type">rico:Type</a> : gestion de types d’entités, utiles pour caractériser les entités et se lier à d’autres ontologies/vocabulaires comme <a href="https://www.w3.org/TR/skos-reference/">W3C-SKOS</a>.</li>
 <li><a href="https://www.ica.org/standards/RiC/ontology.html#Proxy">rico:Proxy</a> : intéger un record dans plusieurs record sets (ex: un document élaboré par deux services).</li>
@@ -222,10 +223,17 @@ INSERT{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;
 <section class="slide level2">
 
 <h3 id="python-sur-ordinateur-personnel">Python sur ordinateur personnel</h3>
-<p>Dans le cadre d’une installation classique de Python 3, installer le paquet “requests” si ce n’est pas déjà fait:</p>
+<p>Dans le cadre d’une installation classique de Python 3 (<a href="https://www.python.org/downloads/">téléchargement</a>), installer le paquet “requests” si ce n’est pas déjà fait:</p>
+<p><strong><em>Sous Linux:</em></strong></p>
 <pre><code>pip3 install requests</code></pre>
 <p>ou</p>
 <pre><code>pip install requests</code></pre>
+<p>*** Sous Windows:***</p>
+<pre><code>python -m pip install requests</code></pre>
+<p>*** Sous MacOS:***</p>
+<pre><code>sudo easy_install pip
+sudo pip install --upgrade pip 
+</code></pre>
 </section>
 <section id="accéder-à-une-ressource" class="slide level2">
 <h2>Accéder à une ressource</h2>
@@ -265,7 +273,7 @@ print( r.text )</code></pre>
 </section>
 <section id="créer-une-ressource-binaire" class="slide level2">
 <h2>Créer une ressource binaire</h2>
-<p>Le code suivant suppose qu’une ressouce binaire nomée “image.jpg” se trouve dans le répertoire “Images” (et que Python a été lancé depuis votre répertoire personnel racine).</p>
+<p>Le code suivant suppose qu’une ressouce binaire nomée “image.jpg” se trouve dans le répertoire “Pictures” (le répertoire d’images par défaut sous Windows) et que Python a été lancé depuis votre répertoire personnel racine.</p>
 <pre><code>import requests
 import os
 filename = &#39;Pictures&#39; + os.sep + &#39;image.jpg&#39;
@@ -303,12 +311,12 @@ print( r.text )</code></pre>
     </div>
   </div>
 
-  <script src="reveal.js_bad/dist/reveal.js"></script>
+  <script src="reveal.js/dist/reveal.js"></script>
 
   <!-- reveal.js plugins -->
-  <script src="reveal.js_bad/plugin/notes/notes.js"></script>
-  <script src="reveal.js_bad/plugin/search/search.js"></script>
-  <script src="reveal.js_bad/plugin/zoom/zoom.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/search/search.js"></script>
+  <script src="reveal.js/plugin/zoom/zoom.js"></script>
 
   <script>
 
