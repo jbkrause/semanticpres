@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-030"
 subtitle: "PREMIS et SHACL"
-date: 2022-04-11
+date: 2022-05-02
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 030-cours.html 030-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 030-cours.pdf 030-cours.md"
 encoding: utf-8
@@ -12,9 +12,27 @@ encoding: utf-8
 
 ---
 
-  * Ontologie de préservation: ([PREMIS](https://fr.wikipedia.org/wiki/Preservation_Metadata:_Implementation_Strategies))
+  * Ontologie de préservation ([PREMIS](https://fr.wikipedia.org/wiki/Preservation_Metadata:_Implementation_Strategies))
   * Schémas de grahes RDF ([SHACL](https://fr.wikipedia.org/wiki/SHACL))
 
+---
+
+# Cours précédents
+
+---
+
+* Linked Data Platform (LDP): 
+  * Ressources (ldp:Ressource) de type RDF et non-RDF
+  * Conteneurs (ldp:Container), peuvent être emboîtés.
+  * Manipulation via verbes HTTP:
+    * GET: lire
+	* POST / PUT : créer / mettre à jour
+	* DELETE : effacer
+* Les conteneurs LDP permettent de délimiter les ressources représantant des objets (métier, archivistiques).
+  * Combinaison d'ontologies, p.ex. RiC-O, SKOS et autres
+  * Fedora Commons accepte tout turtle valide (ressources RDF)
+
+  
 ---
 
 # PREMIS
@@ -24,7 +42,7 @@ encoding: utf-8
 PREservation Metadata : Implementation Strategies (PREMIS) permet de représenter:
 
 * les objets (p.ex. records),
-* les événements de préservation,
+* les événements (de préservation),
 * les agents (personnes, logiciels) impliqués dans ces événement,
 * les droits.
 
@@ -89,10 +107,7 @@ Mais comment faire en pratique?
 * Les graphes sont compsés de noeuds (ensembles de triplets).
 * Validation porte sur la structure et le contenu des noeuds.
 
-
----
-
-## Exemple
+Exemple:
 
 ---
 
