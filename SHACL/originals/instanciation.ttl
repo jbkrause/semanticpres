@@ -1,0 +1,40 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix ldp:     <http://www.w3.org/ns/ldp#> .
+@prefix rico:    <https://www.ica.org/standards/RiC/ontology#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix premis:  <http://id.loc.gov/vocabulary/preservation/> .
+@prefix archvd:    <http://vd.ch/archives/ex#> .
+
+<http://localhost:8080/rest/records/acv/D000002513/documents/1/I1>
+
+        a                             archvd:Instantiation ;
+        rico:type                     <http://localhost:8080/rest/types/instantiation> ;
+        rdf:type                      premis:representation ;
+        rdf:type                      ldp:BasicContainer ;
+        rdf:type                      ldp:Resource ;
+        rdf:type                      fedora:Resource ;
+        rdf:type                      ldp:RDFSource ;
+        rdf:type                      ldp:Container ;
+        rdf:type                      fedora:Container ;
+
+        ldp:contains                  <http://localhost:8080/rest/records/acv/D000002513/documents/1/I1/binary> ;
+
+        premis:environmentName        "Ubuntu" ;		
+        premis:environmentVersion     "22.04" ;
+        premis:creatingApplication    "LibreOffice" ;
+        premis:creatingApplicationVersion  "7.3.1" ;
+
+        premis:orginalName            "data/records/files/file.pdf" ;
+		
+        premis:hasCompositionLevel    "0" ;
+        premis:formatName             "PDF/A1" ;
+        premis:formatVersion          "1.4" ;
+        premis:formatRegistry         "PRONOM" ;
+        premis:formatRegistryKey      <http://www.nationalarchives.gov.uk/pronom/fmt/95> ;
+        ebucore:hasMimeType           "application/pdf" ;
+		
+        fedora:created                "2022-03-24T14:45:48.070235600Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        fedora:lastModified           "2022-03-30T13:18:13.982363100Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+

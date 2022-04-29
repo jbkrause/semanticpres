@@ -23,7 +23,7 @@
 			ldp:contains            	<http://localhost:8080/rest/records/acv/dossiers/D000000169/documents/1/I1> ;
 
 			rico:title             		"OAIS Introduction" ;
-			rico:scopeAndContent   		"Considerations on ISO 14721." ;
+			rico:scopeAndContent   		"Consideraions on ISO 14721." ;
 
 			rico:hasEndDate         	_:endDate ;
 			

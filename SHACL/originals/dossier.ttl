@@ -1,0 +1,60 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fedora:   <http://fedora.info/definitions/v4/repository#> .
+@prefix ldp:      <http://www.w3.org/ns/ldp#> .
+@prefix rico:     <https://www.ica.org/standards/RiC/ontology#> .
+@prefix ebucore:  <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix premis:   <http://id.loc.gov/vocabulary/preservation/> .
+@prefix geonames: <https://www.geonames.org/> .
+@prefix skos:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wdt:      <https://www.wikidata.org/wiki/> .
+@prefix archvd:   <http://vd.ch/archives/ex#> .
+
+
+<http://localhost:8080/rest/records/acv/dossiers/D000000169>
+        a                              archvd:Dossier ;
+
+        rico:isRecordSetTypeOf         <http://localhost:8080/rest/types/dossier> ;		
+        rdf:type                       ldp:BasicContainer ;
+        rdf:type                       ldp:Resource ;
+        rdf:type                       fedora:Resource ;
+        rdf:type                       ldp:RDFSource ;
+        rdf:type                       ldp:Container ;
+        rdf:type                       fedora:Container ;
+
+        ldp:contains                   <http://localhost:8080/rest/records/acv/dossiers/D000000169/documents> ;
+        rico:hasOrHadPart              <http://localhost:8080/rest/records/acv/dossiers/D000000169/documents/2> ;
+        rico:hasOrHadPart              <http://localhost:8080/rest/records/acv/dossiers/D000000169/documents/1> ;
+        rico:isOrWasPartOf             <http://localhost:8080/rest/records/acv/referential/19135> ;
+
+        rico:hasOrHadIdentifier        "M.10.01-D1" ;		
+        rico:title                     "Archivage ADN" ;		
+        rico:scopeAndContent           "Dossier sur la péservaion à long terme dans l'ADN." ;
+
+        rico:hasCreator                <http://localhost:8080/rest/agents/roche/66> ;
+
+	    rico:hasBeginningDate          _:beginDate ;
+		rico:hasEndDate                _:endDate ;
+
+        rico:hasRecordState            <http://localhost:8080/rest/states/open> ;
+		
+		
+		# Exemple de métadonées métier : Lieu
+		rico:hasOrHadLocation          _:place ; 
+		
+		# Exemple de métadonnées métier : Sujet
+		skos:relatedMatch              wdt:Q91622264 ;
+		
+        fedora:created                 "2022-03-31T20:03:50.050594Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        fedora:lastModified            "2022-03-31T20:03:50.050594Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+		
+_:beginDate a                          rico:SigleDate ;
+            rico:normalizedDateValue   "2022-02-05"^^xsd:date .	
+		
+_:endDate   a                          rico:SigleDate ;
+            rico:normalizedDateValue   "2022-04-01"^^xsd:date .  
+			
+_:place a                              rico:Place ;
+        rico:hasOrHadPlaceName         "Canton de Vaud" ;
+        skos:exactMatch                wdt:Q12771 ;        
+        skos:exactMatch                geonames:2658182 .
