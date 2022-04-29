@@ -4,10 +4,14 @@ from pyshacl import validate
 
 import sys
 
-if not len(sys.argv)==2:
-    print('syntax: python shacl_validator.py <filename.ttl>')
+if not len(sys.argv)==1:
+    print('syntax: python shacl_validator.py <filename.ttl> [<shacl.ttl>]')
 
-shapes_file = open('shacl.ttl', 'r').read()
+shacl_file = 'shacl.ttl'
+if len(sys.argv)==3:
+    shacl_file = sys.argv[2]
+    
+shapes_file = open(shacl_file, 'r').read()
 shapes_file_format = 'turtle'
 
 data_file = open(sys.argv[1], 'r').read()
@@ -18,6 +22,10 @@ conforms, v_graph, v_text = validate(data_file, shacl_graph=shapes_file,
                                      shacl_graph_format=shapes_file_format,
                                      inference='rdfs', debug=True,
                                      serialize_report_graph=True)
-#print(conforms)
+
+print('------------------------')                                     
+print("Conforme:", conforms)
+print('------------------------')                                     
 print(v_graph.decode('utf-8'))
-print(v_text)
+
+#print(v_text)

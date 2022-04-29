@@ -33,9 +33,6 @@
 
         rico:hasCreator                <http://localhost:8080/rest/agents/roche/66> ;
 
-	    rico:hasBeginningDate          _:beginDate ;
-		rico:hasEndDate                _:endDate ;
-
         rico:hasRecordState            <http://localhost:8080/rest/states/open> ;
 		
 		

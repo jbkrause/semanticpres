@@ -51,17 +51,21 @@ en RDF.
 
 ---
 
-
 ![PREMIS overview](media/PREMIS-overview.png)
-
 
 ---
 
-Une représentation fine des objets numérique est disponible. 
+Une représentation fine des objets numériques est disponible. 
 
 ---
 
 ![PREMIS overview](media/PREMIS-objects.png)
+
+---
+
+Exemple / demonstration : [docuteam Packer](https://wiki.docuteam.ch/doku.php?id=docuteam:packer) (logiciel libre)
+
+![](media/docuteam_packer.png)
 
 ---
 
@@ -169,5 +173,21 @@ pas les conditions sont ignorés.
 ---
 
 ## Démonstration
+
+---
+
+Validateurs en ligne: 
+
+* [SHACL Play](https://shacl-play.sparna.fr/play/validate)
+* [SHACL.js](https://www.ida.liu.se/~robke04/SHACLTutorial/)
+
+Ou avec un module python (fournit avec le TP3).
+
+Syntaxe pour valider le RDF *dossier.ttl* en utilisant le SHACL shacl.ttl:
+
+```
+python shacl.py dossier.ttl shacl.ttl
+```
+
 
 ---

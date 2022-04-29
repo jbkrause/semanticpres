@@ -14,13 +14,11 @@
 archvd:DossierShape
 	a sh:NodeShape ; 
 	sh:targetClass  archvd:Dossier ;
-
-
 		sh:property [
 			sh:path rico:title;
 			rdfs:comment "Exacly one title (Name)" ;
 			sh:datatype xsd:string ;
-			sh:maxlength 100 ;
+			sh:maxLength 100 ;
 			sh:minCount 1 ;
 			sh:maxCount 1 ;
 		] ;	
@@ -52,7 +50,7 @@ archvd:DocumentShape
 			sh:path rico:title;
 			rdfs:comment "Exacly one title (Name)" ;
 			sh:datatype xsd:string ;
-			sh:maxlength 500 ;
+			sh:maxLength 500 ;
 			sh:minCount 1 ;
 			sh:maxCount 1 ;
 		] ;	
