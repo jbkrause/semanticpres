@@ -77,3 +77,16 @@ archvd:SingleDateShape
 		sh:datatype xsd:date ;
 		sh:minCount 1 ;
 	] .
+	
+archvd:AgentPersonShape
+	a sh:NodeShape ; 
+	sh:targetClass  archvd:AgentPerson ;
+	
+	sh:property [	
+		sh:path rico:identifier ;
+		rdfs:comment "Exacly one identifier based on N-AVS-13." ;
+		sh:datatype xsd:string ;
+		sh:pattern "^\\d{3}\\.\\d{4}\\.\\d{4}\\.\\d{2}$" ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+	] .	

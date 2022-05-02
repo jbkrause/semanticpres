@@ -4,7 +4,7 @@ title: "HEG-796-22-030"
 subtitle: "PREMIS et SHACL"
 date: 2022-05-02
 lang: fr-CH
-presention: "pandoc -t revealjs -s -o 030-cours.html 030-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 030-cours.pdf 030-cours.md"
+presention: "pandoc -t revealjs -s -o 030-cours.html 030-cours.md -V revealjs-url=reveal.js -V theme=white --katex; pandoc -t html5 -o 030-cours.pdf 030-cours.md"
 encoding: utf-8
 ---
 
@@ -79,7 +79,7 @@ Exemples de concepts PREMIS:
 * premis:formatRegistry (format de fichier)
 * premis:creatingApplication (application)
 * premis:environmentDesignatinon (système)
-* premis:inhibitors (inhibiteurs t.q. DRM)
+* premis:inhibitors (inhibiteurs t.q. DRM ou chiffrement, cf. [DLCM](https://sandbox.dlcm.ch/administration/docs/DLCM-IntegrationGuide.html))
 * premis:hasCompositionLevel (composition)
 
 ---
