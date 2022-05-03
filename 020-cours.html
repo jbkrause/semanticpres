@@ -9,12 +9,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -40,16 +43,27 @@
   <p class="date">2022-04-25</p>
 </section>
 
-<section><section id="thème-de-cette-session" class="title-slide slide level1"><h1>Thème de cette session</h1></section><section class="slide level2">
+<section>
+<section id="thème-de-cette-session" class="title-slide slide level1">
+<h1>Thème de cette session</h1>
+
+</section>
+<section class="slide level2">
 
 <ul>
 <li>Plateforme LDP <a href="https://duraspace.org/fedora/">Fedora Commons</a></li>
 <li>Description archivistique <a href="https://www.ica.org/fr/records-in-contexts-modele-conceptuel">Records in Context</a> et l’ontologie <a href="https://www.ica.org/fr/records-in-contexts-ontology">RiC-O</a></li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="cours-précédent" class="title-slide slide level1"><h1>Cours précédent</h1></section><section class="slide level2">
+<section>
+<section id="cours-précédent" class="title-slide slide level1">
+<h1>Cours précédent</h1>
+
+</section>
+<section class="slide level2">
 
 <ul>
 <li>Linked Data Platform (LDP):
@@ -61,10 +75,16 @@
 <li>Les conteneurs LDP permettent de délimiter les ressources représantant des objets (métier, archivistiques).</li>
 <li>OAIS: objet archivisitque = Archival Information Package (AIP).</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="records-in-context" class="title-slide slide level1"><h1>Records in Context</h1></section><section class="slide level2">
+<section>
+<section id="records-in-context" class="title-slide slide level1">
+<h1>Records in Context</h1>
+
+</section>
+<section class="slide level2">
 
 <p>RiC existe sous deux formes:</p>
 <ul>
@@ -72,19 +92,22 @@
 <li>L’ontologie OWL: RiC-O</li>
 </ul>
 <p>RiC-O est une implémentation possible de RiC-CM, pour l’instant la seule. Mais d’autres implémentations sont envisageables (cf. ébauche: <a href="https://matterhorn.tools/">ici</a> et <a href="https://wiki.docuteam.ch/doku.php?id=docuteam:matterhornrdf">ici</a>).</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <ul>
 <li>RiC-CM est un modèle entité relation.</li>
 <li>Toute entité est une chose (Thing) et se déciline en différentes classes.</li>
 <li>Les entités sont liées par des relations.</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <figure>
-<img data-src="media/RiC-CM-overview.jpg" alt="RiC overview" /><figcaption>RiC overview</figcaption>
+<img data-src="media/RiC-CM-overview.jpg" alt="" /><figcaption>RiC overview</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>RiC-O : <a href="https://www.ica.org/standards/RiC/ontology.html#design-principles">principes</a></p>
 <ul>
@@ -94,7 +117,8 @@
 <li>Nouveaux potentiels (interprétable/SPARQL, instantiations)</li>
 <li>Extensible (autre contextes que les archives, combinaison)</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Des concepts complétant RiC-CM <a href="https://www.ica.org/standards/RiC/ontology.html#fromRiCCM-to-RiCO">ont été développés</a> pour créer RiC-O, p.ex.:</p>
 <ul>
@@ -102,7 +126,8 @@
 <li><a href="https://www.ica.org/standards/RiC/ontology.html#Proxy">rico:Proxy</a> : intéger un record dans plusieurs record sets (ex: un document élaboré par deux services).</li>
 <li><a href="https://www.ica.org/standards/RiC/ontology.html#Place">rico:Place</a> : les lieux peuvent évoluer au cours du temps (ex: frontières qui se déplacent, sur plus de 500 ans dans le cas de la Suisse), voir aussi <a href="https://github.com/LinkedPasts/linked-places">linked-places</a>.</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Concepts clés de RiC-O (centrés sur les records):</p>
 <p><a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html">Url</a> de l’ontologie. Quelques exemples:</p>
@@ -114,16 +139,24 @@
 <li>État: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasRecordState">rico:hasRecordState</a></li>
 <li>Date: <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasBeginningDate">rico:hasBeginningDate</a> , <a href="https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasEndDate">rico:hasEndDate</a></li>
 </ul>
-</section><section id="correctif-exercice-tp" class="slide level2">
+</section>
+<section id="correctif-exercice-tp" class="slide level2">
 <h2>Correctif exercice TP</h2>
 <p><img data-src="media/LDP-archival-fonds/010ex1-correction.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="gesion-des-containers-via-linterface-web" class="title-slide slide level1"><h1>Gesion des containers via l’interface web</h1></section><section id="créer-un-container-interface-web" class="slide level2">
+<section>
+<section id="gesion-des-containers-via-linterface-web" class="title-slide slide level1">
+<h1>Gesion des containers via l’interface web</h1>
+
+</section>
+<section id="créer-un-container-interface-web" class="slide level2">
 <h2>Créer un container (interface Web)</h2>
 <p><img data-src="media/FCREPO-create.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Dans la boite de dialogue “RDF Turtle”, insérer:</p>
 <pre><code>&lt;&gt;   
@@ -131,10 +164,12 @@
 &quot;Le titre du record&quot;.</code></pre>
 <p>Cliquer ensuite sur le bouton “Add” comme dans la capture d’écran ci-avant.</p>
 <p>A noter que le container est créé comme enfant du container courrant.</p>
-</section><section id="modifier-un-container-web" class="slide level2">
+</section>
+<section id="modifier-un-container-web" class="slide level2">
 <h2>Modifier un container (Web)</h2>
 <p><img data-src="media/FCREPO-update.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Dans la boite de dialogue “Update Properties”, remplacer:</p>
 <pre><code>DELETE { }
@@ -144,18 +179,26 @@ INSERT { }</code></pre>
 INSERT{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;  &quot;Le nouveau titre du record&quot;. }</code></pre>
 <p>Puis cliquer sur le bouton “Update”.</p>
 <p>Cf. capture d’écran ci-avant.</p>
-</section><section id="créer-une-ressouce-binaire" class="slide level2">
+</section>
+<section id="créer-une-ressouce-binaire" class="slide level2">
 <h2>Créer une ressouce binaire</h2>
 <p><img data-src="media/FCREPO-create-binary.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Dans la section “Create New Child Ressource”, choisir “Type” : “binary” dans la liste déroulante comme dans la capture d’écran précédente.</p>
 <p>Puis cliquer sur “Parcourir” (ou “Browse”) pour sélectionner le fichier à envoyer dans Fedora.</p>
 <p>Valider en cliquant sur le bouton “Add”.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="gestion-des-containers-par-http" class="title-slide slide level1"><h1>Gestion des containers par HTTP</h1></section><section class="slide level2">
+<section>
+<section id="gestion-des-containers-par-http" class="title-slide slide level1">
+<h1>Gestion des containers par HTTP</h1>
+
+</section>
+<section class="slide level2">
 
 <p>Les verbes standard standard sont utilisés (<a href="https://fr.wikipedia.org/wiki/Representational_state_transfer">API rest</a>):</p>
 <div class="fragment" data-fragment-index="1">
@@ -173,7 +216,8 @@ INSERT{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;
 <li>Supprimer : DELETE</li>
 </ul>
 </div>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="rappel-python">Rappel: python</h3>
 <p>Dans le contexte de la HEG, python est installé sur les postes via l’outil Anaconda.</p>
@@ -182,7 +226,8 @@ INSERT{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;
 <p>Puis tapper:</p>
 <pre><code>python</code></pre>
 <p>et enter.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="python-sur-ordinateur-personnel">Python sur ordinateur personnel</h3>
 <p>Dans le cadre d’une installation classique de Python 3 (<a href="https://www.python.org/downloads/">téléchargement</a>), installer le paquet “requests” si ce n’est pas déjà fait:</p>
@@ -196,7 +241,8 @@ INSERT{ &lt;&gt; &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title&gt;
 <pre><code>sudo easy_install pip
 sudo pip install --upgrade pip 
 </code></pre>
-</section><section id="accéder-à-une-ressource" class="slide level2">
+</section>
+<section id="accéder-à-une-ressource" class="slide level2">
 <h2>Accéder à une ressource</h2>
 <pre><code>import requests
 url = &#39;http://localhost:8080/rest/records/acv/D000002513&#39;
@@ -204,7 +250,8 @@ r = requests.get(url)
 print(&#39;Status code:&#39;, r.status_code)
 print(r.text)
 </code></pre>
-</section><section id="créer-un-container" class="slide level2">
+</section>
+<section id="créer-un-container" class="slide level2">
 <h2>Créer un container</h2>
 <pre><code>import requests
 url = &#39;http://localhost:8080/rest/records/acv/D9999&#39;
@@ -216,7 +263,8 @@ data = &quot;&quot;&quot; &lt;&gt;  &lt;rico:title&gt; &#39;Ceci est le titre&#3
 r = requests.put(url, auth=auth, data=data.encode(&#39;utf-8&#39;), headers=headers)
 print( &#39;Status:&#39;, r.status_code )
 print( r.text )</code></pre>
-</section><section id="mettre-à-jour-un-container" class="slide level2">
+</section>
+<section id="mettre-à-jour-un-container" class="slide level2">
 <h2>Mettre à jour un container</h2>
 <pre><code>import requests
 url = &#39;http://localhost:8080/rest/records/acv/D9999&#39;
@@ -229,10 +277,12 @@ r = requests.put(url, auth=auth, data=data.encode(&#39;utf-8&#39;), headers=head
 print( &#39;Status:&#39;, r.status_code )
 print( r.text )</code></pre>
 <p>Voir les section Versionning : “View Versions”</p>
-</section><section id="créer-une-ressource-binaire" class="slide level2">
+</section>
+<section id="créer-une-ressource-binaire" class="slide level2">
 <h2>Créer une ressource binaire</h2>
 <p>Le code suivant suppose qu’une ressouce binaire nomée “image.jpg” se trouve dans le répertoire “Pictures” (le répertoire d’images par défaut sous Windows) et que Python a été lancé depuis votre répertoire personnel racine.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <pre><code>import requests
 import os
@@ -246,10 +296,16 @@ headers = { &quot;Content-Type&quot;: mimetype,
 r = requests.put(url, auth=auth, data=data, headers=headers)
 print( &#39;Status:&#39;, r.status_code )
 print( r.text )</code></pre>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="versionning-rfc-7089-memento" class="title-slide slide level1"><h1>Versionning RFC 7089 (Memento)</h1></section><section class="slide level2">
+<section>
+<section id="versionning-rfc-7089-memento" class="title-slide slide level1">
+<h1>Versionning RFC 7089 (Memento)</h1>
+
+</section>
+<section class="slide level2">
 
 <p><a href="https://datatracker.ietf.org/doc/html/rfc7089">Memento</a> est le protocol de navigation temporel du Web.</p>
 <ul>
@@ -258,13 +314,13 @@ print( r.text )</code></pre>
 <li>Cela perment de naviguer dans le temps (p.ex. mise à jour du plan de classement).</li>
 </ul>
 <p>Voir aussi: <em><a href="https://www.w3.org/blog/2016/08/memento-at-the-w3c/">Memento at W3C</a> </em><a href="https://timetravel.mementoweb.org/">Timetravel</a>, avec <a href="http://timetravel.mementoweb.org/list/20100210065733/http://admin.ch">cet exemple</a> et <a href="http://dbpedia.mementodepot.org/memento/20161015000000/http://dbpedia.org/page/Ukraine">celui-ci</a>.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

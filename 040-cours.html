@@ -9,12 +9,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -40,33 +43,47 @@
   <p class="date">2022-04-11</p>
 </section>
 
-<section><section id="thème-de-cette-session" class="title-slide slide level1"><h1>Thème de cette session</h1></section><section class="slide level2">
+<section>
+<section id="thème-de-cette-session" class="title-slide slide level1">
+<h1>Thème de cette session</h1>
+
+</section>
+<section class="slide level2">
 
 <ul>
 <li>Archival Informatin Pacakges (AIP) : paquets d’information archivistiques.</li>
 <li>Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d’information.</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="aips" class="title-slide slide level1"><h1>AIPs</h1></section><section class="slide level2">
+<section>
+<section id="aips" class="title-slide slide level1">
+<h1>AIPs</h1>
+
+</section>
+<section class="slide level2">
 
 <p>Rappel - schéma d’un système de préservation OAIS :</p>
 <figure>
-<img data-src="media/OAIS-schema-general.png" alt="OAIS schema" /><figcaption>OAIS schema</figcaption>
+<img data-src="media/OAIS-schema-general.png" alt="" /><figcaption>OAIS schema</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <ul>
 <li>Les AIPs sont autonomes : ils contiennent toutes les données et métadonnées d’une “unité archivistique”.</li>
 <li>Au coeur du module de stockage OAIS, ils sont structurés de façon à ce que celui-ci puisse remplir ses foncions.</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <figure>
-<img data-src="media/OAIS-AIP.jpg" alt="OAIS schema" /><figcaption>OAIS schema</figcaption>
+<img data-src="media/OAIS-AIP.jpg" alt="" /><figcaption>OAIS schema</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Dans Fedora Commons</p>
 <ul>
@@ -74,16 +91,23 @@
 <li>Il est possible d’attibuer la fonction “archival unit” a un container LDP.</li>
 <li>Ceci a pour effet que ce container et tout ses enfants (définis par <em>ldp:contains</em>) sont “physiquement” stoqués dans le même AIP.</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="ocfl" class="title-slide slide level1"><h1>OCFL</h1></section><section class="slide level2">
+<section>
+<section id="ocfl" class="title-slide slide level1">
+<h1>OCFL</h1>
+
+</section>
+<section class="slide level2">
 
 <p><a href="https://ocfl.io/">Oxford Common File Layout</a> est une sécificiation. Selon <a href="https://ocfl.io/">ocfl.io</a> :</p>
 <blockquote>
 <p>This Oxford Common File Layout (OCFL) specification describes an application-independent approach to the storage of digital information in a structured, transparent, and predictable manner. It is designed to promote long-term object management best practices within digital repositories.</p>
 </blockquote>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Toujours selon <a href="https://ocfl.io/">ocfl.io</a>, ses bénéfices :</p>
 <ul>
@@ -93,7 +117,8 @@
 <li><strong><em>Versioning</em></strong>, so repositories can make changes to objects allowing their history to persist</li>
 <li><strong><em>Storage diversity</em></strong>, to ensure content can be stored on diverse storage infrastructures including conventional filesystems and cloud object stores</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>En pratique, OCFL définit:</p>
 <ul>
@@ -106,7 +131,8 @@
 <li>i.e. la structure des paquets eux-mêmes</li>
 </ul></li>
 </ul>
-</section><section id="la-hiérachie-de-stockage-ocfl" class="slide level2">
+</section>
+<section id="la-hiérachie-de-stockage-ocfl" class="slide level2">
 <h2>La hiérachie de stockage OCFL</h2>
 <p>Elle doit être déterministe. Dans le cas de Fedora Commons, la règle déterministe pour calculer le chemin des paquets est la suivante:</p>
 <pre><code>hash := sha256( fedoraId )
@@ -114,7 +140,8 @@ chemin := hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
 <p>Exemple:</p>
 <pre><code>fedoraId = records/acv/dossiers/D1
 chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...</code></pre>
-</section><section id="la-structuctue-des-paquets-ocfl" class="slide level2">
+</section>
+<section id="la-structuctue-des-paquets-ocfl" class="slide level2">
 <h2>La structuctue des paquets OCFL</h2>
 <ul>
 <li>un répertoire par version v1, v2, v3, …</li>
@@ -129,22 +156,24 @@ chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...</code></pre>
 <li>un répertoire "content* fichiers ajoutés ou modifiés dans la version courrante</li>
 </ul></li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Exemple:</p>
 <figure>
-<img data-src="media/OCFL-package-exemple.png" alt="OCFL package" /><figcaption>OCFL package</figcaption>
+<img data-src="media/OCFL-package-exemple.png" alt="" /><figcaption>OCFL package</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p>Démo : exemple d’un dossier dans Fedora Commons.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

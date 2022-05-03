@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-04-11">
+  <meta name="dcterms.date" content="2022-05-02">
   <title>HEG-796-22-030</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -37,42 +40,91 @@
   <h1 class="title">HEG-796-22-030</h1>
   <p class="subtitle">PREMIS et SHACL</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-04-11</p>
+  <p class="date">2022-05-02</p>
 </section>
 
-<section><section id="thème-de-cette-session" class="title-slide slide level1"><h1>Thème de cette session</h1></section><section class="slide level3">
+<section>
+<section id="thème-de-cette-session" class="title-slide slide level1">
+<h1>Thème de cette session</h1>
+
+</section>
+<section class="slide level3">
 
 <ul>
-<li>Ontologie de préservation: (<a href="https://fr.wikipedia.org/wiki/Preservation_Metadata:_Implementation_Strategies">PREMIS</a>)</li>
+<li>Ontologie de préservation (<a href="https://fr.wikipedia.org/wiki/Preservation_Metadata:_Implementation_Strategies">PREMIS</a>)</li>
 <li>Schémas de grahes RDF (<a href="https://fr.wikipedia.org/wiki/SHACL">SHACL</a>)</li>
 </ul>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 </section></section>
-<section><section id="premis" class="title-slide slide level1"><h1>PREMIS</h1></section><section class="slide level3">
+<section>
+<section id="cours-précédents" class="title-slide slide level1">
+<h1>Cours précédents</h1>
+
+</section>
+<section class="slide level3">
+
+<ul>
+<li>Linked Data Platform (LDP):
+<ul>
+<li>Ressources (ldp:Ressource) de type RDF et non-RDF</li>
+<li>Conteneurs (ldp:Container), peuvent être emboîtés.</li>
+<li>Manipulation via verbes HTTP:
+<ul>
+<li>GET: lire</li>
+<li>POST / PUT : créer / mettre à jour</li>
+<li>DELETE : effacer</li>
+</ul></li>
+</ul></li>
+<li>Les conteneurs LDP permettent de délimiter les ressources représantant des objets (métier, archivistiques).
+<ul>
+<li>Combinaison d’ontologies, p.ex. RiC-O, SKOS et autres</li>
+<li>Fedora Commons accepte tout turtle valide (ressources RDF)</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+</section></section>
+<section>
+<section id="premis" class="title-slide slide level1">
+<h1>PREMIS</h1>
+
+</section>
+<section class="slide level3">
 
 <p>PREservation Metadata : Implementation Strategies (PREMIS) permet de représenter:</p>
 <ul>
 <li>les objets (p.ex. records),</li>
-<li>les événements de préservation,</li>
+<li>les événements (de préservation),</li>
 <li>les agents (personnes, logiciels) impliqués dans ces événement,</li>
 <li>les droits.</li>
 </ul>
 <p>en RDF.</p>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 <figure>
-<img data-src="media/PREMIS-overview.png" alt="PREMIS overview" /><figcaption>PREMIS overview</figcaption>
+<img data-src="media/PREMIS-overview.png" alt="" /><figcaption>PREMIS overview</figcaption>
 </figure>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
-<p>Une représentation fine des objets numérique est disponible.</p>
-</section><section class="slide level3">
+<p>Une représentation fine des objets numériques est disponible.</p>
+</section>
+<section class="slide level3">
 
 <figure>
-<img data-src="media/PREMIS-objects.png" alt="PREMIS overview" /><figcaption>PREMIS overview</figcaption>
+<img data-src="media/PREMIS-objects.png" alt="" /><figcaption>PREMIS overview</figcaption>
 </figure>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
+
+<p>Exemple / demonstration : <a href="https://wiki.docuteam.ch/doku.php?id=docuteam:packer">docuteam Packer</a> (logiciel libre)</p>
+<p><img data-src="media/docuteam_packer.png" /></p>
+</section>
+<section class="slide level3">
 
 <p>Exemples de concepts PREMIS:</p>
 <ul>
@@ -84,10 +136,11 @@
 <li>premis:formatRegistry (format de fichier)</li>
 <li>premis:creatingApplication (application)</li>
 <li>premis:environmentDesignatinon (système)</li>
-<li>premis:inhibitors (inhibiteurs t.q. DRM)</li>
+<li>premis:inhibitors (inhibiteurs t.q. DRM ou chiffrement, cf. <a href="https://sandbox.dlcm.ch/administration/docs/DLCM-IntegrationGuide.html">DLCM</a>)</li>
 <li>premis:hasCompositionLevel (composition)</li>
 </ul>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 <p>PREMIS peut être combiné aux ontologies descriptives pour assurer la préservation numérique. Par exemple:</p>
 <table>
@@ -120,13 +173,20 @@
 </tr>
 </tbody>
 </table>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 <p>Mais comment faire en pratique?</p>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 </section></section>
-<section><section id="shacl-core" class="title-slide slide level1"><h1>SHACL (Core)</h1></section><section class="slide level3">
+<section>
+<section id="shacl-core" class="title-slide slide level1">
+<h1>SHACL (Core)</h1>
+
+</section>
+<section class="slide level3">
 
 <p><a href="https://www.w3.org/TR/shacl/">SHape and Constraint Language</a> (W3C)</p>
 <ul>
@@ -134,9 +194,9 @@
 <li>Les graphes sont compsés de noeuds (ensembles de triplets).</li>
 <li>Validation porte sur la structure et le contenu des noeuds.</li>
 </ul>
-</section><section class="slide level3">
-
-</section><section><section id="exemple" class="title-slide slide level2"><h2>Exemple</h2></section><section class="slide level3">
+<p>Exemple:</p>
+</section>
+<section class="slide level3">
 
 <pre class="turtle"><code>ex:Alice
     a ex:Person ;
@@ -161,7 +221,8 @@ ex:Bob
         sh:maxCount 1 ;
         sh:datatype xsd:date ;
     ] ;</code></pre>
-</section><section id="nous-allons-nous-focaliser-sur" class="slide level3">
+</section>
+<section id="nous-allons-nous-focaliser-sur" class="slide level3">
 <h3>Nous allons nous focaliser sur</h3>
 <ul>
 <li>Nombre d’occurences:
@@ -182,19 +243,37 @@ ex:Bob
 <li><strong><em>sh:pattern “^\d{3}\.\d{4}\.\d{4}\.\d{2}$”</em></strong></li>
 </ul></li>
 </ul>
-</section><section id="mode-de-validation-fermé" class="slide level3">
+</section>
+<section id="mode-de-validation-fermé" class="slide level3">
 <h3>Mode de validation fermé</h3>
 <p>Pour un noeud donné, le mode fermé (<strong><em>sh:closed true</em></strong>), requiert que chaque triplet satisfasse au moins une condition énoncée.</p>
 <p>Par défaut, le mode est ouvert. En d’autre termes, les triplets non concernés pas les conditions sont ignorés.</p>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
-</section></section><section><section id="démonstration" class="title-slide slide level2"><h2>Démonstration</h2></section><section class="slide level3">
+</section>
+<section id="démonstration" class="title-slide slide level2">
+<h2>Démonstration</h2>
 
-</section></section></section>
+</section>
+<section class="slide level3">
+
+<p>Validateurs en ligne:</p>
+<ul>
+<li><a href="https://shacl-play.sparna.fr/play/validate">SHACL Play</a></li>
+<li><a href="https://www.ida.liu.se/~robke04/SHACLTutorial/">SHACL.js</a></li>
+</ul>
+<p>Ou avec un module python (fournit avec le TP3).</p>
+<p>Syntaxe pour valider le RDF <em>dossier.ttl</em> en utilisant le SHACL shacl.ttl:</p>
+<pre><code>python shacl.py dossier.ttl shacl.ttl</code></pre>
+</section>
+<section class="slide level3">
+
+</section>
+</section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

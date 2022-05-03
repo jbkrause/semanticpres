@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-04-11">
+  <meta name="dcterms.date" content="2022-05-02">
   <title>HEG-796-22-030</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -37,22 +40,34 @@
   <h1 class="title">HEG-796-22-030</h1>
   <p class="subtitle">TP</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-04-11</p>
+  <p class="date">2022-05-02</p>
 </section>
 
-<section><section id="exercice-0-prise-en-main" class="title-slide slide level1"><h1>Exercice 0 : prise en main</h1></section><section class="slide level6">
+<section>
+<section id="exercice-0-prise-en-main" class="title-slide slide level1">
+<h1>Exercice 0 : prise en main</h1>
+
+</section>
+<section class="slide level6">
 
 <p>Télécharger et extraire zip de l’exercice (par exemple sur le bureau). Ouvrir un teminal anaconda prompt et se rendre dans le répertoire dézippé:</p>
 <pre><code>cd Desktop\SHACL\</code></pre>
 <p>Vérifier que le fichier <em>dossier.ttl</em> est conforme aux contraintes <em>shacl.ttl</em>:</p>
-<pre><code>python shacl.py dossier.ttl</code></pre>
-<p><strong><em>A rendre: néant</em></strong></p>
-</section><section class="slide level6">
+<pre><code>python shacl.py dossier.ttl shacl.ttl</code></pre>
+<p><strong><em>A rendre: catprue d’écran de la sortie de la commande tp3ex0.jpg</em></strong></p>
+</section>
+<section class="slide level6">
 
 </section></section>
-<section><section id="exercice-1-ajouter-des-contraintes-sur-le-titre-des-dossiers" class="title-slide slide level1"><h1>Exercice 1 : ajouter des contraintes sur le titre des dossiers</h1></section><section class="slide level6">
+<section>
+<section id="exercice-1-ajouter-des-contraintes-sur-le-titre-des-dossiers" class="title-slide slide level1">
+<h1>Exercice 1 : ajouter des contraintes sur le titre des dossiers</h1>
 
-<p>Compléter la section de “archvd:DossierShape” du fichier <em>shacl.ttl</em> en y ajoutant la contrainte suivante:</p>
+</section>
+<section class="slide level6">
+
+<p>Copier le fichier <em>shacl.ttl</em> dans le fichier <em>tp3ex2_shacl.ttl</em>.</p>
+<p>Compléter la section de “archvd:DossierShape” du fichier <em>tp3ex1_shacl.ttl</em> en y ajoutant la contrainte suivante:</p>
 <pre><code>sh:property [
     sh:path rico:title;
     rdfs:comment &quot;Exacly one title (Name)&quot; ;
@@ -64,72 +79,138 @@
 <li>soit obligatoirement de type <em>xsd:string</em></li>
 <li>et soit limité à 100 caratères au maximum.</li>
 </ul>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
-<p>Vérifier que:</p>
+<p>En créant des vriantes de <em>dossier.ttl</em> vérifier que:</p>
 <ul>
 <li>en l’état <em>dossier.ttl</em> est valide ;</li>
-<li>en effaçant temporairement le titre (<em>rico:title</em>) vérifier que si <em>dossier.ttl</em> ne contient plus de titre il n’est pas valide ;</li>
+<li>en effaçant (temporairement) le titre (<em>rico:title</em>) vérifier que si <em>dossier.ttl</em> ne contient plus de titre il n’est pas valide ;</li>
 <li>en dupliquant le titre, vérifier que si <em>dossier.ttl</em> contient deux titres, il n’est pas valdie non plus;</li>
-<li>en allongeant le titre que ci celui-ci fait plus de 500 caractères, <em>dossier.ttl</em> n’est pas valide .</li>
+<li>en allongeant le titre que ci celui-ci fait plus de 100 caractères, <em>dossier.ttl</em> n’est pas valide .</li>
 </ul>
-<p><strong><em>A rendre: shacl.ttl</em></strong></p>
-</section><section class="slide level6">
+<p><strong><em>A rendre: tp3ex1_shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
 
 </section></section>
-<section><section id="exercice-2-les-dossiers-doivent-avoir-des-dates-de-début-et-de-fin-valides" class="title-slide slide level1"><h1>Exercice 2 : les dossiers doivent avoir des dates de début et de fin valides</h1></section><section class="slide level6">
+<section>
+<section id="exercice-2-les-dossiers-doivent-avoir-des-dates-de-début-et-de-fin-valides" class="title-slide slide level1">
+<h1>Exercice 2 : les dossiers doivent avoir des dates de début et de fin valides</h1>
 
+</section>
+<section class="slide level6">
+
+<p>Copier le fichier <em>shacl.ttl</em> dans le fichier <em>tp3ex2_shacl.ttl</em>.</p>
 <p>Vérifier que le fichier <em>dossier.ttl</em> est bien valide:</p>
-<pre><code>python shacl.py dossier.ttl</code></pre>
-<p>Toujours dans le même le fichier <em>shacl.ttl</em>, ajouter une contrainte <em>sh:property</em> à de façon à s’assurer que les dossiers dans <em>dossier.ttl</em> possèdent au moins un champ <em>rico:hasBeginningDate</em>.</p>
+<pre><code>python shacl.py dossier.ttl tp3ex2_shacl.ttl</code></pre>
+<p>Dans le fichier <em>tp3ex2_shacl.ttl</em>, ajouter une contrainte <em>sh:property</em> à de façon à s’assurer que les dossiers dans <em>dossier.ttl</em> possèdent au moins un champ <em>rico:hasBeginningDate</em>.</p>
 <p>En pratique, vous pouvez vous inspirer de la contrainte existante sur le champ <em>rico:hasEndDate</em>.</p>
-<p>Vérifier que, si le champ <em>rico:hasBeginningDate</em> est supprimé dans <em>dossier.ttl</em>, celui-ci n’est pas valide.</p>
-<p><strong><em>A rendre: shacl.ttl</em></strong></p>
-</section><section class="slide level6">
+<p>Vérifier que,</p>
+<ul>
+<li>si le champ <em>rico:hasBeginningDate</em> est supprimé dans <em>dossier.ttl</em>, celui-ci n’est pas valide.</li>
+<li>si le champ <em>rico:hasEndDate</em> est supprimé dans <em>dossier.ttl</em>, celui-ci n’est pas valide.</li>
+</ul>
+<p><strong><em>A rendre: tp3ex2_shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
 
 </section></section>
-<section><section id="exercice-3-validation-des-documents" class="title-slide slide level1"><h1>Exercice 3 : validation des documents</h1></section><section class="slide level6">
+<section>
+<section id="exercice-3-validation-des-documents" class="title-slide slide level1">
+<h1>Exercice 3 : validation des documents</h1>
 
-<p>Dans le fichier <em>shacl.ttl</em>, ajouter des règles de validation <em>archvd:DocumentShape</em> en vous inspirant de <em>archvd:DossierShape</em>.</p>
+</section>
+<section class="slide level6">
+
+<p>Copier le fichier <em>shacl.ttl</em> dans le fichier <em>tp3ex3_shacl.ttl</em>.</p>
+<p>Dans le fichier <em>tp3ex3_shacl.ttl</em>, ajouter des règles de validation <em>archvd:DocumentShape</em> en vous inspirant de <em>archvd:DossierShape</em>.</p>
 <p>Ces règles dovent cibler les docuement apartenant à la classe <em>archvd:Document</em>, qui est utilisée pour qualifier les documents dans <em>document.ttl</em>. c’est-à-dire être de la forme:</p>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 <pre><code>archvd:DocumentShape
     a sh:NodeShape ; 
     sh:targetClass  archvd:Document ;
 
         sh:property [
-                      (contraintes)
+        sh:path rico:title;
+        !!! A COMPLETER ICI !!! 
         ];
-        
-        ...
+    
 
         sh:property [
-                      (contraintes) 
+        sh:path rico:scopeAndContent ;
+        !!! A COMPLETER ICI !!! 
         ].
         </code></pre>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 <p>Compéter les <em>sh:property</em> de façon à s’assurer que les documents ont bien:</p>
 <ul>
 <li>exactement un titre (<em>rico:title</em>)</li>
 <li>que le titre est une chaîne de caratètes (utiliser: <em>xsd:string</em>)</li>
 <li>que le titre fait au maximum 200 caractères (utilier: <em>sh:maxlength</em>)</li>
-<li>au maximum une descroption (<em>rico:scopeAndContent</em>)</li>
+<li>au maximum une description (<em>rico:scopeAndContent</em>)</li>
 <li>exactement une date de fin (<em>rico:hasEndDate</em>)</li>
 </ul>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 <p>Vérifier que le fichier <em>document.ttl</em> est bien valide:</p>
-<pre><code>python shacl.py document.ttl</code></pre>
-<p><strong><em>A rendre: shacl.ttl</em></strong></p>
-</section><section class="slide level6">
+<pre><code>python shacl.py dossier.ttl tp3ex3_shacl.ttl</code></pre>
+<p><strong><em>A rendre: tp3ex3_shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
+
+</section></section>
+<section>
+<section id="exercice-4-validation-du-nurméro-avs-des-agents" class="title-slide slide level1">
+<h1>Exercice 4 : validation du nurméro AVS des agents</h1>
+
+</section>
+<section class="slide level6">
+
+<p>Copier le fichier <em>shacl.ttl</em> dans le fichier <em>tp3ex4_shacl.ttl</em>.</p>
+<p>Dans le fichier <em>tp3ex4_shacl.ttl</em>, ajouter des règles de validation <em>archvd:AgentPersonShape</em> en vous inspirant de <em>archvd:DossierShape</em>.</p>
+<p>Ces règles dovent cibler les agents apartenant à la classe <em>archvd:AgentPerson</em>, qui est utilisée pour qualifier les documents dans <em>document.ttl</em>. c’est-à-dire être de la forme:</p>
+</section>
+<section class="slide level6">
+
+<pre><code>archvd:AgentPersonShape
+    a sh:NodeShape ; 
+    sh:targetClass  archvd:AgentPerson ;
+    
+    sh:property [   
+        sh:path rico:identifier ;
+        rdfs:comment &quot;Exacly one identifier based on N-AVS-13.&quot; ;
+        !!! A COMPLETER ICI !!!  
+    ] . 
+        </code></pre>
+</section>
+<section class="slide level6">
+
+<p>Compéter le <em>sh:property</em> de façon à s’assurer que les agents ont bien:</p>
+<ul>
+<li>un et un seul identifiant (propriété “rico:identifier”)</li>
+<li>que cette propriété est de type string (xsd:string)</li>
+<li>que ce format est conforme avec l’expression régulaire <strong><em>“^\d{3}\.\d{4}\.\d{4}\.\d{2}$”</em></strong> (en utilisant “sh:pattern”).</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>Vérifier que le fichier <em>document.ttl</em> est bien valide:</p>
+<pre><code>python shacl.py document.ttl tp3ex4_shacl.ttl</code></pre>
+<p>Vérifier encore que si le numéro d’AVS 13 n’a pas une structure conforme, document.ttl n’est pas valide.</p>
+<p><strong><em>A rendre: tp3ex4_shacl.ttl</em></strong></p>
+</section>
+<section class="slide level6">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

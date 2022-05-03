@@ -9,12 +9,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -40,7 +43,12 @@
   <p class="date">2022-04-12</p>
 </section>
 
-<section><section id="descriptif-du-cours" class="title-slide slide level1"><h1>Descriptif du cours</h1></section><section class="slide level2">
+<section>
+<section id="descriptif-du-cours" class="title-slide slide level1">
+<h1>Descriptif du cours</h1>
+
+</section>
+<section class="slide level2">
 
 <div class="fragment" data-fragment-index="1">
 <p>Ce cours approfondit les bonnes pratiques et outils de préservation des données liées (linked data) dans le domaine de l’information documentaire.</p>
@@ -53,12 +61,18 @@
 <li>L’exemple de <a href="https://duraspace.org/fedora/">Fedora Commons</a></li>
 </ul>
 </div>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="open-archival-information-system-oais" class="title-slide slide level1"><h1>Open Archival Information System (OAIS)</h1></section><section class="slide level2">
+<section>
+<section id="open-archival-information-system-oais" class="title-slide slide level1">
+<h1>Open Archival Information System (OAIS)</h1>
 
-<img data-src="media/OAIS-schema-general.png" alt="OAIS schema" />
+</section>
+<section class="slide level2">
+
+<img data-src="media/OAIS-schema-general.png" title="fig:" alt="OAIS schema" />
 <div class="fragment" data-fragment-index="1">
 <p>Préservation numérique = stockage de paquets (AIP).</p>
 </div>
@@ -71,10 +85,16 @@
 <div class="fragment" data-fragment-index="4">
 <p>Comment concilier ces trois univers?</p>
 </div>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
-<section><section id="linked-data-platform-ldp" class="title-slide slide level1"><h1>Linked Data Platform (LDP)</h1></section><section class="slide level2">
+<section>
+<section id="linked-data-platform-ldp" class="title-slide slide level1">
+<h1>Linked Data Platform (LDP)</h1>
+
+</section>
+<section class="slide level2">
 
 <p>Références concernant cette recommendation du <em>World Wide Web Consortium</em> :</p>
 <table>
@@ -95,7 +115,8 @@
 </tr>
 </tbody>
 </table>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="ressources">Ressources</h3>
 <p>LDP définit deux types de <strong><em>ressources</em></strong> (ldp:Ressource):</p>
@@ -104,21 +125,25 @@
 <li>non-RDF (i.e. binaires, p.ex. une image, un document PDF, etc.)</li>
 </ul>
 <p><img data-src="media/LDP-ressources.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="containers">Containers</h3>
 <p>Les ressources peuvent être organisées dans des <strong><em>containers</em></strong>.</p>
 <p><img data-src="media/LDP-container-010.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="hiérarchie-de-containers">Hiérarchie de containers</h3>
 <p>Les containers peuvent être organisés hiérarchiquement.</p>
 <p><img data-src="media/LDP-container-030.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="identification">Identification</h3>
 <p>Chaque ressource, chaque container est idientifié par son … URL.</p>
-</section><section id="récapitulation" class="slide level2">
+</section>
+<section id="récapitulation" class="slide level2">
 <h2>Récapitulation</h2>
 <ul>
 <li>Les ressources LDP (ldp:Ressource) peuvent être de type RDF ou non-RDF.</li>
@@ -126,7 +151,8 @@
 <li>Les containers peuvent être emboîtés.</li>
 <li>Chaque container/ressource est idientifié par son URL.</li>
 </ul>
-</section><section id="applications" class="slide level2">
+</section>
+<section id="applications" class="slide level2">
 <h2>Applications</h2>
 <p>Exemple d’objets pouvant être placés dans des containers LDP:</p>
 <div class="fragment" data-fragment-index="1">
@@ -149,7 +175,8 @@
 <li><strong><em>Données de rechreche</em></strong> : Collections, Sous-collections, Records, Fichiers, …</li>
 </ul>
 </div>
-</section><section id="rappel-turtle-13" class="slide level2">
+</section>
+<section id="rappel-turtle-13" class="slide level2">
 <h2>Rappel Turtle 1/3</h2>
 <table>
 <colgroup>
@@ -179,7 +206,8 @@
 </table>
 <p>En notation Turtle:</p>
 <pre><code>&lt;http://www.wikidata.org/entity/Q12418&gt; &lt;http://www.wikidata.org/prop/direct/P170&gt; &lt;http://www.wikidata.org/entity/Q762&gt; .</code></pre>
-</section><section id="rappel-turtle-23" class="slide level2">
+</section>
+<section id="rappel-turtle-23" class="slide level2">
 <h2>Rappel Turtle 2/3</h2>
 <p><em>URLs complets:</em></p>
 <pre><code>&lt;http://www.wikidata.org/entity/Q12418&gt; &lt;http://www.wikidata.org/prop/direct/P170&gt; &lt;http://www.wikidata.org/entity/Q762&gt; .</code></pre>
@@ -188,7 +216,8 @@
 PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
 
 wd:Q12418 wdp:P170 wd:Q762.</code></pre>
-</section><section id="rappel-turtle-33" class="slide level2">
+</section>
+<section id="rappel-turtle-33" class="slide level2">
 <h2>Rappel Turtle 3/3</h2>
 <p><em>Plusieurs triplets</em></p>
 <pre><code>PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
@@ -198,15 +227,18 @@ PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt; .
 wd:Q12418 
             dc:title   &quot;Mona Lisa&quot;;
             wdp:P170    wd:Q762, wd:Q123  .</code></pre>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="exemple-description-archivistique">Exemple: description archivistique</h3>
 <p><a href="https://vaud.archivescommunales.ch/journal-1998-72">Journal du Mont, n°72</a></p>
 <p><img data-src="media/LDP-archival-fonds/010exemple1-pageweb.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <p><img data-src="media/LDP-archival-fonds/010exemple1.png" /></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 <h3 id="manipulation-des-ressourcescontainers">Manipulation des ressources/containers</h3>
 <p>Via HTTP, par les verbes standard:</p>
@@ -228,13 +260,13 @@ wd:Q12418
 <div class="fragment" data-fragment-index="3">
 <p>L’usage pratique de LDP sera développé au prochian cours.</p>
 </div>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

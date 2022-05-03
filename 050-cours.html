@@ -9,12 +9,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -40,7 +43,12 @@
   <p class="date">2022-04-11</p>
 </section>
 
-<section><section id="récapituation-et-intégration" class="title-slide slide level1"><h1>Récapituation et intégration</h1></section><section id="ontologies-owl" class="slide level3">
+<section>
+<section id="récapituation-et-intégration" class="title-slide slide level1">
+<h1>Récapituation et intégration</h1>
+
+</section>
+<section id="ontologies-owl" class="slide level3">
 <h3>Ontologies (OWL)</h3>
 <p>Exemples abordés dans ce cours:</p>
 <ul>
@@ -49,7 +57,8 @@
 <li>préservation (PREMIS)</li>
 </ul>
 <p><strong><em>=&gt; un langage universel couvrant également les besoins en matière de préservation</em></strong></p>
-</section><section id="exigences-shacl" class="slide level3">
+</section>
+<section id="exigences-shacl" class="slide level3">
 <h3>Exigences (SHACL)</h3>
 <ul>
 <li>contraintes personaliées à souhait (ex. minimum un agent-auteur avec numéro AVS valide)</li>
@@ -57,7 +66,8 @@
 <li>validation fermée ou ouverte à choix (permet de la souplesse… ou pas)</li>
 </ul>
 <p><strong><em>=&gt; respect rigoureux des besoins spécifiques des institutions ou domaines</em></strong></p>
-</section><section id="interfaces-api" class="slide level3">
+</section>
+<section id="interfaces-api" class="slide level3">
 <h3>Interfaces (API)</h3>
 <ul>
 <li>normalisation des plateformes (LDP: containers + ReST)</li>
@@ -65,13 +75,20 @@
 <li>cohabitation naturelle avec SPARQL endpoints</li>
 </ul>
 <p><strong><em>=&gt;Exellente interopérabilité pour diffusion (silos abbatus)</em></strong></p>
-</section><section id="préservation-oais" class="slide level3">
+</section>
+<section id="préservation-oais" class="slide level3">
 <h3>Préservation (OAIS)</h3>
 <p>OCFL a cinq objectifs principaux: * Complétude (disater recovery) * Parsabilité (humains et machines) * Robustess (erreur, corruption, migrtions) * Versionning (hisorique des objets) * Diversité de stockage (multi-infrastructure et migrations)</p>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 </section></section>
-<section><section id="discussion" class="title-slide slide level1"><h1>Discussion</h1></section><section class="slide level3">
+<section>
+<section id="discussion" class="title-slide slide level1">
+<h1>Discussion</h1>
+
+</section>
+<section class="slide level3">
 
 <p>La combinaision des technologies et permettent ensemble</p>
 <ul>
@@ -79,14 +96,16 @@
 <li>Interopérabilité</li>
 <li>Préservation à long terme</li>
 </ul>
-</section><section id="généralisation-de-la-description" class="slide level3">
+</section>
+<section id="généralisation-de-la-description" class="slide level3">
 <h3>Généralisation de la description</h3>
 <ul>
 <li>Richesse des ontologies: <a href="https://lod-cloud.net/">LOD cloud</a></li>
 <li>Interconnexions entre les ontologies (ex: archives et musées)</li>
 <li>Les contraites d’accès pour les usagers tombent (ISAD(G): accès selon la structure arborescente des fonds imposée)</li>
 </ul>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 <p><strong><em>Focus sur la structure</em></strong></p>
 <p>P.ex. RiC offre un accès multi-dimentionnel (pas seuleuement selon un arbre):</p>
@@ -96,10 +115,16 @@
 <li>Plusieurs regroupements intellectuels peuvent être faits et combinés.</li>
 <li>L’accès par d’autre types d’objets (agents, sujets, fonctions, etc.) est facilité.</li>
 </ul>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 </section></section>
-<section><section id="préservation" class="title-slide slide level1"><h1>Préservation</h1></section><section class="slide level3">
+<section>
+<section id="préservation" class="title-slide slide level1">
+<h1>Préservation</h1>
+
+</section>
+<section class="slide level3">
 
 <ul>
 <li>Les containers LDP permettent de regrouper le RDF relatif aux objets à présserver (dossiers, documents ou autre).</li>
@@ -107,16 +132,21 @@
 <li>Le concept d’<em>unité archivistique</em> (<em>archival unit</em>) permet de regrouper les objets qui vont ensemble (p. ex. un dossier et ses documents).</li>
 <li>Le RDF, basé sur le concept sujet-objet-prédica, est une structure universelle et de ce fait épargnée par l’obsolescence technologique.</li>
 </ul>
-</section><section class="slide level3">
+</section>
+<section class="slide level3">
 
 </section></section>
-<section><section id="questions-et-réponses" class="title-slide slide level1"><h1>Questions et réponses</h1></section><section class="slide level3">
+<section>
+<section id="questions-et-réponses" class="title-slide slide level1">
+<h1>Questions et réponses</h1>
+
+</section>
+<section class="slide level3">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

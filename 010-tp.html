@@ -9,12 +9,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -40,15 +43,31 @@
   <p class="date">2022-04-12</p>
 </section>
 
-<section><section id="exercice-1" class="title-slide slide level1"><h1>Exercice 1</h1></section><section class="slide level6">
+<section>
+<section id="exercice-1" class="title-slide slide level1">
+<h1>Exercice 1</h1>
 
-<p>Représenter sous forme de schéma structuré en containers LDP, fonds d’archive, sous-fonds, pièce. S’inspirer de l’exemple du cours.</p>
-<p><a href="https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3">https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3</a></p>
+</section>
+<section class="slide level6">
+
+<p>Représenter la ressource suivante ainsi que sa hirarchie (fonds, sous-fonds, etc.) sous forme de schéma structuré en containers LDP: <a href="https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3">https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3</a></p>
+<p>Traiter notement les points suivants:</p>
+<ul>
+<li>chaque container LDP est représenté au format RDF Turtle</li>
+<li>les préfixes utilisés sont déclarés</li>
+<li>indiquer explicitement les relations <em>ldp:contains</em></li>
+</ul>
 <p>Rendu : déposer le schéma au fromat PDF sur cyberlearn. Nom du fichier: tp1ex1.pdf.</p>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 </section></section>
-<section><section id="exercice-2" class="title-slide slide level1"><h1>Exercice 2</h1></section><section class="slide level6">
+<section>
+<section id="exercice-2" class="title-slide slide level1">
+<h1>Exercice 2</h1>
+
+</section>
+<section class="slide level6">
 
 <p>Installer et exécuter FCrepo sur votre poste:</p>
 <ul>
@@ -59,7 +78,8 @@
 </ul>
 <pre class="cmd"><code>cd Desktop\Fedora
 java\jdk\bin\java.exe -jar fcrepo-webapp-6.0.0-jetty-console.jar</code></pre>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 <ul>
 <li>Une fenêtre apparaît, cliquer sur “Start”</li>
@@ -67,10 +87,16 @@ java\jdk\bin\java.exe -jar fcrepo-webapp-6.0.0-jetty-console.jar</code></pre>
 <li>Dans le navigateur, cliquer sur “Fedora REST API endpoint”</li>
 </ul>
 <p>Rendu: déposer la capture d’écran de l’interface de Web de Fedora commons (partie rest API) dans votre navigateur. Nom du fichier: tp1ex2.png.</p>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 </section></section>
-<section><section id="exercice-3" class="title-slide slide level1"><h1>Exercice 3</h1></section><section class="slide level6">
+<section>
+<section id="exercice-3" class="title-slide slide level1">
+<h1>Exercice 3</h1>
+
+</section>
+<section class="slide level6">
 
 <p>Naviaguer dans la structure existante:</p>
 <ul>
@@ -84,13 +110,13 @@ java\jdk\bin\java.exe -jar fcrepo-webapp-6.0.0-jetty-console.jar</code></pre>
 <li>Naviguer dans la hiérarchie autour de ce dossier de ce dossier d’affaire.</li>
 </ul>
 <p>Rendu: néant.</p>
-</section><section class="slide level6">
+</section>
+<section class="slide level6">
 
 </section></section>
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>
