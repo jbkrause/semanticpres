@@ -8,3 +8,9 @@
   de ressource
 * Ajouter instructions Fedora pour mac et linux
 
+## Cours 030
+
+* attention aux versions
+* rdflib
+  * pip3 install rdflib 
+  * python -m pip install rdflib
