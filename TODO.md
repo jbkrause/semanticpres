@@ -10,6 +10,7 @@
 
 ## Cours 030
 
+* augmenter le contenu (20 minutes)
 * attention aux versions
 * rdflib
   * pip3 install rdflib 

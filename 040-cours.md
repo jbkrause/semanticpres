@@ -17,6 +17,27 @@ encoding: utf-8
 
 ---
 
+# Cours précédents
+
+---
+
+* Linked Data Platform (LDP): 
+  * Ressources (ldp:Ressource) de type RDF et non-RDF
+  * Conteneurs (ldp:Container), peuvent être emboîtés
+* Les conteneurs LDP permettent de délimiter les ressources représantant des objets
+  * Combinaison d'ontologies, p.ex. RiC-O, PREMIS, SKOS.
+* PREMIS permet de modéliser et organiser la préservation
+* SHACL permet de définir des "shapes"
+  * comment les ontologies sont utiliées et combiniées
+  * de valider la conformité a la définition
+
+---
+
+* Archival Informatin Pacakges (AIP) : paquets d'information archivistiques.
+* Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d'information.
+
+---
+
 # AIPs
 
 ---
@@ -33,6 +54,17 @@ Rappel - schéma d'un système de préservation OAIS :
 ---
 
 ![OAIS schema](media/OAIS-AIP.jpg)
+
+---
+
+### Cardinalité ContainerLDP - AIP 
+
+---
+
+Cette cardinalité peut être de m - n.
+
+* un objet (container LDP) peut être archivé dans m AIP
+* un AIP peut peut archiver n objets (containers LDP)
 
 ---
 
