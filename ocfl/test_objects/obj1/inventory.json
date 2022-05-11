@@ -3,8 +3,11 @@
     "head": "v3",
     "id": "3b7863bd3a7a4cb3a833cdbbe94a9b3d",
     "manifest": {
+        "765d621c3718c5907ae3776606d631fa": [
+            "v4/content/cal.txt"
+        ],
         "606d621c3718c5907ae3776606d621c3": [
-            "v3/content/cal.txt"
+            "v2/content/cal.txt"
         ],
         "8b32ec508bee89ca5272a9c33ad364f2": [
             "v1/content/IMG_20210228_092707.jpg"
@@ -20,10 +23,10 @@
             "message": null,
             "state": {
 		"8b32ec508bee89ca5272a9c33ad364f2": [
-		    "v1/content/IMG_20210228_092707.jpg"
+		    "IMG_20210228_092707.jpg"
 		],
 		"d6000b2606d621c3718b618ce86a6e1e": [
-		    "v1/content/RiC.ttl"
+		    "RiC.ttl"
 		]
             }
         },
@@ -32,13 +35,13 @@
             "message": null,
             "state": {
 		"8b32ec508bee89ca5272a9c33ad364f2": [
-		    "v1/content/IMG_20210228_092707.jpg"
+		    "IMG_20210228_092707_renomme.jpg"
 		],
 		"d6000b2606d621c3718b618ce86a6e1e": [
-		    "v1/content/RiC.ttl"
+		    "RiC.ttl"
 		]
                 "7ef91b01085fc5907ae3776013c4df33": [
-                    "v2/cal.txt"
+                    "cal.txt"
                 ]
             }
         },
@@ -46,15 +49,23 @@
             "created": "2022-05-11T21:09:08Z",
             "message": null,
             "state": {
-		"8b32ec508bee89ca5272a9c33ad364f2": [
-		    "v1/content/IMG_20210228_092707.jpg"
-		],
 		"d6000b2606d621c3718b618ce86a6e1e": [
-		    "v1/content/RiC.ttl"
+		    "RiC.ttl"
 		]
                 "606d621c3718c5907ae3776606d621c3": [
-                    "v3/cal.txt"
+                    "cal.txt"
                 ]
+            }
+        },
+        "v4": {
+            "created": "2022-05-11T21:09:08Z",
+            "message": null,
+            "state": {
+		"d6000b2606d621c3718b618ce86a6e1e": [
+		    "RiC.ttl"
+		]
+                "765d621c3718c5907ae3776606d631fa": [
+                    "cal.txt"
                 ]
             }
         }

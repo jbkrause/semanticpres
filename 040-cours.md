@@ -35,8 +35,9 @@ encoding: utf-8
 
 ## Cette session
 
-* Archival Informatin Pacakges (AIP) : paquets d'information archivistiques.
-* Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d'information.
+* Archival Informatin Pacakges (AIP) : paquets d'information archivistiques (OAIS).
+* Oxfrod Common File Layout (OCFL) : une spécification pour le stockage des paquets d'information.
+* Lien entre OCFL et LDP.
 
 ---
 
@@ -63,18 +64,22 @@ Rappel - schéma d'un système de préservation OAIS :
 
 ---
 
-Cette cardinalité peut être de m - n.
+En théorie, cette cardinalité peut être de m , n .
 
-* un objet (container LDP) peut être archivé dans m AIP
-* un AIP peut peut archiver n objets (containers LDP)
+1. un objet (container LDP) peut être archivé dans m AIP
+2. un AIP peut peut archiver n objets (containers LDP)
+
+Nous allons examinier l'option 2.
 
 ---
 
-Dans Fedora Commons
+Dans Fedora Commons, par défaut, chaque container LDP est stoqué comme un seul AIP.
 
-* Par défaut, chaque container LDP est stoqué comme un seul AIP.
-* Il est possible d'attibuer la propriété "archival unit" a un container LDP.
-* Ceci a pour effet que ce container et tout ses enfants (définis par *ldp:contains*) sont "physiquement" stoqués dans le même AIP.
+
+Mais, il est possible d'attibuer la propriété "archival unit" a un container LDP.
+
+
+Dans ce cas, ce container et tout ses enfants (définis par *ldp:contains*) seront "physiquement" stoqués dans le même AIP.
 
 ---
 
@@ -99,6 +104,8 @@ r = requests.put(url, auth=auth, data=data.encode('utf-8'), headers=headers)
 print( 'Status:', r.status_code )
 print( r.text )
 ```
+
+Noter la partie "link" dans les headers.
 
 ---
 
@@ -128,15 +135,15 @@ Toujours selon [ocfl.io](https://ocfl.io/), ses bénéfices :
 En pratique, OCFL définit:
 
 * la hiérarchie de stockage
-  * i.e. l'organisation de paquets sur le media
-* le format des paquets d'information
+  * i.e. l'organisation des paquets (objets OCFL) sur le media
+* le format des paquets (objets OCFL)
   * i.e. la structure des paquets eux-mêmes
 
 ---
 
 ## La hiérachie de stockage OCFL
 
-Elle doit être déterministe. Dans le cas de Fedora Commons, la règle oar défaut pour calculer le chemin des paquets est la suivante:
+Elle doit être déterministe. Dans le cas de Fedora Commons, la règle par défaut pour calculer le chemin des paquets est la suivante:
 
 ```
 hash := sha256( fedoraId )
@@ -156,21 +163,33 @@ chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...
 
 * un répertoire par version v1, v2, v3, ...
 * dans chaque répertoire de version, il y a:
-  * un fichier manifeste, *manifest.json*, comprenant: 
-    * listing des fichiers (avec leur chemin) composant la version courrante (ainsi que pour les versions antérieures)
-	* le checksum correspondant à chaque fichier
-	* au début du manifeste, le checksum permet de localiser tout fichier, même si il stoqué dans une version précédent
-  * un répertoire "content* fichiers ajoutés ou modifiés dans la version courrante
-
+  * un fichier d'inventaire, *inventory.json*, comprenant: 
+    * maifeste: liste de tous les fichiers avec leur chemin en regard avec leur checksum
+    * pour chaque version: 
+      * liste des fichiers composant la version avec référence au manifeste via le checksum
+      * un répertoire *content* avec les fichiers ajoutés ou modifiés dans cette version
+	 
 ---
 
-Exemple:
+Exemple 1:
+
+Voir inventory.json de exemple-ocfl.zip :
+
+* v1 : création du paquet avec les fichiers *RiC.ttl* et *IMG_20210228_092707.jpg*
+* v2 : ajout du fichier *cal.txt* et renommage de *IMG_20210228_092707_renomme.jpg*
+* v3 : suppression de *IMG_20210228_092707_renomme.jpg*
+  
+---
+
+Exemple 2:
 
 ![OCFL package](media/OCFL-package-exemple.png)
 
 ---
 
-Démo : exemple d'un dossier dans Fedora Commons.
+Démo : 
+
+Exemple d'un dossier dans Fedora Commons.
 
 ---
 
