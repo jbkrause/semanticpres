@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-04-11">
+  <meta name="dcterms.date" content="2022-05-11">
   <title>HEG-796-22-040</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-040</h1>
   <p class="subtitle">AIPs et OCFL</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-04-11</p>
+  <p class="date">2022-05-11</p>
 </section>
 
 <section>
@@ -53,6 +53,42 @@
 <ul>
 <li>Archival Informatin Pacakges (AIP) : paquets d’information archivistiques.</li>
 <li>Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d’information.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="sessions-précédentes" class="title-slide slide level1">
+<h1>Sessions précédentes</h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Linked Data Platform (LDP):
+<ul>
+<li>Ressources (ldp:Ressource) de type RDF et non-RDF</li>
+<li>Conteneurs (ldp:Container), peuvent être emboîtés</li>
+</ul></li>
+<li>Les conteneurs LDP permettent de délimiter les ressources représantant des objets
+<ul>
+<li>Combinaison d’ontologies, p.ex. RiC-O, PREMIS, SKOS.</li>
+</ul></li>
+<li>PREMIS permet de modéliser et organiser la préservation</li>
+<li>SHACL permet de définir des “shapes”
+<ul>
+<li>comment les ontologies sont utiliées et combiniées</li>
+<li>de valider la conformité a la définition</li>
+</ul></li>
+</ul>
+</section>
+<section id="cette-session" class="slide level2">
+<h2>Cette session</h2>
+<ul>
+<li>Archival Informatin Pacakges (AIP) : paquets d’information archivistiques (OAIS).</li>
+<li>Oxfrod Common File Layout (OCFL) : une spécification pour le stockage des paquets d’information.</li>
+<li>Lien entre OCFL et LDP.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -85,12 +121,43 @@
 </section>
 <section class="slide level2">
 
-<p>Dans Fedora Commons</p>
-<ul>
-<li>Par défaut, chaque container LDP est stoqué comme un seul AIP.</li>
-<li>Il est possible d’attibuer la fonction “archival unit” a un container LDP.</li>
-<li>Ceci a pour effet que ce container et tout ses enfants (définis par <em>ldp:contains</em>) sont “physiquement” stoqués dans le même AIP.</li>
-</ul>
+<h3 id="cardinalité-containerldp---aip">Cardinalité ContainerLDP - AIP</h3>
+</section>
+<section class="slide level2">
+
+<p>En théorie, cette cardinalité peut être de m , n .</p>
+<ol type="1">
+<li>un objet (container LDP) peut être archivé dans m AIP</li>
+<li>un AIP peut peut archiver n objets (containers LDP)</li>
+</ol>
+<p>Nous allons examinier l’option 2.</p>
+</section>
+<section class="slide level2">
+
+<p>Dans Fedora Commons, par défaut, chaque container LDP est stoqué comme un seul AIP.</p>
+<p>Mais, il est possible d’attibuer la propriété “archival unit” a un container LDP.</p>
+<p>Dans ce cas, ce container et tout ses enfants (définis par <em>ldp:contains</em>) seront “physiquement” stoqués dans le même AIP.</p>
+</section>
+<section id="créer-un-archival-unit-dans-linterface-de-fedora" class="slide level2">
+<h2>Créer un archival unit dans l’interface de Fedora</h2>
+<figure>
+<img data-src="media/FCREPRO-create-archival-group.png" alt="" /><figcaption>OAIS schema</figcaption>
+</figure>
+</section>
+<section id="créer-un-archival-unit-via-lapi" class="slide level2">
+<h2>Créer un “archival unit” via l’API</h2>
+<pre><code>import requests
+url = &#39;http://localhost:8080/rest/records/acv/D9999&#39;
+headers = {&quot;Content-Type&quot;: &quot;text/turtle&quot;,
+           &quot;Link&quot;: &#39;&lt;http://fedora.info/definitions/v4/repository#ArchivalGroup&gt;;rel=&quot;type&quot;&#39;}
+auth = (&#39;fedoraAdmin&#39;, &#39;fedoraAdmin&#39;)
+data = &quot;&quot;&quot; &lt;&gt;  &lt;rico:title&gt;            &#39;Ceci est le titre&#39;.
+           &lt;&gt;  &lt;rico:scopeAndContent&gt;  &#39;Voilà la description&#39;.
+           &quot;&quot;&quot;
+r = requests.put(url, auth=auth, data=data.encode(&#39;utf-8&#39;), headers=headers)
+print( &#39;Status:&#39;, r.status_code )
+print( r.text )</code></pre>
+<p>Noter la partie “link” dans les headers.</p>
 </section>
 <section class="slide level2">
 
@@ -124,9 +191,9 @@
 <ul>
 <li>la hiérarchie de stockage
 <ul>
-<li>i.e. l’organisation de paquets sur le media</li>
+<li>i.e. l’organisation des paquets (objets OCFL) sur le media</li>
 </ul></li>
-<li>le format des paquets d’information
+<li>le format des paquets (objets OCFL)
 <ul>
 <li>i.e. la structure des paquets eux-mêmes</li>
 </ul></li>
@@ -134,7 +201,7 @@
 </section>
 <section id="la-hiérachie-de-stockage-ocfl" class="slide level2">
 <h2>La hiérachie de stockage OCFL</h2>
-<p>Elle doit être déterministe. Dans le cas de Fedora Commons, la règle déterministe pour calculer le chemin des paquets est la suivante:</p>
+<p>Elle doit être déterministe. Dans le cas de Fedora Commons, la règle par défaut pour calculer le chemin des paquets est la suivante:</p>
 <pre><code>hash := sha256( fedoraId )
 chemin := hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
 <p>Exemple:</p>
@@ -147,26 +214,40 @@ chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...</code></pre>
 <li>un répertoire par version v1, v2, v3, …</li>
 <li>dans chaque répertoire de version, il y a:
 <ul>
-<li>un fichier manifeste, <em>manifest.json</em>, comprenant:
+<li>un fichier d’inventaire, <em>inventory.json</em>, comprenant:
 <ul>
-<li>listing des fichiers (avec leur chemin) composant la version courrante (ainsi que pour les versions antérieures)</li>
-<li>le checksum correspondant à chaque fichier</li>
-<li>au début du manifeste, le checksum permet de localiser tout fichier, même si il stoqué dans une version précédent</li>
+<li>maifeste: liste de tous les fichiers avec leur chemin en regard avec leur checksum</li>
+<li>pour chaque version:
+<ul>
+<li>liste des fichiers composant la version avec référence au manifeste via le checksum</li>
+<li>un répertoire <em>content</em> avec les fichiers ajoutés ou modifiés dans cette version</li>
 </ul></li>
-<li>un répertoire "content* fichiers ajoutés ou modifiés dans la version courrante</li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p>Exemple:</p>
+<p>Exemple 1:</p>
+<p>Voir <em>Exemple_OCFL_inventory.json</em> et <em>Exemple_OCFL_structure.png</em> :</p>
+<ul>
+<li>v1 : création du paquet avec les fichiers <em>RiC.ttl</em> et <em>IMG_20210228_092707.jpg</em></li>
+<li>v2 : ajout du fichier <em>cal.txt</em> et renommage de <em>IMG_20210228_092707_renomme.jpg</em></li>
+<li>v3 : suppression de <em>IMG_20210228_092707_renomme.jpg</em></li>
+<li>v4 : modification de <em>cal.txt</em></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Exemple 2:</p>
 <figure>
 <img data-src="media/OCFL-package-exemple.png" alt="" /><figcaption>OCFL package</figcaption>
 </figure>
 </section>
 <section class="slide level2">
 
-<p>Démo : exemple d’un dossier dans Fedora Commons.</p>
+<p>Démo :</p>
+<p>Exemple d’un dossier dans Fedora Commons.</p>
 </section>
 <section class="slide level2">
 

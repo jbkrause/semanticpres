@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-040"
 subtitle: "AIPs et OCFL"
-date: 2022-04-11
+date: 2022-05-11
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 040-cours.html 040-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 040-cours.pdf 040-cours.md"
 encoding: utf-8
@@ -173,11 +173,12 @@ chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...
 
 Exemple 1:
 
-Voir inventory.json de exemple-ocfl.zip :
+Voir *Exemple_OCFL_inventory.json* et *Exemple_OCFL_structure.png* :
 
 * v1 : création du paquet avec les fichiers *RiC.ttl* et *IMG_20210228_092707.jpg*
 * v2 : ajout du fichier *cal.txt* et renommage de *IMG_20210228_092707_renomme.jpg*
 * v3 : suppression de *IMG_20210228_092707_renomme.jpg*
+* v4 : modification de *cal.txt*
   
 ---
 
