@@ -17,7 +17,7 @@ encoding: utf-8
 
 ---
 
-# Cours précédents
+# Sessions précédentes
 
 ---
 
@@ -32,6 +32,8 @@ encoding: utf-8
   * de valider la conformité a la définition
 
 ---
+
+## Cette session
 
 * Archival Informatin Pacakges (AIP) : paquets d'information archivistiques.
 * Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d'information.
@@ -71,8 +73,32 @@ Cette cardinalité peut être de m - n.
 Dans Fedora Commons
 
 * Par défaut, chaque container LDP est stoqué comme un seul AIP.
-* Il est possible d'attibuer la fonction "archival unit" a un container LDP.
+* Il est possible d'attibuer la propriété "archival unit" a un container LDP.
 * Ceci a pour effet que ce container et tout ses enfants (définis par *ldp:contains*) sont "physiquement" stoqués dans le même AIP.
+
+---
+
+## Créer un archival unit dans l'interface de Fedora
+
+![OAIS schema](media/FCREPRO-create-archival-group.png)
+
+---
+
+## Créer un  "archival unit" via l'API
+
+```
+import requests
+url = 'http://localhost:8080/rest/records/acv/D9999'
+headers = {"Content-Type": "text/turtle",
+           "Link": '<http://fedora.info/definitions/v4/repository#ArchivalGroup>;rel="type"'}
+auth = ('fedoraAdmin', 'fedoraAdmin')
+data = """ <>  <rico:title>            'Ceci est le titre'.
+		   <>  <rico:scopeAndContent>  'Voilà la description'.
+		   """
+r = requests.put(url, auth=auth, data=data.encode('utf-8'), headers=headers)
+print( 'Status:', r.status_code )
+print( r.text )
+```
 
 ---
 
@@ -110,7 +136,7 @@ En pratique, OCFL définit:
 
 ## La hiérachie de stockage OCFL
 
-Elle doit être déterministe. Dans le cas de Fedora Commons, la règle déterministe pour calculer le chemin des paquets est la suivante:
+Elle doit être déterministe. Dans le cas de Fedora Commons, la règle oar défaut pour calculer le chemin des paquets est la suivante:
 
 ```
 hash := sha256( fedoraId )
