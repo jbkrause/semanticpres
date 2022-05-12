@@ -46,6 +46,26 @@ Modélisation de:
 
 ---
 
+![PREMIS overview](media/PREMIS-overview.png)
+
+
+---
+
+![PREMIS overview](media/PREMIS-objects.png)
+
+---
+
+PREMIS peut être combiné à RiC-O:
+
+| PREMIS | RiC-O |
+|--------|-------|
+| - | RecordSet RiC-E03 |
+| Intellectual entity | Record RiC-E04 |
+| Representation | Instantiation RiC-E06 |
+| File | - |
+| Datastream | - |
+
+
 ### 3. Association d'ontologies et contraitnes (SHACL)
  
 
@@ -79,39 +99,48 @@ Chaque objet OCFL peut archiver un ou plusieur container LDP. OCFL a cinq object
 
 ---
 
+# Intégration
+
+---
+
+[Animation d'intégration](./media/integration.pptx)
+
+---
+
 # Discussion
 
 ---
 
-La combinaision des technologies et permettent ensemble
+La combinaision de ces standards et outils permet:
 
-* Généralisation de la description / catalogage
-* Interopérabilité
-* Préservation à long terme
+1. Généraliser la description / catalogage
+2. Préservation à long terme
+3. Une excellente interopérabilité (cf. cours suivant)
+
 
 ---
 
-### Généralisation de la description
+### 1. Généralisation de la description
 
 * Richesse des ontologies: [LOD cloud](https://lod-cloud.net/)
-* Interconnexions entre les ontologies (ex: archives et musées)
+* Interconnexions (owl:sameAs) entre les ontologies (ex: archives et musées)
 * Les contraites d'accès pour les usagers tombent (ISAD(G): accès selon la structure arborescente des fonds imposée)
 
 
 ---
 
-***Focus sur la structure***
+*** Focus sur la structure***
 
 P.ex. RiC offre un accès multi-dimentionnel (pas seuleuement selon un arbre):
 
 * Les "records sets" ne sont plus limités a une structure aborscente bi-dimentionnelle.
 * D'abord, l'arbre peut changer dans le temps => structure tri-dimentionnelle.
-* Plusieurs regroupements intellectuels peuvent être faits et combinés.
-* L'accès par d'autre types d'objets (agents, sujets, fonctions, etc.) est facilité.
+* Plusieurs regroupements intellectuels peuvent être faits et combinés (rico:proxy).
+* L'accès par d'autre types d'objets (agents, sujets, lieux, fonctions, etc.) est facilité.
 
 ---
 
-# Préservation
+# 2. Préservation
 
 ---
 
@@ -119,6 +148,16 @@ P.ex. RiC offre un accès multi-dimentionnel (pas seuleuement selon un arbre):
 * OCFL permet de gérer les diverese verions des objets à préserver dans les AIP de façon faible et portable (voir de plus les 5 objectifs).
 * Le concept d'*unité archivistique* (*archival unit*) permet de regrouper les objets qui vont ensemble (p. ex. un dossier et ses documents).
 * Le RDF, basé sur le concept sujet-objet-prédica, est une structure universelle et de ce fait épargnée par l'obsolescence technologique.  
+
+---
+
+# 3. Interopérabilité
+
+---
+
+Est très élevée: c'est d'ailleurs le but premier du Web sémantique.
+
+Ceci sera développé dans la prochaine et dernière session de ce cours.
 
 ---
 

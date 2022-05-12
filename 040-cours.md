@@ -173,7 +173,7 @@ chemin = 536/2a8/fe0/5362a8fe0af7fd17596d076f943f179...
 
 Exemple 1:
 
-Voir *Exemple_OCFL_inventory.json* et *Exemple_OCFL_structure.png* :
+Voir [Exemple_OCFL_inventory.json](./media/Exemple_OCFL_inventory.json) et [Exemple_OCFL_structure.png](./media/Exemple_OCFL_structure.png) :
 
 * v1 : création du paquet avec les fichiers *RiC.ttl* et *IMG_20210228_092707.jpg*
 * v2 : ajout du fichier *cal.txt* et renommage de *IMG_20210228_092707_renomme.jpg*
