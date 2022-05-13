@@ -19,7 +19,7 @@ Modélisation de:
 
 1. la description (Ontologie RiC)
 2. la préservation (Ontologie PREMIS)
-3. l'association d'ontologies et contraintes aditonnelles, avec validation (SHACL)
+3. l'association d'ontologies et contraintes aditonnelles, avec validation formelle (SHACL)
 4. l'empaquetage de ressources RDF et binaires et de leur versionnage (contaners LDP, Fedora Commons)
 5. la préservation des containers LDP versionnés dans des AIP selon la norme OAIS (OCFL,Fedora Commons)
 
@@ -72,11 +72,21 @@ PREMIS peut être combiné à RiC-O:
 * définition de l'articulation des ontologies (ex. combinaison RiC et PREMIS)
 * contraintes personaliées à souhait (ex. minimum un agent-auteur avec numéro AVS valide)
 * validation fermée ou ouverte à choix (permet de la souplesse... ou pas)
+* permet d'étendre à volonté l'ontologie descriptive (ex. RiC+SKOS+EbuCore ou DublinCore+SKOS+RDAU)
 
 ***=> respect d'un schéma rigoureux garanti essentiel à la préservation***
 
 ---
 
+### Extenstion de la description
+
+Quelques ontologies descriptives à considérer:
+
+* [DublinCore](https://www.dublincore.org) : [Element Set](https://www.dublincore.org/specifications/dublin-core/dces/) et [DCMI Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+* [RDA-U](http://www.rdaregistry.info/Elements/u/) : Research Data Alliance - nombreuses propriétés concernant les records et agents
+* [EBU-core](https://tech.ebu.ch/publications/tech3293) : Eurovision data model - multimedia
+* [IFLA-LRM](https://repository.ifla.org/handle/123456789/40) : Library Reference Model - nouvelle évolution après FRBR
+* [CIDOC-CRM](https://www.cidoc-crm.org/) : Musées
 
 ### 4. Empaquetage des ressources RDF et binaires (LDP)
 
@@ -122,8 +132,8 @@ La combinaision de ces standards et outils permet:
 
 ### 1. Généralisation de la description
 
-* Richesse des ontologies: [LOD cloud](https://lod-cloud.net/)
-* Interconnexions (owl:sameAs) entre les ontologies (ex: archives et musées)
+* Richesse des ontologies "métier": [LOD cloud](https://lod-cloud.net/)
+* Interconnexions (owl:sameAs) entre les ontologies
 * Les contraites d'accès pour les usagers tombent (ISAD(G): accès selon la structure arborescente des fonds imposée)
 
 
@@ -131,7 +141,7 @@ La combinaision de ces standards et outils permet:
 
 *** Focus sur la structure***
 
-P.ex. RiC offre un accès multi-dimentionnel (pas seuleuement selon un arbre):
+P.ex. RiC, et les technologies du Web sémantique en général, offre un accès multi-dimentionnel (pas seuleuement selon un arbre):
 
 * Les "records sets" ne sont plus limités a une structure aborscente bi-dimentionnelle.
 * D'abord, l'arbre peut changer dans le temps => structure tri-dimentionnelle.
@@ -155,7 +165,7 @@ P.ex. RiC offre un accès multi-dimentionnel (pas seuleuement selon un arbre):
 
 ---
 
-Est très élevée: c'est d'ailleurs le but premier du Web sémantique.
+Est très élevée, par nature même de la technologie choisie le but premier du Web sémantique.
 
 Ceci sera développé dans la prochaine et dernière session de ce cours.
 

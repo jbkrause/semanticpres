@@ -6,14 +6,6 @@ date: 2022-05-11
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 040-cours.html 040-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 040-cours.pdf 040-cours.md"
 encoding: utf-8
----
-
-# Thème de cette session
-
----
-
-* Archival Informatin Pacakges (AIP) : paquets d'information archivistiques.
-* Oxfrod Common File Layout (OCFL) : une spécification pour les paquets d'information.
 
 ---
 
@@ -85,7 +77,7 @@ Dans ce cas, ce container et tout ses enfants (définis par *ldp:contains*) sero
 
 ## Créer un archival unit dans l'interface de Fedora
 
-![OAIS schema](media/FCREPRO-create-archival-group.png)
+![Fedora Commons: new archival group](media/FCREPRO-create-archival-group.png)
 
 ---
 
@@ -184,7 +176,7 @@ Voir [Exemple_OCFL_inventory.json](./media/Exemple_OCFL_inventory.json) et [Exem
 
 Exemple 2:
 
-![OCFL package](media/OCFL-package-exemple.png)
+![OCFL package: nested content](media/OCFL-package-exemple.png)
 
 ---
 
