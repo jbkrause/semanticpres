@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-04-01">
+  <meta name="dcterms.date" content="2022-06-01">
   <title>HEG-796-22-040</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-040</h1>
   <p class="subtitle">Valorisation</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-04-01</p>
+  <p class="date">2022-06-01</p>
 </section>
 
 <section>
@@ -48,17 +48,103 @@
 <h1>Valoraisation</h1>
 
 </section>
-<section class="slide level6">
+<section class="slide level3">
 
+<p>On peut lire dans le premier paragraphe de la norme <a href="https://public.ccsds.org/pubs/650x0m2.pdf">OAIS</a>:</p>
+<blockquote>
+<p>An OAIS is an Archive, consisting of an or ganization, which may be part of a larger organization, of people and systems that has accepted the responsibility to preserve information and <strong><em>make it available for a Designated Community</em></strong>.</p>
+</blockquote>
+<p>=&gt; Pas de préservation sans diffusion !</p>
+</section>
+<section id="rappel---schéma-oais" class="slide level3">
+<h3>Rappel - Schéma OAIS :</h3>
+<figure>
+<img data-src="media/OAIS-schema-general.png" alt="" /><figcaption>OAIS schema</figcaption>
+</figure>
+</section>
+<section id="rappel---intégration" class="slide level3">
+<h3>Rappel - Intégration</h3>
+<p><a href="./media/integration.pptx">Animation d’intégration</a></p>
+</section>
+<section id="en-suisse" class="slide level3">
+<h3>En Suisse</h3>
 <ul>
-<li>Memoriav</li>
-<li>Connectome</li>
-<li>PTT</li>
-<li>Candon de Bâle</li>
+<li>Memoriav:
+<ul>
+<li><a href="http://memobase.ch">http://memobase.ch</a></li>
+<li><a href="http://api.memobase.ch">http://api.memobase.ch</a></li>
+</ul></li>
+<li>Archives PTT (Poste Télégrammes Téléphones)
+<ul>
+<li>https://data.ptt-archiv.ch/archive/record/202776</li>
+</ul></li>
+<li>Canton de Bâle-Ville
+<ul>
+<li><a href="https://ld.staatsarchiv.bs.ch/sparql/">SPARQL</a><br />
+</li>
+</ul></li>
+<li>SWITCH
+<ul>
+<li><a href="https://www.switch.ch/connectome/">Connectome</a></li>
+</ul></li>
+<li>Semantic AIS: Docuteam + zazuko</li>
 </ul>
 </section>
-<section class="slide level6">
+<section class="slide level3">
 
+<p>Démo https://ld.staatsarchiv.bs.ch/sparql/</p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT * WHERE {
+  ?sub rico:title ?title .
+  ?sub rico:isAssociatedWithDate ?date .
+  ?date rico:expressedDate ?eDate .
+  FILTER regex(?title, &quot;.*[Pp]artei.*&quot;, &quot;i&quot;).
+  FILTER regex(?eDate, &quot;.*1[45]\\d\\d.*&quot;, &quot;i&quot;).
+} 
+LIMIT 100</code></pre>
+</section>
+<section id="en-france" class="slide level3">
+<h3>En France</h3>
+<ul>
+<li>Prototype PIAAF (France)
+<ul>
+<li>https://piaaf.demo.logilab.fr/sparql</li>
+<li>https://piaaf.demo.logilab.fr/editorial/help</li>
+</ul></li>
+<li>Archives Nationales: projet ALEGORIA
+<ul>
+<li>https://www.alegoria-project.fr/en/Metadata</li>
+<li>http://data.alegoria-project.fr/page/anf%2Flapie%2Frecord%2F058220-c-70wu0l12w-14l18b4znre8s</li>
+<li>http://data.alegoria-project.fr/sparql</li>
+</ul></li>
+</ul>
+<p><a href="https://ica-egad.github.io/RiC-O/projects-and-tools.html">Autres exemples</a>.</p>
+</section>
+<section class="slide level3">
+
+<p>Fonds iconographique décrivant le territoire français d’entre deux guerres.</p>
+<p>Démo: http://data.alegoria-project.fr/sparql</p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT * WHERE {
+  ?sub rico:title ?title .
+  FILTER regex(?title, &quot;.*L[ée]man.*&quot;, &quot;i&quot;).
+} 
+LIMIT 100</code></pre>
+</section>
+<section id="outils" class="slide level3">
+<h3>Outils</h3>
+<ul>
+<li>EAD et EAC <a href="https://github.com/ArchivesNationalesFR/rico-converter">RiC-O converter</a></li>
+<li><a href="https://gitlab.switch.ch/memoriav/memobase-2020">Memobase, GitLab</a></li>
+<li><a href="https://github.com/zazuko/bar.alod.ch">aLOD, GitHub</a></li>
+<li><a href="https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline">Scope RDF RML Pipeline, GitHub</a>, et <a href="https://github.com/Staatsarchiv-Basel-Stadt/StABS-scope2RDF">scope2RDF</a></li>
+<li><a href="https://rml.io/specs/rml/">RDF Mapping Language</a></li>
+<li><a href="https://www.w3.org/wiki/LargeTripleStores">Large Triple Stores</a></li>
+</ul>
 </section></section>
     </div>
   </div>

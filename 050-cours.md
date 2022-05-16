@@ -35,7 +35,7 @@ Modélisation de:
 * Dates : ponctuelles, liste ou plages
 * Agents : groupes, presonnes morales ou physiques, agents logiciels
 
-*** => ontologie du domaine des archives ***
+***=> ontologie du domaine des archives***
  
 ---
 
