@@ -1,5 +1,7 @@
 # semanticpres
 
+
+
 ## Cours 010
 
 * Augmenter le contenu.
@@ -11,7 +13,7 @@
 ## Cours 030
 
 * augmenter le contenu (20 minutes)
-* attention aux versions
-* rdflib
+  * donner exemple de combinaision RiC - Premis : voir cours 050
+* rdflib a installer pour les TP
   * pip3 install rdflib 
   * python -m pip install rdflib

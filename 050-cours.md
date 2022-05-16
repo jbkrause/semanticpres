@@ -17,11 +17,12 @@ encoding: utf-8
 
 Modélisation de: 
 
-1. la description (Ontologie RiC)
-2. la préservation (Ontologie PREMIS)
+1. la description d'objets (Ontologie RiC)
+2. la préservation d'objets (Ontologie PREMIS)
 3. l'association d'ontologies et contraintes aditonnelles, avec validation formelle (SHACL)
-4. l'empaquetage de ressources RDF et binaires et de leur versionnage (contaners LDP, Fedora Commons)
-5. la préservation des containers LDP versionnés dans des AIP selon la norme OAIS (OCFL,Fedora Commons)
+4. l'empaquetage de ressources RDF et binaires et de leur versionnage (containers LDP, Fedora Commons)
+5. la préservation des containers LDP versionnés dans des AIP au sens la norme OAIS (OCFL,Fedora Commons)
+6. valorisation d'objets préservés (cours suivant)
 
 ---
 
@@ -34,13 +35,25 @@ Modélisation de:
 * Dates : ponctuelles, liste ou plages
 * Agents : groupes, presonnes morales ou physiques, agents logiciels
 
-*** => description complète et normalisée (Web sémantique va au delà de notre domaine)***
+*** => ontologie du domaine des archives ***
  
 ---
 
 ![RiC overview](media/RiC-CM-overview.jpg)
 
 ---
+
+**Exemple:**
+
+```
+ex:record371			a						rico:Record ;
+						rico:title				'Photo du Cervin' ; 
+						rico:hasInstantiation	ex:instantiation472 .
+ex:instantiation472		a						rico:Instantiation ;
+						rico:name				'20220525_123458.jpg' .
+```
+---
+
 
 ### 2. Métadonnées de préservation (PREMIS)
 
@@ -65,8 +78,23 @@ PREMIS peut être combiné à RiC-O:
 | File | - |
 | Datastream | - |
 
+---
 
-### 3. Association d'ontologies et contraitnes (SHACL)
+```
+ex:instantiation472		a						rico:Instantiation ;
+						a						premis:Representation;
+						rico:title				'Captured with Fariphone 4' ;
+						premis:includes			ex:file9642 .
+ex:file9642				a						premis:File ;
+						premis:originalName     '20220525_123458.jpg' ;
+						premis:messageDigest    '16a993c472d589f7bc36922...';
+						premis:messageDigestAlgorithm   'SHA512';
+						premis:size             1023 ;
+						premis:formatRegistyKey 'fmt/432' ;
+						premis:formatRegistryName 'PRONOM' .
+```
+
+### 3. Association d'ontologies et contraintnes (SHACL)
  
 
 * définition de l'articulation des ontologies (ex. combinaison RiC et PREMIS)
@@ -74,13 +102,13 @@ PREMIS peut être combiné à RiC-O:
 * validation fermée ou ouverte à choix (permet de la souplesse... ou pas)
 * permet d'étendre à volonté l'ontologie descriptive (ex. RiC+SKOS+EbuCore ou DublinCore+SKOS+RDAU)
 
-***=> respect d'un schéma rigoureux garanti essentiel à la préservation***
+***=> respect d'un schéma rigoureux, fondamental pour la préservation***
 
 ---
 
-### Extenstion de la description
+### Extension de la description
 
-Quelques ontologies descriptives à considérer:
+Autes ontologies descriptives à ne pas rater:
 
 * [DublinCore](https://www.dublincore.org) : [Element Set](https://www.dublincore.org/specifications/dublin-core/dces/) et [DCMI Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
 * [RDA-U](http://www.rdaregistry.info/Elements/u/) : Research Data Alliance - nombreuses propriétés concernant les records et agents
@@ -88,24 +116,82 @@ Quelques ontologies descriptives à considérer:
 * [IFLA-LRM](https://repository.ifla.org/handle/123456789/40) : Library Reference Model - nouvelle évolution après FRBR
 * [CIDOC-CRM](https://www.cidoc-crm.org/) : Musées
 
+---
+
+```turtle
+ex:InstantiationShape
+	a sh:NodeShape ;
+	sh:targetClass rico:Instantiation ;
+	sh:property [
+		sh:path rdfs:type ;
+		sh:class premis:Representation ;
+	] ;
+	sh:property [                
+		sh:path premis:includes ;         
+		sh:minCount 1 ;
+		sh:NodeKind sh:IRI ;
+	] .
+```
+
+---
+
+
 ### 4. Empaquetage des ressources RDF et binaires (LDP)
 
 * Containers LDP permettent de conditionner les ressources de façon à ce qu'elles coresspondent aux objets à archiver (dossiers, documents, etc.).
 * Gestion des versions des objets (RFC 7089, Memento)
 * Normalisation de la manipulation des containers (création, modification, etc.)
 
-***=> Adéquation avec le objets métier à archiver et interopérabilité***
+***=> Adéquation avec les objets métier à archiver et interopérabilité***
+
+---
+
+LDP BasicContainer:
+```
+ex:record371			a						rico:Record ;
+						rico:title				'Photo du Cervin' ; 
+						rico:hasInstantiation	ex:instantiation472 ;
+						ldp:contains			ex:instantiation472 .
+```	
+					
+LDP BasicContainer:
+```						
+ex:instantiation472		a						rico:Instantiation ;
+						a						premis:Representation;
+						premis:includes			ex:file9642 .
+...
+```
 
 ---
 
 ### 5. Préservation (OAIS, OCFL)
 
-Chaque objet OCFL peut archiver un ou plusieur container LDP. OCFL a cinq objectifs principaux:
+Chaque objet OCFL peut préserver un ou plusieur container LDP. OCFL a cinq objectifs principaux:
 * Complétude (disater recovery)
 * Parsabilité (humains et machines)
-* Robustess (erreur, corruption, migrtions)
-* Versionning (hisorique des objets)
+* Robustesse (erreur, corruption, migrtions)
+* Versionnage (hisorique des objets)
 * Diversité de stockage (multi-infrastructure et migrations)
+
+---
+
+## Créer un  "archival unit" via l'API
+
+```
+import requests
+url = 'http://localhost:8080/rest/records/acv/D9999'
+headers = {"Content-Type": "text/turtle",
+           "Link": '<http://fedora.info/definitions/v4/repository#ArchivalGroup>;rel="type"'}
+auth = ('fedoraAdmin', 'fedoraAdmin')
+data = """ <>  <rico:title>            'Ceci est le titre'.
+		   <>  <rico:scopeAndContent>  'Voilà la description'.
+		   """
+r = requests.put(url, auth=auth, data=data.encode('utf-8'), headers=headers)
+print( 'Status:', r.status_code )
+print( r.text )
+```
+
+Noter la partie "link" dans les headers.
 
 ---
 
@@ -124,7 +210,7 @@ Chaque objet OCFL peut archiver un ou plusieur container LDP. OCFL a cinq object
 La combinaision de ces standards et outils permet:
 
 1. Généraliser la description / catalogage
-2. Préservation à long terme
+2. Préservation à long terme des objets
 3. Une excellente interopérabilité (cf. cours suivant)
 
 
@@ -139,29 +225,37 @@ La combinaision de ces standards et outils permet:
 
 ---
 
-*** Focus sur la structure***
+***Focus sur la structure***
 
 P.ex. RiC, et les technologies du Web sémantique en général, offre un accès multi-dimentionnel (pas seuleuement selon un arbre):
 
 * Les "records sets" ne sont plus limités a une structure aborscente bi-dimentionnelle.
-* D'abord, l'arbre peut changer dans le temps => structure tri-dimentionnelle.
-* Plusieurs regroupements intellectuels peuvent être faits et combinés (rico:proxy).
+* D'abord, l'arbre peut changer dans le temps => structure tri-dimentionnelle (demo dans Fedora).
+* Plusieurs regroupements intellectuels peuvent être faits et combinés (rico:proxy), exemple de [BodmerLab](https://bodmerlab.unige.ch/fr) et d'[Europeana/Histoires](https://www.europeana.eu/fr/stories) et .
 * L'accès par d'autre types d'objets (agents, sujets, lieux, fonctions, etc.) est facilité.
 
 ---
 
-# 2. Préservation
+### 2.1. Préservation : Périmètre des objets
 
 ---
 
-* Les containers LDP permettent de regrouper le RDF relatif aux objets à présserver (dossiers, documents ou autre).
+* Les containers LDP permettent de regrouper le RDF relatif aux objets à préserver (dossiers, documents ou autre).
 * OCFL permet de gérer les diverese verions des objets à préserver dans les AIP de façon faible et portable (voir de plus les 5 objectifs).
 * Le concept d'*unité archivistique* (*archival unit*) permet de regrouper les objets qui vont ensemble (p. ex. un dossier et ses documents).
-* Le RDF, basé sur le concept sujet-objet-prédica, est une structure universelle et de ce fait épargnée par l'obsolescence technologique.  
 
 ---
 
-# 3. Interopérabilité
+### 2.1. Préservation : Format universe
+
+Le RDF, basé sur le concept sujet-objet-prédicat:
+
+* structure universelle et de ce fait épargnée par l'obsolescence technologique
+* très utilisée, dans de nombreux dommaines (informatique, biologie, etc.)
+
+---
+
+### 3. Interopérabilité
 
 ---
 
@@ -171,7 +265,7 @@ Ceci sera développé dans la prochaine et dernière session de ce cours.
 
 ---
 
-# Questions et réponses
+# Questions / réponses
 
 ---
 
