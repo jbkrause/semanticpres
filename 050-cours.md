@@ -93,6 +93,7 @@ ex:file9642				a						premis:File ;
 						premis:formatRegistyKey 'fmt/432' ;
 						premis:formatRegistryName 'PRONOM' .
 ```
+---
 
 ### 3. Association d'ontologies et contraintnes (SHACL)
  
@@ -167,10 +168,11 @@ ex:instantiation472		a						rico:Instantiation ;
 ### 5. Préservation (OAIS, OCFL)
 
 Chaque objet OCFL peut préserver un ou plusieur container LDP. OCFL a cinq objectifs principaux:
+
 * Complétude (disater recovery)
 * Parsabilité (humains et machines)
 * Robustesse (erreur, corruption, migrtions)
-* Versionnage (hisorique des objets)
+* Versionnage (historique des objets)
 * Diversité de stockage (multi-infrastructure et migrations)
 
 ---
@@ -242,24 +244,27 @@ P.ex. RiC, et les technologies du Web sémantique en général, offre un accès 
 
 * Les containers LDP permettent de regrouper le RDF relatif aux objets à préserver (dossiers, documents ou autre).
 * OCFL permet de gérer les diverese verions des objets à préserver dans les AIP de façon faible et portable (voir de plus les 5 objectifs).
-* Le concept d'*unité archivistique* (*archival unit*) permet de regrouper les objets qui vont ensemble (p. ex. un dossier et ses documents).
+* Le concept d'*unité archivistique* (*archival unit*) permet de regrouper les objets qui vont ensemble dans un seul AIP (p. ex. un dossier et ses documents).
 
 ---
 
-### 2.1. Préservation : Format universe
+### 2.1. Préservation : format pérenne
 
-Le RDF, basé sur le concept sujet-objet-prédicat:
+Le RDF est basé sur le concept sujet-objet-prédicat:
 
+* standard du W3C
 * structure universelle et de ce fait épargnée par l'obsolescence technologique
 * très utilisée, dans de nombreux dommaines (informatique, biologie, etc.)
 
----
-
-### 3. Interopérabilité
+***=> format stardard, simple et très utilié => pérenne***
 
 ---
 
-Est très élevée, par nature même de la technologie choisie le but premier du Web sémantique.
+### 3. Interopérabilité techinque
+
+---
+
+Est très élevée, c'est en effet le but premier du Web sémantique.
 
 Ceci sera développé dans la prochaine et dernière session de ce cours.
 
