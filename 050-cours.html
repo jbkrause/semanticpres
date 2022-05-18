@@ -152,6 +152,9 @@ ex:file9642             a                       premis:File ;
                         premis:size             1023 ;
                         premis:formatRegistyKey &#39;fmt/432&#39; ;
                         premis:formatRegistryName &#39;PRONOM&#39; .</code></pre>
+</section>
+<section class="slide level2">
+
 <h3 id="association-dontologies-et-contraintnes-shacl">3. Association d’ontologies et contraintnes (SHACL)</h3>
 <ul>
 <li>définition de l’articulation des ontologies (ex. combinaison RiC et PREMIS)</li>
@@ -214,7 +217,14 @@ ex:file9642             a                       premis:File ;
 <section class="slide level2">
 
 <h3 id="préservation-oais-ocfl">5. Préservation (OAIS, OCFL)</h3>
-<p>Chaque objet OCFL peut préserver un ou plusieur container LDP. OCFL a cinq objectifs principaux: * Complétude (disater recovery) * Parsabilité (humains et machines) * Robustesse (erreur, corruption, migrtions) * Versionnage (hisorique des objets) * Diversité de stockage (multi-infrastructure et migrations)</p>
+<p>Chaque objet OCFL peut préserver un ou plusieur container LDP. OCFL a cinq objectifs principaux:</p>
+<ul>
+<li>Complétude (disater recovery)</li>
+<li>Parsabilité (humains et machines)</li>
+<li>Robustesse (erreur, corruption, migrtions)</li>
+<li>Versionnage (historique des objets)</li>
+<li>Diversité de stockage (multi-infrastructure et migrations)</li>
+</ul>
 </section>
 <section id="créer-un-archival-unit-via-lapi" class="slide level2">
 <h2>Créer un “archival unit” via l’API</h2>
@@ -289,25 +299,27 @@ print( r.text )</code></pre>
 <ul>
 <li>Les containers LDP permettent de regrouper le RDF relatif aux objets à préserver (dossiers, documents ou autre).</li>
 <li>OCFL permet de gérer les diverese verions des objets à préserver dans les AIP de façon faible et portable (voir de plus les 5 objectifs).</li>
-<li>Le concept d’<em>unité archivistique</em> (<em>archival unit</em>) permet de regrouper les objets qui vont ensemble (p. ex. un dossier et ses documents).</li>
+<li>Le concept d’<em>unité archivistique</em> (<em>archival unit</em>) permet de regrouper les objets qui vont ensemble dans un seul AIP (p. ex. un dossier et ses documents).</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="préservation-format-universe">2.1. Préservation : Format universe</h3>
-<p>Le RDF, basé sur le concept sujet-objet-prédicat:</p>
+<h3 id="préservation-format-pérenne">2.1. Préservation : format pérenne</h3>
+<p>Le RDF est basé sur le concept sujet-objet-prédicat:</p>
 <ul>
+<li>standard du W3C</li>
 <li>structure universelle et de ce fait épargnée par l’obsolescence technologique</li>
 <li>très utilisée, dans de nombreux dommaines (informatique, biologie, etc.)</li>
 </ul>
+<p><strong><em>=&gt; format stardard, simple et très utilié =&gt; pérenne</em></strong></p>
 </section>
 <section class="slide level2">
 
-<h3 id="interopérabilité">3. Interopérabilité</h3>
+<h3 id="interopérabilité-techinque">3. Interopérabilité techinque</h3>
 </section>
 <section class="slide level2">
 
-<p>Est très élevée, par nature même de la technologie choisie le but premier du Web sémantique.</p>
+<p>Est très élevée, c’est en effet le but premier du Web sémantique.</p>
 <p>Ceci sera développé dans la prochaine et dernière session de ce cours.</p>
 </section>
 <section class="slide level2">

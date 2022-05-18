@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-06-01">
-  <title>HEG-796-22-040</title>
+  <meta name="dcterms.date" content="2022-05-18">
+  <title>HEG-796-22-060</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -37,10 +37,10 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">HEG-796-22-040</h1>
+  <h1 class="title">HEG-796-22-060</h1>
   <p class="subtitle">Valorisation</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-06-01</p>
+  <p class="date">2022-05-18</p>
 </section>
 
 <section>
@@ -54,7 +54,7 @@
 <blockquote>
 <p>An OAIS is an Archive, consisting of an or ganization, which may be part of a larger organization, of people and systems that has accepted the responsibility to preserve information and <strong><em>make it available for a Designated Community</em></strong>.</p>
 </blockquote>
-<p>=&gt; Pas de préservation sans diffusion !</p>
+<p><strong><em>=&gt; Pas de préservation sans diffusion !</em></strong></p>
 </section>
 <section id="rappel---schéma-oais" class="slide level3">
 <h3>Rappel - Schéma OAIS :</h3>
@@ -66,29 +66,52 @@
 <h3>Rappel - Intégration</h3>
 <p><a href="./media/integration.pptx">Animation d’intégration</a></p>
 </section>
-<section id="en-suisse" class="slide level3">
-<h3>En Suisse</h3>
+<section id="aas-ensemen" class="slide level3">
+<h3>AAS Ensemen</h3>
+<p>Groupe de travail de l’association des archivstes suisse: <a href="https://vsa-aas.ch/arbeitsgruppen/projektgruppe-ensemen/">ENSEMEN</a></p>
+<p>cf. les documents porduits.</p>
+</section>
+<section id="memoriav" class="slide level3">
+<h3>Memoriav</h3>
+<p><strong>Mission</strong> : Memoriav s’engage activement et durablement pour la sauvegarde, la mise en valeur et l’utilisation à grande échelle du patrimoine audiovisuel sur tout le territoire de la Suisse. Memobase est la plateforme de Memoriav, il s’agit d’un aggrégateur national des ressources multi-media.</p>
 <ul>
-<li>Memoriav:
-<ul>
-<li><a href="http://memobase.ch">http://memobase.ch</a></li>
-<li><a href="http://api.memobase.ch">http://api.memobase.ch</a></li>
-</ul></li>
-<li>Archives PTT (Poste Télégrammes Téléphones)
-<ul>
-<li>https://data.ptt-archiv.ch/archive/record/202776</li>
-</ul></li>
-<li>Canton de Bâle-Ville
-<ul>
-<li><a href="https://ld.staatsarchiv.bs.ch/sparql/">SPARQL</a><br />
-</li>
-</ul></li>
-<li>SWITCH
-<ul>
-<li><a href="https://www.switch.ch/connectome/">Connectome</a></li>
-</ul></li>
-<li>Semantic AIS: Docuteam + zazuko</li>
+<li>Web: <a href="http://memobase.ch">memobase.ch</a></li>
+<li>API: <a href="http://api.memobase.ch">api.memobase.ch</a></li>
+<li>Code open source: <a href="https://gitlab.switch.ch/memoriav/memobase-2020">Memobase 2020</a></li>
+<li>Documentation: <a href="https://ub-basel.atlassian.net/wiki/spaces/MD/pages/331939971/Datenmodell">Modèle de données basé sur RiC-O</a></li>
 </ul>
+</section>
+<section id="archives-ptt-poste-télégrammes-téléphones" class="slide level3">
+<h3>Archives PTT (Poste Télégrammes Téléphones)</h3>
+<p>Le musée de la communication est une fondation financée par La Poste et Swisscom, qui, partagent des archives communes.</p>
+<p>La fondation a choisi RiC-O comme schéma de base pour sa salle de lecture virtuelle (prototype) qui regroupe les collections muséales (MuseumPlus), de bibliothèque (Swisscovery) et d’archives (ScopeArchiv)</p>
+</section>
+<section class="slide level3">
+
+<figure>
+<img data-src="PTT_archiv_aggregation.png" alt="" /><figcaption>Salle de lecture virtuelle</figcaption>
+</figure>
+<p>Source: <a href="https://vsa-aas.ch/wp-content/uploads/2022/03/2022-03-25-Pr%C3%A4sentation-2-Nicolas-Kessler-VSA-Projektgruppe-ENSEMEN.pdf">Présentation de Nicolas Kessler, 2022</a></p>
+</section>
+<section class="slide level3">
+
+<ul>
+<li>Web: <a href="https://data.ptt-archiv.ch/archive/record/202776">data.ptt-archiv.ch</a></li>
+<li>Code open source: vairante de <a href="https://github.com/zazuko/www.alod.ch">www.alod.ch</a> , <a href="https://github.com/zazuko/bar.alod.ch">bar.alod.ch</a></li>
+</ul>
+</section>
+<section id="archives-du-canton-de-bâle-ville" class="slide level3">
+<h3>Archives du Canton de Bâle-Ville</h3>
+<ul>
+<li><a href="https://ld.staatsarchiv.bs.ch/sparql/">SPARQL</a></li>
+<li>Mise-à-jour quotidienne depuis ScopeArchiv:
+<ul>
+<li><a href="https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline">Pipeline - open source code</a></li>
+<li><a href="https://github.com/Staatsarchiv-Basel-Stadt/StABS-scope2RDF">Mappings - open source code</a></li>
+<li><a href="https://github.com/Staatsarchiv-Basel-Stadt/stardog-docker">Stardog triple store docker - open source code</a></li>
+</ul></li>
+</ul>
+<p>Le pipeline ScopeArchi peut être intérassant comme phase de transition.</p>
 </section>
 <section class="slide level3">
 
@@ -104,6 +127,26 @@ SELECT * WHERE {
   FILTER regex(?eDate, &quot;.*1[45]\\d\\d.*&quot;, &quot;i&quot;).
 } 
 LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p><strong><em>Liste des prédicats RiC-O utilisés</em></strong></p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT ?pred WHERE {
+  ?sub ?pred ?obj .
+  FILTER(regex(str(?pred), &quot;RiC&quot; ) )
+} 
+LIMIT 100</code></pre>
+</section>
+<section id="semantic-ais" class="slide level3">
+<h3>Semantic AIS</h3>
+<p>En stade précoce:</p>
+<ul>
+<li>Projet AtoM3 : <a href="https://accesstomemoryfoundation.org/development/">accesstomemoryfoundation.org</a></li>
+<li>Chez <a href="https://docuteam.ch">docuteam</a></li>
+</ul>
 </section>
 <section id="en-france" class="slide level3">
 <h3>En France</h3>
@@ -135,15 +178,82 @@ SELECT * WHERE {
 } 
 LIMIT 100</code></pre>
 </section>
-<section id="outils" class="slide level3">
-<h3>Outils</h3>
+<section class="slide level3">
+
+<p><strong><em>Titre et agents</em></strong></p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT * WHERE {
+  ?record rico:title ?title .
+  ?record ?rel ?agent .
+  FILTER (?rel = rico:hasCreator || ?rel = rico:createdBy || ?rel = rico:hasPublisher || ?rel = rico:recordIsSourceOfAuthorshipRelation)
+  ?agent  rico:hasAgentName ?agentName .
+  ?agentName  rico:normalizedValue ?agentLabel .
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p><strong><em>Lieux et coordonnées</em></strong></p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT * WHERE {
+    ?subj     rico:hasOrHadLocation ?place .
+    ?place    rico:hasOrHadPhysicalLocation ?physloc .
+    ?physloc rico:hasOrHadCoordinates ?coordinates .
+}
+LIMIT 100
+</code></pre>
+</section>
+<section class="slide level3">
+
+<p><strong><em>Combinaision agent et lieu</em></strong></p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT * WHERE {
+  ?record rico:title ?title .
+  OPTIONAL { ?record  rico:hasCreator ?agent . }
+  OPTIONAL { ?agent   rdfs:label ?agentLabel . }
+  OPTIONAL { ?record  rico:hasOrHadLocation ?place . }
+  OPTIONAL { ?place   rico:hasOrHadPhysicalLocation ?physloc . }
+  OPTIONAL { ?physloc rico:hasOrHadCoordinates ?coordinates . }
+}
+LIMIT 100
+</code></pre>
+</section>
+<section class="slide level3">
+
+<p><strong><em>Liste des prédicats RiC-O utlisés</em></strong></p>
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT ?pred WHERE {
+  ?sub ?pred ?obj .
+  FILTER(regex(str(?pred), &quot;RiC&quot; ) )
+} 
+LIMIT 100</code></pre>
+</section>
+<section id="switch-connectome" class="slide level3">
+<h3>SWITCH Connectome</h3>
+<blockquote>
+<p>Connecting open research data (ORD) to make it accessible, interoperable and valuable for research, education and innovation.</p>
+</blockquote>
+<p><a href="https://www.switch.ch/connectome/">Connectome</a></p>
+</section>
+<section id="conversion-ead-et-eac-en-ric" class="slide level3">
+<h3>Conversion EAD et EAC en RiC</h3>
 <ul>
 <li>EAD et EAC <a href="https://github.com/ArchivesNationalesFR/rico-converter">RiC-O converter</a></li>
-<li><a href="https://gitlab.switch.ch/memoriav/memobase-2020">Memobase, GitLab</a></li>
-<li><a href="https://github.com/zazuko/bar.alod.ch">aLOD, GitHub</a></li>
-<li><a href="https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline">Scope RDF RML Pipeline, GitHub</a>, et <a href="https://github.com/Staatsarchiv-Basel-Stadt/StABS-scope2RDF">scope2RDF</a></li>
-<li><a href="https://rml.io/specs/rml/">RDF Mapping Language</a></li>
-<li><a href="https://www.w3.org/wiki/LargeTripleStores">Large Triple Stores</a></li>
+</ul>
+</section>
+<section id="outils-divers" class="slide level3">
+<h3>Outils divers</h3>
+<ul>
+<li>Conversion en RDF: <a href="https://rml.io/specs/rml/">RDF Mapping Language</a></li>
+<li>Triples stores performants: <a href="https://www.w3.org/wiki/LargeTripleStores">Large Triple Stores</a></li>
 </ul>
 </section></section>
     </div>
