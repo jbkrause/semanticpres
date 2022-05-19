@@ -19,7 +19,7 @@ manifest:
   - 50a5c087f450 : "v1/content/fcr-container.nt"
   - 30a510691454 : "v1/content/documents/1/I1/file0"
   - 40152f82f455 : "v2/content/fcr-container.nt"
-  - 20a5c089f45d : "v1/content/documents/1/I2/file0"
+  - 20a5c089f45d : "v2/content/documents/1/I2/file0"
 
 versions:
   - v1
