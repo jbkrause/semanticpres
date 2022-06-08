@@ -89,7 +89,7 @@ Ressources pour approfondir:
 * Conteneurs : optimiser la charge des dans les datacenter et la protabilité (dépendances)
 * Fault-tolerence : garantir la cohérence des données (prévention priratage et intégrité des données)
 
-Fedora Commons est construit sut la base de ces techonologies.
+Fedora Commons est construit dans cette optique.
 
 ---
 
@@ -124,7 +124,7 @@ Fedora Commons est construit sut la base de ces techonologies.
 
 ### Recherche : Indexation 
 
-Exemples de moteurs de recherche: Solr, ElasticSearch ([introduction]https://www.youtube.com/watch?v=yZJfsUOHJjg). 
+Exemples de moteurs de recherche: Solr, ElasticSearch. [Introduction](https://www.youtube.com/watch?v=yZJfsUOHJjg). 
 
 Des règles pour l'indexation via le messaging doivent être définies, p.ex.: rico:title -> index titre.
 
@@ -135,6 +135,7 @@ Cf. [configuration de Solr avec Fedora](https://wiki.lyrasis.org/display/FEDORA6
 ### Rechreche : Triple store
 
 Nombreux outils disponibles, voir:
+
 * [comparison of triplestores](https://en.wikipedia.org/wiki/Comparison_of_triplestores) et
 * [large triplestores](https://www.w3.org/wiki/LargeTripleStores).
 

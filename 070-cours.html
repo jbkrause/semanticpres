@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jan Krause-Bilvin">
+  <meta name="dcterms.date" content="2022-06-08">
+  <title>HEG-796-22-070</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">HEG-796-22-070</h1>
+  <p class="subtitle">Valorisation</p>
+  <p class="author">Jan Krause-Bilvin</p>
+  <p class="date">2022-06-08</p>
+</section>
+
+<section>
+<section id="mise-en-oeuvre" class="title-slide slide level1">
+<h1>Mise en oeuvre</h1>
+
+</section>
+<section class="slide level3">
+
+<p>Conetenu de cette session:</p>
+<ol type="1">
+<li>Valorisation et indexation<br />
+</li>
+<li>Plateforme LDP: documentation de Fedora Commons</li>
+<li>Recherche : indexation vs. triple store</li>
+<li>Et pour finir …</li>
+</ol>
+</section>
+<section class="slide level3">
+
+</section></section>
+<section>
+<section id="valorastion-et-indexation" class="title-slide slide level1">
+<h1>1. Valorastion et indexation</h1>
+
+</section>
+<section id="rappel" class="slide level3">
+<h3>Rappel</h3>
+<p><a href="./media/integration.pptx">Animation d’intégration</a></p>
+</section>
+<section id="besoin-de-scalability" class="slide level3">
+<h3>Besoin de “scalability”</h3>
+<p>En français, on pourrait dire d’“évolutivié”. Il y a une dimention d’échelle.</p>
+<p>En pratique, considérons les concepts suivants:</p>
+<ul>
+<li>Messaging</li>
+<li>Conteneurs</li>
+<li>Fault-tolerence</li>
+</ul>
+</section>
+<section id="messaging" class="slide level3">
+<h3>Messaging</h3>
+<p>Dans les application modernes, on utilise souvent le concept de <strong><em>messaging</em></strong>.</p>
+<p>Par exemple, la technologie <a href="https://camel.apache.org/">Apache Caml</a> dont <a href="https://www.youtube.com/watch?v=PzPXRmVHMxI">Apache Kafka</a>.</p>
+</section>
+<section id="conteneurs" class="slide level3">
+<h3>Conteneurs</h3>
+<p>Dans les application modernes, on utilise souvent le concept de <strong><em>conteneurs</em></strong>, une façon de déployer des applications encore plus efficiente que la virtualisation.</p>
+<p>Par exemple, la technologie <a href="https://www.youtube.com/watch?v=8cH0ilGlQdE">docker</a>, voir aussi cette <a href="https://www.youtube.com/watch?v=0HjPvbGSdoo">video</a>.</p>
+<p>De plus, des systèmes d’orchestration permettent d’orchester les containers, p.ex. <a href="https://www.youtube.com/watch?v=PziYflu8cB8">kubernetes</a>.</p>
+</section>
+<section id="fault-tolerence" class="slide level3">
+<h3>Fault tolerence</h3>
+<p>Éviter la corruption: le problème des Généraus Bizantins.</p>
+<p><img data-src="media/Byzantine-generals.png" /></p>
+<p>Il est démontré que pour tolérer f fautes, 3f+1 noeuds sont nécessaires. Cf. travaux de Lesslie Lamport fin des années 1970.</p>
+</section>
+<section class="slide level3">
+
+<p>Ressources pour approfondir:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=LoGx_ldRBU0">introduction</a></li>
+<li><a href="https://www.youtube.com/watch?v=A-mNgqJETQg">introduction visuelle</a></li>
+<li><a href="https://www.youtube.com/watch?v=0lkhrobRTdo">lien avec la blockchain</a></li>
+<li><a href="https://www.youtube.com/watch?v=3EUAcxhuoU4&amp;t=69s">proof of work</a></li>
+<li><a href="https://www.youtube.com/watch?v=M3EFi_POhps">proof of work vs. proof of stake</a></li>
+<li><a href="https://www.hesge.ch/heg/actualites/2022/academiconflux-nouveau-projet-recherche-du-prof-arnaud-gaudinat">AcademicOnFlux</a></li>
+</ul>
+</section>
+<section id="résumé" class="slide level3">
+<h3>Résumé</h3>
+<ul>
+<li>Messaging : optimiser le transfert de données entre les composants du système d’archivage</li>
+<li>Conteneurs : optimiser la charge des dans les datacenter et la protabilité (dépendances)</li>
+<li>Fault-tolerence : garantir la cohérence des données (prévention priratage et intégrité des données)</li>
+</ul>
+<p>Fedora Commons est construit dans cette optique.</p>
+</section>
+<section class="slide level3">
+
+</section></section>
+<section>
+<section id="plateforme-ldp-documentation-de-fedora-commons" class="title-slide slide level1">
+<h1>2. Plateforme LDP: documentation de Fedora Commons</h1>
+
+</section>
+<section class="slide level3">
+
+<p><a href="https://wiki.lyrasis.org/display/FEDORA6x/Fedora+6.x+Documentation">Lyrasis - Fedora Commons - Documentation</a></p>
+<ul>
+<li>Architecture</li>
+<li><a href="https://wiki.lyrasis.org/display/FEDORA6x/Quick+Start">Installation</a> (one click , docker)</li>
+<li><a href="https://wiki.lyrasis.org/display/FEDORA6x/Configuration">Configuration</a>(paramètres)
+<ul>
+<li><a href="https://github.com/fcrepo-exts/fcrepo-docker/blob/main/README.md">configuration docker</a> (users, praramètres:fcrepo.properties)</li>
+<li><a href="https://wiki.lyrasis.org/display/FEDORA6x/Properties">liste des paramètres</a>
+<ul>
+<li>exemples: fcrepo.external.content.allowed, fcrepo.autoversioning.enabled, fcrepo.metrics.enable</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p><a href="https://wiki.lyrasis.org/display/FEDORA6x/Configuration">Points</a> à ne pas ratter:</p>
+<ul>
+<li>Messaging</li>
+<li>External Search</li>
+<li>Metrics</li>
+<li>Auto-versionning</li>
+<li>Namespaces</li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ol start="3" type="1">
+<li>Recherche : indexation vs. triple store</li>
+</ol>
+</section>
+<section id="recherche-indexation" class="slide level3">
+<h3>Recherche : Indexation</h3>
+<p>Exemples de moteurs de recherche: Solr, ElasticSearch. <a href="https://www.youtube.com/watch?v=yZJfsUOHJjg">Introduction</a>.</p>
+<p>Des règles pour l’indexation via le messaging doivent être définies, p.ex.: rico:title -&gt; index titre.</p>
+<p>Cf. <a href="https://wiki.lyrasis.org/display/FEDORA6x/Solr+Indexing+Quick+Guide">configuration de Solr avec Fedora</a>.</p>
+</section>
+<section id="rechreche-triple-store" class="slide level3">
+<h3>Rechreche : Triple store</h3>
+<p>Nombreux outils disponibles, voir:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_triplestores">comparison of triplestores</a> et</li>
+<li><a href="https://www.w3.org/wiki/LargeTripleStores">large triplestores</a>.</li>
+</ul>
+</section>
+<section id="exemple-dusage-avec-blazegraph" class="slide level3">
+<h3>Exemple d’usage avec Blazegraph</h3>
+<p><a href="https://blazegraph.com/">blazegraph</a>, un triple store en java.</p>
+</section>
+<section class="slide level3">
+
+<p>Permet l’upload de turtle (via interface web ou API): <img data-src="media/blazegraph_upload_turtle.png" /></p>
+</section>
+<section id="fonds-privés-de-monteux" class="slide level3">
+<h3>Fonds privés de Monteux</h3>
+<p>Le logiciel et les données sont disponibles sur cyberlearn.</p>
+<p>En ligne, cela correspond à: <a href="https://vaud.archivescommunales.ch/montreux-fonds-prives">vaud.archivescommunales.ch - Montreux</a>.</p>
+</section>
+<section class="slide level3">
+
+<p>Utilisation:</p>
+<pre><code>cd blazegraph_fedora
+java.exe -server -Xmx4g -jar blazegraph.jar</code></pre>
+<p>Puis dans dans le navigateur: <a href="http://127.0.0.1:9999/blazegraph/#query">http://127.0.0.1:9999/blazegraph/</a></p>
+</section>
+<section class="slide level3">
+
+<p>Quels prédicats RiC ont été utilisés?</p>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT ?pred WHERE {
+  ?sub ?pred ?obj .
+  FILTER(regex(str(?pred), &quot;RiC&quot; ) )
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p>Lister les intitulés de tous les records.</p>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT * WHERE {
+  ?sub rico:title ?obj 
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p>Qui est le parent de <em>object:001228-4-PP060-A-01-04</em> ?</p>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX object: &lt;http://localhost:8080/rest/object/&gt;
+PREFIX rico: &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT * WHERE {
+  object:001228-4-PP060-A-01-04 rico:isOrWasPartOf ?obj .  
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p>Qui sont les parents (récursifs) de <em>object:001228-4-PP060-A-01-04</em> ?</p>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX object: &lt;http://localhost:8080/rest/object/&gt;
+PREFIX rico: &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT * WHERE {
+  object:001228-4-PP060-A-01-04 rico:isOrWasPartOf* ?obj .  
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p>Qui sont tous les enfants (récursifs) de <em>object:001228-4-PP060</em> ?</p>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX object: &lt;http://localhost:8080/rest/object/&gt;
+PREFIX rico: &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT * WHERE {
+  object:001228-4-PP060 ^rico:isOrWasPartOf* ?obj .  
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p>Quels sont les records dont les intitulés:</p>
+<ul>
+<li>coniennent “hôtel”, “hotel”, “Hôtel”, or “Hotel”</li>
+</ul>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT * WHERE {
+  ?sub rico:title ?obj .
+  FILTER(regex(str(?obj), &quot;.*[Hh][oô]tel.*&quot; ) )
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<p>Quels sont les records dont les intitulés:</p>
+<ul>
+<li>coniennent “hôtel”, “hotel”, “Hôtel”, or “Hotel”</li>
+<li>et datant des années 1930 ou 1940</li>
+</ul>
+</section>
+<section class="slide level3">
+
+<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/RiC-O_v0-2.html#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT * WHERE {
+  ?record rico:title ?title .
+  ?record rico:isAssociatedWithDate/rico:expressedDate ?date .
+  FILTER(regex(str(?title), &quot;.*[Hh][oô]tel.*&quot; )) .
+  FILTER(regex(str(?date) , &quot;.*19[34]\\d*&quot;     )) .
+} 
+LIMIT 100</code></pre>
+</section>
+<section class="slide level3">
+
+<ol start="4" type="1">
+<li>Et pour finir …</li>
+</ol>
+</section>
+<section id="exemples-de-réalisations-suisses-utilisant-les-concepts-abordés-à-ce-cours" class="slide level3">
+<h3>Exemples de réalisations suisses utilisant les concepts abordés à ce cours</h3>
+<ul>
+<li><a href="https://bodmerlab.unige.ch/fr">Bodmer Lab, UNIGE</a> : FedoraCommons + ElasticSearch + InterfaceAdHoc</li>
+<li><a href="https://memobase.ch">memobase.ch</a> : FedoraCommons + ElasticSearch + InterfaceAdHoc</li>
+<li><a href="https://www.docuteam.ch/fr/docuteam-cosmos/">docuteam cosmos</a> : FedoraCommons + Solr + AtoM / InterfaceAdHoc. Exemples:
+<ul>
+<li><a href="https://www.siar.ch/?page_id=429">SIAr neuchâtelois</a></li>
+<li><a href="https://archives.societedesarts.ch/archives/">société des Arts genevoise</a></li>
+<li><a href="https://archivesonline.vs.ch/index.php/informationobject/browse">Registre Foncier valaisan</a></li>
+<li>…</li>
+</ul></li>
+</ul>
+</section>
+<section id="idées-de-tb" class="slide level3">
+<h3>Idées de TB</h3>
+<p>De nombreuses instances AtoM existent en Suisse, notemment:</p>
+<ul>
+<li><a href="https://vaud.archivescommunales.ch/repository/browse">vaud.archivescommunales.ch</a></li>
+<li><a href="https://ge.archivescommunales.ch/repository/browse">ge.archivescommunales.ch</a></li>
+<li><a href="https://caspar.cinematheque.ch/informationobject/browse">caspar.cinematheque.ch</a></li>
+<li><a href="https://www.architrave-hesge.ch/informationobject/browse">architrave-hesge.ch</a></li>
+<li><a href="https://www.archeco.info/">arCHeco.info</a></li>
+<li><a href="https://archivesonline.vs.ch/index.php/informationobject/browse">Registre Foncier valaisan</a></li>
+<li><a href="http://archivesfiligrane.f-information.org/index.php/informationobject/browse">f-information.org</a></li>
+<li><a href="https://www.cira.ch/archives/">CIRA.ch</a></li>
+<li>…</li>
+</ul>
+<p>De plus, les inventaires de Bâle-Ville, PTT et Memoriav sont déjà disponibles au format RiC.</p>
+</section>
+<section class="slide level3">
+
+<p>Sujet possible de TP (variante à préciser/discuter):</p>
+<ul>
+<li>Intégration d’inventaires archivistiques dans le connectome</li>
+<li>Valorisation des archives sur Wikidata</li>
+<li>Diffusion d’inventaires archivistiques sur le Web sémantique</li>
+<li>Publication de la plateforme AtoM sur le Web sémantique</li>
+<li>etc.</li>
+</ul>
+<p>Intéressé.e? =&gt; jan.krause@vd.ch</p>
+</section>
+<section id="évolution-du-cours" class="slide level3">
+<h3>Évolution du cours</h3>
+<p>=&gt; Évaluation du cours en ligne sur le portail AGE.</p>
+</section>
+<section class="slide level3">
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
