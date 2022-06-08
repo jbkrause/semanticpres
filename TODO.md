@@ -1,5 +1,6 @@
 # semanticpres
 
+## en général
 
 
 ## Cours 010
@@ -17,3 +18,9 @@
 * rdflib a installer pour les TP
   * pip3 install rdflib 
   * python -m pip install rdflib
+  
+  
+## Exas
+
+* ajouter  un exa sur les TP à 50%
+* question 7 : contenu a équiliber avec le reste. P.ex., réduire et poser 3 questions?

@@ -15,9 +15,9 @@ encoding: utf-8
 
 Conetenu de cette session:
 
-1. Valorisation et Indexation  
+1. Valorisation et indexation  
 2. Plateforme LDP: documentation de Fedora Commons
-3. Recherche : indexation et triple store
+3. Recherche : indexation vs. triple store
 4. Et pour finir ...
 
 ---
@@ -118,7 +118,7 @@ Fedora Commons est construit sut la base de ces techonologies.
 
 ---
 
-3. Recherche : indexation et triple store
+3. Recherche : indexation vs. triple store
 
 ---
 
@@ -126,7 +126,7 @@ Fedora Commons est construit sut la base de ces techonologies.
 
 Exemples de moteurs de recherche: Solr, ElasticSearch ([introduction]https://www.youtube.com/watch?v=yZJfsUOHJjg). 
 
-Des règles pour l'indexation via le messaging doivent être définies. 
+Des règles pour l'indexation via le messaging doivent être définies, p.ex.: rico:title -> index titre.
 
 Cf. [configuration de Solr avec Fedora](https://wiki.lyrasis.org/display/FEDORA6x/Solr+Indexing+Quick+Guide).
 
@@ -142,14 +142,37 @@ Nombreux outils disponibles, voir:
 
 ### Exemple d'usage avec Blazegraph
 
-[blazegraph](https://blazegraph.com/)
+[blazegraph](https://blazegraph.com/), un triple store en java.
 
-Upload de turtle manuel également possible:
+---
+
+Permet l'upload de turtle (via interface web ou API):
 ![](media/blazegraph_upload_turtle.png)
 
 ---
 
+### Fonds privés de Monteux
+
+Le logiciel et les données sont disponibles sur cyberlearn.
+
+En ligne, cela correspond à: [vaud.archivescommunales.ch - Montreux](https://vaud.archivescommunales.ch/montreux-fonds-prives).
+
+---
+
+Utilisation:
+
+```
+cd blazegraph_fedora
+java.exe -server -Xmx4g -jar blazegraph.jar
+```
+
+Puis dans dans le navigateur: [http://127.0.0.1:9999/blazegraph/](http://127.0.0.1:9999/blazegraph/#query)
+
+---
+
 Quels prédicats RiC ont été utilisés?
+
+---
 
 ```
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
@@ -164,8 +187,9 @@ LIMIT 100
 
 ---
 
-
 Lister les intitulés de tous les records.
+
+---
 
 ```
 PREFIX rico: <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#>
@@ -179,8 +203,9 @@ LIMIT 100
 
 ---
 
-
 Qui est le parent de *object:001228-4-PP060-A-01-04* ?
+
+---
 
 ```
 PREFIX object: <http://localhost:8080/rest/object/>
@@ -197,6 +222,8 @@ LIMIT 100
 
 Qui sont les parents (récursifs) de *object:001228-4-PP060-A-01-04* ?
 
+---
+
 ```
 PREFIX object: <http://localhost:8080/rest/object/>
 PREFIX rico: <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#>
@@ -212,6 +239,8 @@ LIMIT 100
 
 Qui sont tous les enfants (récursifs) de *object:001228-4-PP060* ?
 
+---
+
 ```
 PREFIX object: <http://localhost:8080/rest/object/>
 PREFIX rico: <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#>
@@ -225,9 +254,11 @@ LIMIT 100
 
 ---
 
-Quels sont les records dont les intitilés:
+Quels sont les records dont les intitulés:
 
 * coniennent "hôtel", "hotel", "Hôtel", or "Hotel"
+
+---
 
 ```
 PREFIX rico: <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#>
@@ -242,10 +273,12 @@ LIMIT 100
 
 ---
 
-Quels sont les records dont les intitilés:
+Quels sont les records dont les intitulés:
 
 * coniennent "hôtel", "hotel", "Hôtel", or "Hotel"
 * et datant des années 1930 ou 1940
+
+---
 
 ```
 PREFIX rico: <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#>
@@ -266,7 +299,7 @@ LIMIT 100
 
 ---
 
-### Réalisations suisses utilisant les conceptpe à ce cours
+### Exemples de réalisations suisses utilisant les concepts abordés à ce cours
 
 * [Bodmer Lab, UNIGE](https://bodmerlab.unige.ch/fr) : FedoraCommons + ElasticSearch + InterfaceAdHoc
 * [memobase.ch](https://memobase.ch) : FedoraCommons + ElasticSearch + InterfaceAdHoc
@@ -280,7 +313,7 @@ LIMIT 100
 
 ### Idées de TB
 
-De nombreuses instances AtoM existent en Suisse
+De nombreuses instances AtoM existent en Suisse, notemment:
 
 * [vaud.archivescommunales.ch](https://vaud.archivescommunales.ch/repository/browse)
 * [ge.archivescommunales.ch](https://ge.archivescommunales.ch/repository/browse)
@@ -292,23 +325,23 @@ De nombreuses instances AtoM existent en Suisse
 * [CIRA.ch](https://www.cira.ch/archives/)
 * ...
 
-De plus, les archives de Bâle-Ville, PTT et Memoriav sont déjà disponibles au format RiC.
+De plus, les inventaires de Bâle-Ville, PTT et Memoriav sont déjà disponibles au format RiC.
 
 ---
 
-Sujet possible (variante à préciser/discuter):
+Sujet possible de TP (variante à préciser/discuter):
 
-* Intégration d'inventaires archivistiques dans le projet connectome
+* Intégration d'inventaires archivistiques dans le connectome
 * Valorisation des archives sur Wikidata
 * Diffusion d'inventaires archivistiques sur le Web sémantique
-* Publication de la plateforme AtoM vers le Web sémantique
+* Publication de la plateforme AtoM sur le Web sémantique
 * etc.
 
 Intéressé.e? => jan.krause@vd.ch
 
 ---
 
-### Évolution de ce cours
+### Évolution du cours
 
 => Évaluation du cours en ligne sur le portail AGE. 
 
