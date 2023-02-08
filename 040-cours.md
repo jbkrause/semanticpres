@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-040"
 subtitle: "AIPs et OCFL"
-date: 2022-05-11
+date: 2023-05-11
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 040-cours.html 040-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 040-cours.pdf 040-cours.md"
 encoding: utf-8
@@ -43,6 +43,11 @@ Rappel - schéma d'un système de préservation OAIS :
 
 ---
 
+![OAIS schema full](media/OAIS-schema-general-full.jpg)
+
+---
+
+
 * Les AIPs sont autonomes : ils contiennent toutes les données et métadonnées d'une "unité archivistique".
 * Au coeur du module de stockage OAIS, ils sont structurés de façon à ce que celui-ci puisse remplir ses foncions. 
 
@@ -51,6 +56,8 @@ Rappel - schéma d'un système de préservation OAIS :
 ![OAIS schema](media/OAIS-AIP.jpg)
 
 ---
+
+
 
 ### Cardinalité ContainerLDP - AIP 
 
@@ -85,7 +92,7 @@ Dans ce cas, ce container et tout ses enfants (définis par *ldp:contains*) sero
 
 ```
 import requests
-url = 'http://localhost:8080/rest/records/acv/D9999'
+url = 'http://localhost:8080/rest/records/group'
 headers = {"Content-Type": "text/turtle",
            "Link": '<http://fedora.info/definitions/v4/repository#ArchivalGroup>;rel="type"'}
 auth = ('fedoraAdmin', 'fedoraAdmin')

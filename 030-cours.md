@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-030"
 subtitle: "PREMIS et SHACL"
-date: 2022-05-02
+date: 2023-05-04
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 030-cours.html 030-cours.md -V revealjs-url=reveal.js -V theme=white --katex; pandoc -t html5 -o 030-cours.pdf 030-cours.md"
 encoding: utf-8
@@ -12,6 +12,7 @@ encoding: utf-8
 
 ---
 
+  * Lien avec le cours de module précédent
   * Ontologie de préservation ([PREMIS](https://fr.wikipedia.org/wiki/Preservation_Metadata:_Implementation_Strategies))
   * Schémas de grahes RDF ([SHACL](https://fr.wikipedia.org/wiki/SHACL))
 
@@ -32,7 +33,16 @@ encoding: utf-8
   * Combinaison d'ontologies, p.ex. RiC-O, SKOS et autres
   * Fedora Commons accepte tout turtle valide (ressources RDF)
 
-  
+---
+
+# Cours de module précédent
+
+---
+
+
+Quel est le lien entre LDP et ce que vous avez vu avec M. Ehrler et Mme. Mottaz ?
+
+ 
 ---
 
 # PREMIS

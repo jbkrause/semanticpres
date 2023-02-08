@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-010"
 subtitle: "OAIS et LDP"
-date: 2022-04-12
+date: 2023-04-20
 lang: fr-CH
 encoding: utf-8
 presention: "pandoc -t revealjs -s -o 000-intro.html 000-intro.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 000-intro.pdf 000-intro.md"

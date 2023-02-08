@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-020"
 subtitle: "LDP en pratique"
-date: 2022-04-25
+date: 2023-04-27
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 020-cours.html 020-cours.md -V revealjs-url=reveal.js -V theme=white --katex; pandoc -t html5 -o 000-intro.pdf 000-intro.md"
 encoding: utf-8
@@ -42,11 +42,11 @@ RiC existe sous deux formes:
 * Le modèle conceptuel: RiC-CM
 * L'ontologie OWL: RiC-O
 
-RiC-O est une implémentation possible de RiC-CM, pour l'instant la seule. Mais d'autres implémentations sont envisageables (cf. ébauche: [ici](https://matterhorn.tools/) et [ici](https://wiki.docuteam.ch/doku.php?id=docuteam:matterhornrdf)).
+RiC-O est l'implémentation technique de RiC-CM, pour l'instant la seule. 
 
 ---
 
-* RiC-CM est un modèle entité relation.
+* RiC-CM est un modèle entité relation. Tout comme IFLA [LRM](https://www.ifla.org/resources/?oPubId=11412).
 * Toute entité est une chose (Thing) et se déciline en différentes classes.
 * Les entités sont liées par des relations. 
 
@@ -78,18 +78,20 @@ Des concepts complétant RiC-CM [ont été développés](https://www.ica.org/sta
 
 Concepts clés de RiC-O (centrés sur les records):
 
-[Url](https://www.ica.org/standards/RiC/RiC-O_v0-2.html) de l'ontologie. Quelques exemples:
+[Url](https://www.ica.org/standards/RiC/ontology#) de l'ontologie. Quelques exemples:
 
-* Intitulé, titre: [rico:title](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title)
-* Créateur: [rico:hasCreator](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasCreator)
-* Type: [rico:hasRecordSetType](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasRecordSetType)
-* Hierarchie: [rico:hasOrHadPart](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasOrHadPart) , [rico:isOrWasPartOf](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#isOrWasPartOf)
-* État: [rico:hasRecordState](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasRecordState)
-* Date: [rico:hasBeginningDate](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasBeginningDate) , [rico:hasEndDate](https://www.ica.org/standards/RiC/RiC-O_v0-2.html#hasEndDate) 
+* Titre: [rico:title](https://www.ica.org/standards/RiC/ontology#title)
+* Créateur: [rico:hasCreator](https://www.ica.org/standards/RiC/ontology#hasCreator)
+* Type: [rico:hasRecordSetType](https://www.ica.org/standards/RiC/ontology#hasRecordSetType)
+* Hierarchie: 
+    * [rico:hasOrHadPart](https://www.ica.org/standards/RiC/ontology#hasOrHadPart) , [rico:isOrWasPartOf](https://www.ica.org/standards/RiC/ontology#isOrWasPartOf)
+	* [rico:includesOrIncluded](https://www.ica.org/standards/RiC/ontology#includesOrIncluded) , [rico:isOrWasIncludedIn](https://www.ica.org/standards/RiC/ontology#isOrWasIncludedIn) 
+* État: [rico:hasRecordState](https://www.ica.org/standards/RiC/ontology#hasRecordState)
+* Date: [rico:hasBeginningDate](https://www.ica.org/standards/RiC/ontology#hasBeginningDate) , [rico:hasEndDate](https://www.ica.org/standards/RiC/ontology#hasEndDate) 
 
 ---
 
-## Correctif exercice TP
+# Correctif exercice TP
 
 ![](media/LDP-archival-fonds/010ex1-correction.png)
 
@@ -100,7 +102,7 @@ Concepts clés de RiC-O (centrés sur les records):
 
 ---
 
-## Créer un container (interface Web) 
+# Créer un container (interface Web) 
 
 ![](media/FCREPO-create.png)
 
@@ -110,7 +112,7 @@ Dans la boite de dialogue "RDF Turtle", insérer:
 
 ```
 <>   
-<https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title>   
+<https://www.ica.org/standards/RiC/ontology#title>   
 "Le titre du record".
 ```
 
@@ -120,7 +122,7 @@ A noter que le container est créé comme enfant du container courrant.
 
 ---
 
-## Modifier un container (Web) 
+# Modifier un container (Web) 
 
 ![](media/FCREPO-update.png)
 
@@ -136,8 +138,8 @@ INSERT { }
 Par
 
 ```
-DELETE{ <> <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title>  "Le titre du record". }
-INSERT{ <> <https://www.ica.org/standards/RiC/RiC-O_v0-2.html#title>  "Le nouveau titre du record". }
+DELETE{ <> <https://www.ica.org/standards/RiC/ontology#title>  "Le titre du record". }
+INSERT{ <> <https://www.ica.org/standards/RiC/ontology#title>  "Le nouveau titre du record". }
 ```
 
 Puis cliquer sur le bouton "Update".
@@ -146,7 +148,7 @@ Cf. capture d'écran ci-avant.
 
 ---
 
-## Créer une ressouce binaire
+# Créer une ressouce binaire
 
 ![](media/FCREPO-create-binary.png)
 
@@ -181,7 +183,7 @@ Les verbes standard standard sont utilisés ([API rest](https://fr.wikipedia.org
 
 ---
 
-### Rappel: python
+## Rappel: python
 
 Dans le contexte de la HEG, python est installé sur les postes via l'outil Anaconda.
 
@@ -201,7 +203,7 @@ et enter.
 
 ---
 
-### Python sur ordinateur personnel
+## Python sur ordinateur personnel
 
 Dans le cadre d'une installation classique de Python 3 ([téléchargement](https://www.python.org/downloads/)), installer le paquet "requests" si ce n'est pas déjà fait:
 
@@ -239,11 +241,11 @@ sudo pip install --upgrade pip
 
 
 
-## Accéder à une ressource
+# Accéder à une ressource
 
 ```
 import requests
-url = 'http://localhost:8080/rest/records/acv/D000002513'
+url = 'http://localhost:8080/rest/record/9a3f45'
 r = requests.get(url)
 print('Status code:', r.status_code)
 print(r.text)
@@ -253,11 +255,11 @@ print(r.text)
 
 ---
 
-## Créer un container
+# Créer un container
 
 ```
 import requests
-url = 'http://localhost:8080/rest/records/acv/D9999'
+url = 'http://localhost:8080/rest/record/monDossier'
 headers = {"Content-Type": "text/turtle"}
 auth = ('fedoraAdmin', 'fedoraAdmin')
 data = """ <>  <rico:title> 'Ceci est le titre'.
@@ -271,11 +273,11 @@ print( r.text )
 ---
 
 
-## Mettre à jour un container
+# Mettre à jour un container
 
 ```
 import requests
-url = 'http://localhost:8080/rest/records/acv/D9999'
+url = 'http://localhost:8080/rest/record/monDossier'
 headers = {"Content-Type": "text/turtle"}
 auth = ('fedoraAdmin', 'fedoraAdmin')
 data = """ <>  <rico:title> 'Ceci est le titre mis-à-jour.'.
@@ -292,12 +294,10 @@ Voir les section Versionning : "View Versions"
 
 
 
-## Créer une ressource binaire
+# Créer une ressource binaire
 
 Le code suivant suppose qu'une ressouce binaire nomée "image.jpg" se
-trouve dans le répertoire "Pictures" (le répertoire d'images par
-défaut sous Windows) et que Python a été lancé depuis votre répertoire
-personnel racine.
+trouve dans le répertoire depuis lequel vous lancez votre script Python.
 
 ---
 
@@ -305,10 +305,10 @@ personnel racine.
 ```
 import requests
 import os
-filename = 'Pictures' + os.sep + 'image.jpg'
+filename = 'image.jpg'
 mimetype = 'image/jpeg'
 data = open(filename,'rb').read()
-url = 'http://localhost:8080/rest/records/acv/D9999/binary'
+url = 'http://localhost:8080/rest/records/monDossier/binary'
 auth = ('fedoraAdmin', 'fedoraAdmin')
 headers = { "Content-Type": mimetype,
 			"Link" :"<http://www.w3.org/ns/ldp#NonRDFSource>; rel=type"}

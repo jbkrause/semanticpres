@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-000"
 subtitle: "Préservation et valorisation des données sémantiques"
-date: 2022-04-12
+date: 2023-02-08
 lang: fr-CH
 encoding: utf-8
 presention: "pandoc -t revealjs -s -o 000-intro.html 000-intro.md -V revealjs-url=reveal.js -V theme=league --katex ; pandoc -t html5 -o 000-intro.pdf 000-intro.md"
@@ -29,7 +29,7 @@ un focus est placé sur la valorisation et la diffusion de ces données.
 ***Paquets/containers d'information***
 </div>
 <div class="fragment" data-fragment-index="1">
-  * Préservation digitale: information package ([OAIS](https://fr.wikipedia.org/wiki/Open_Archival_Information_System))
+  * Préservation numérique: information package ([OAIS](https://fr.wikipedia.org/wiki/Open_Archival_Information_System))
   * Web séamantique: container ([LDP](https://en.wikipedia.org/wiki/Linked_Data_Platform))
 </div>
 <div class="fragment" data-fragment-index="2">
@@ -90,13 +90,13 @@ un focus est placé sur la valorisation et la diffusion de ces données.
 
 | Session | Date | Sujet | TP |
 |---------|------|-------|----|
-| 1 | 2022-04-14 | OAIS et LDP | oui |
-| 2 | 2022-04-28 | LDP en pratique | oui |
-| 3 | 2022-05-05 | RiC, PREMIS, SHACL | oui |
-| 4 | 2022-05-12 | AIPs et OCFL | oui |
-| 5 | 2022-05-19 | Intégration, questions | - |
-| 6 | 2022-06-02 | Examen oral | - |
-| 7 | 2022-06-09 | Valorisation | - |
+| 1 | 2023-04-20 | OAIS et LDP | oui |
+| 2 | 2023-04-27 | LDP en pratique | oui |
+| 3 | 2023-05-04 | RiC, PREMIS, SHACL | oui |
+| 4 | 2023-05-11 | AIPs et OCFL | oui |
+| 5 | 2023-05-25 | Intégration, questions | - |
+| 6 | 2023-06-01 | Examen oral | - |
+| 7 | 2023-06-08 | Valorisation | - |
 
 
 ---
