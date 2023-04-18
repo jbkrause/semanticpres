@@ -13,6 +13,10 @@ presention: "pandoc -t revealjs -s -o EXA.html EXA.md -V revealjs-url=reveal.js 
 ---
 
 Expliquer et commenter le shéma ci-dessous:
-![](../media/LDP-archival-fonds/010exemple1.png)
 
 ---
+
+![](010ex1-correction.png)
+
+---
+

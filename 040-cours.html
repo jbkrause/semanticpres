@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-05-11">
+  <meta name="dcterms.date" content="2023-05-11">
   <title>HEG-796-22-040</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-040</h1>
   <p class="subtitle">AIPs et OCFL</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-05-11</p>
+  <p class="date">2023-05-11</p>
 </section>
 
 <section>
@@ -93,6 +93,12 @@
 </section>
 <section class="slide level2">
 
+<figure>
+<img data-src="media/OAIS-schema-general-full.jpg" alt="" /><figcaption>OAIS schema full</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
 <ul>
 <li>Les AIPs sont autonomes : ils contiennent toutes les données et métadonnées d’une “unité archivistique”.</li>
 <li>Au coeur du module de stockage OAIS, ils sont structurés de façon à ce que celui-ci puisse remplir ses foncions.</li>
@@ -132,7 +138,7 @@
 <section id="créer-un-archival-unit-via-lapi" class="slide level2">
 <h2>Créer un “archival unit” via l’API</h2>
 <pre><code>import requests
-url = &#39;http://localhost:8080/rest/records/acv/D9999&#39;
+url = &#39;http://localhost:8080/rest/records/group&#39;
 headers = {&quot;Content-Type&quot;: &quot;text/turtle&quot;,
            &quot;Link&quot;: &#39;&lt;http://fedora.info/definitions/v4/repository#ArchivalGroup&gt;;rel=&quot;type&quot;&#39;}
 auth = (&#39;fedoraAdmin&#39;, &#39;fedoraAdmin&#39;)

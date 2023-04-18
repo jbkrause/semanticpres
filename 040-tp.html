@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-05-11">
+  <meta name="dcterms.date" content="2023-05-11">
   <title>HEG-796-22-040</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-040</h1>
   <p class="subtitle">TP</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-05-11</p>
+  <p class="date">2023-05-11</p>
 </section>
 
 <section>
@@ -54,9 +54,9 @@
 <pre><code>hash := sha256( fedoraId )
 chemin = hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
 <p>Démmarez Fedora commons (cf. TP 010 et 020).</p>
-<p>Au moyen du script <em>id2storage.py</em>, localisez la ressource http://localhost:8080/rest/records/acv/dossiers/D000003962 .</p>
+<p>Au moyen du script <em>id2storage.py</em>, localisez la ressource http://localhost:8080/rest/record/9a3f45 .</p>
 <p>Pour ce faire, ouvrez un terminal Anaconda (<em>Anaconda prompt</em>), rendez-vous dans le répertoire ou vous avez dézippé Fedora Commons et exécutez:</p>
-<pre><code>python id2storage.py records/acv/dossiers/D000003962</code></pre>
+<pre><code>python id2storage.py record/9a3f45 </code></pre>
 <p>Vous obtenez le chemin vers l’AIP contenant ce dossier relativement à la racine OCFL. Celui ci est indiqué par “Storage path”.</p>
 <p>Pour localiser ce dossier commencez par ouvrir la racine OCFL situé dans le sous répertoire <em>fcrepo-home/data7ocfl-root</em> . Suivez ensuite le chemin indiqué par le script.</p>
 <p>La hiérarchie de stockage que vous venez de parcourir a pour but de répartir les AIP dans différents répertoires de manière a évéter des problèmes de surcharge quelque soit le système de stockage utilisé.</p>
@@ -77,13 +77,13 @@ chemin = hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
 <p>Pour ce faire:</p>
 <ol type="1">
 <li>Localiser la section “version” et la sous section “v3” dans l’inventaire.</li>
-<li>Localiser le fichier “fcr-container.nt” dans cette section “v3”.</li>
+<li>Localiser le fichier “fcr-container.nt” dans cette section “v3”. Note: il s’agit du fichier contenant les métadonnées RiC-O.</li>
 <li>Copier ou “noter” le checksum correspondant à ce fichier.</li>
 <li>Dans la section “manifest” en haut du fichier manifest.json, sur la base du checksum copié, trouver le chemin de stockage du fichier “fcr-container.nt” recherché.</li>
 </ol>
 <p>Vous constaterez qu’un fichier déposé déjà enregistré dans une version précédente d’un AIP OCFL n’est pas dupliqué dans les versions ultérieurs, même si il en fait toujours partie.</p>
 <p>En résumé, cette structure permet: * de stoquer toutes les versions d’un AIP * éviter les doublons de fichier au sein d’un AIP (économie d’espace de stockage) * d’associer le checksum à chaque fichier (métadonnées et données) et ainsi de pourvoir vérifier son intégrité</p>
-<p><strong><em>Rendu: déposer la version v3 fcr-container.nt" sur cyberlearn en la nommant tp4ex2.nt .</em></strong></p>
+<p><strong><em>Rendu: déposer la version v3 du fichier fcr-container.nt" sur cyberlearn en la nommant tp4ex2.nt .</em></strong></p>
 </section>
 <section class="slide level6">
 
@@ -95,14 +95,14 @@ chemin = hash[0:3]/hash[3:6]/hash[6:9]/hash</code></pre>
 </section>
 <section class="slide level6">
 
-<p>Dans l’ineterface web de Fedora Commons, se rendre à l’adresse http://localhost:8080/records/acv/dossiers/</p>
+<p>Dans l’ineterface web de Fedora Commons, se rendre à l’adresse http://localhost:8080/rest/record/</p>
 <p>Puis:</p>
 <ul>
 <li>Y créer un nouveau dossier, i.e. “BasicContainer” avec l’id “conteneur”.</li>
 <li>De la même manière que dans l’exercice 1 du TP2, utiliser RiC pour (rico:title) pour lui attribuer le titre “Container basique.” ainsi que la description (rico:scopeAndContent): “Container LDP basique.”</li>
 <li>Comme dans l’exercice 3 du TP2, ajouter un nouveau fichier binaire (par exemple une image de votre choix) dans ce container.</li>
 </ul>
-<p>Revenir dans http://localhost:8080/records/acv/dossiers/ .</p>
+<p>Revenir dans http://localhost:8080/rest/record/ .</p>
 <p>Cette fois:</p>
 <ul>
 <li>Créer un conteneur de type “Archival group” avec l’id “aip”.</li>

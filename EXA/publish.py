@@ -5,7 +5,9 @@ import os
 files = os.listdir()
 
 html_command = 'pandoc -t revealjs -s -o {fout} {fin} -V revealjs-url=reveal.js -V theme=white --katex'
-pdf_command = 'pandoc -t html5 -o {fout} {fin}'
+#pdf_command = 'pandoc -t html5 -o {fout} {fin}'
+pdf_command = 'pandoc -o {fout} {fin} -V colorlinks=true -V linkcolor=blue -V urlcolor=red -V toccolor=gray'
+
 
 for f in files:
     if f.endswith('.md'):

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-04-12">
+  <meta name="dcterms.date" content="2023-04-20">
   <title>HEG-796-22-010</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-010</h1>
   <p class="subtitle">TP</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-04-12</p>
+  <p class="date">2023-04-20</p>
 </section>
 
 <section>
@@ -50,8 +50,9 @@
 </section>
 <section class="slide level6">
 
-<p>Représenter la ressource suivante ainsi que sa hirarchie (fonds, sous-fonds, etc.) sous forme de schéma structuré en containers LDP: <a href="https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3">https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3</a></p>
-<p>Traiter notement les points suivants:</p>
+<p>Représenter la ressource suivante ainsi que sa hiérarchie (fonds, sous-fonds, etc.) sous forme de schéma structuré en containers LDP: <a href="https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3">https://architrave-hesge.ch/parking-du-mont-blanc-et-rade-diapositive-3</a></p>
+<p>Sur la forme, s’inspirer du schéma présenté en cours.</p>
+<p>Traiter notamment les points suivants:</p>
 <ul>
 <li>chaque container LDP est représenté au format RDF Turtle</li>
 <li>les préfixes utilisés sont déclarés</li>
@@ -69,15 +70,27 @@
 </section>
 <section class="slide level6">
 
-<p>Installer et exécuter FCrepo sur votre poste:</p>
+<p>Installer et exécuter FCrepo sur votre poste - instructions pour Windows:</p>
 <ul>
-<li>Télécharger le zip sur cyberlearn.</li>
-<li>Dézipper le sur votre poste informatique (p.ex. sur le Bureau)</li>
+<li>Télécharger le zip sur cyberlearn, section Généralités - dossier Ressources.</li>
+<li>Dézipper le sur votre poste informatique (p.ex. sur le Bureau). <strong>Attention:</strong> ne pas utiliser un emplacement syncrhonisé avec un outil de partage (Drive, Dropbox, OneDrive, etc.).</li>
 <li>Ouvrir un terminal: Menu démarrer, tapper “cmd” puis entrée.</li>
 <li>Dans le terminal, se rendre dans le répertoire de Fedora et exécuter Fedora:</li>
 </ul>
 <pre class="cmd"><code>cd Desktop\Fedora
-java\jdk\bin\java.exe -jar fcrepo-webapp-6.0.0-jetty-console.jar</code></pre>
+java\jdk\bin\java.exe -jar fcrepo-webapp-6.4.0-jetty-console.jar</code></pre>
+</section>
+<section class="slide level6">
+
+<p>Installer et exécuter FCrepo sur votre poste - instructions Mac et Linux:</p>
+<ul>
+<li>Télécharger le zip sur cyberlearn, section Généralités - dossier Ressources.</li>
+<li>Dézipper le sur votre poste informatique (p.ex. sur le Bureau)</li>
+<li>Ouvrir un terminal.</li>
+<li>Dans le terminal, se rendre dans le répertoire de Fedora et exécuter Fedora:</li>
+</ul>
+<pre class="cmd"><code>cd Bureau\Fedora
+java -jar fcrepo-webapp-6.4.0-jetty-console.jar</code></pre>
 </section>
 <section class="slide level6">
 
@@ -100,16 +113,24 @@ java\jdk\bin\java.exe -jar fcrepo-webapp-6.0.0-jetty-console.jar</code></pre>
 
 <p>Naviaguer dans la structure existante:</p>
 <ul>
-<li>Ouvrir l’URL : http://localhost:8080/rest/records/acv/dossiers/D000002513</li>
+<li>Ouvrir l’URL : http://127.0.0.1:8080/rest/record/9a3f45</li>
 <li>La boîte “Properties” représente le contenu du conteneur de métadonnées.
 <ul>
 <li>Le prédicat “rico:title” correspond au nom de l’objet, ici un dossier d’affaire.</li>
 <li>Le prédicat “ldp:contains” indique le(s) conteneur(s) enfant(s).</li>
-<li>Le prédicat rico:isOrWasPartOf indique le(s) conteneur(s) parent(s).</li>
+<li>Le prédicat rico:isOrWasIncludedIn indique le(s) conteneur(s) parent(s).</li>
 </ul></li>
-<li>Naviguer dans la hiérarchie autour de ce dossier de ce dossier d’affaire.</li>
+<li>Naviguer dans la hiérarchie autour de ce dossier de ce dossier d’affaire:
+<ul>
+<li>Que contient ce dossier d’affaire (suivre la propriété ldp:contains)? De quoi s’agit-il concrêtement? Prendre une capture d’écran tp1ex3-1.png .</li>
+<li>Descendre encore un niveau plus bas. De quoi s’agit-il concrêtement? Prendre une capture d’écran tp1ex3-2.png .</li>
+<li>Descendre à nouveau un niveau plus bas. De quoi s’agit-il concrêtement? Prendre une capture d’écran tp1ex3-3.png .</li>
+<li>Quel est le parent du dossier d’affaire (suivre la propriété rico:isOrWasIncludedIn) ? Prendre une capture d’écran tp1ex3-4.png.<br />
+</li>
+</ul></li>
+<li>Naviguer librement dans la structure de conteneurs.</li>
 </ul>
-<p>Rendu: néant.</p>
+<p>Rendu: quatre captures d’écran tp1ex3-1.png , tp1ex3-2.png , tp1ex3-3.png , tp1ex3-4.png.</p>
 </section>
 <section class="slide level6">
 
