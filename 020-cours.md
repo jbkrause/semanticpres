@@ -76,7 +76,7 @@ Des concepts complétant RiC-CM [ont été développés](https://www.ica.org/sta
 
 ---
 
-Concepts clés de RiC-O (centrés sur les records):
+Quelques concepts clés de RiC-O (centrés sur les records):
 
 [Url](https://www.ica.org/standards/RiC/ontology#) de l'ontologie. Quelques exemples:
 
