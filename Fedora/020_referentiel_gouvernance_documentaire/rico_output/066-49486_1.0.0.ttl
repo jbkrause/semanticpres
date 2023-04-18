@@ -1,0 +1,37 @@
+@prefix agent: <http://127.0.0.1:8080/rest/agent/> .
+@prefix premis: <http://www.loc.gov/premis/rdf/v1#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix type: <http://127.0.0.1:8080/rest/type/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://127.0.0.1:8080/rest/refgd/066:49486_1.0.0> a type:RefGD,
+        rico:RecordSet ;
+    premis:version "1.0.0" ;
+    rico:beginningDate [ rico:name "date de validation" ;
+            rico:normalizedDateVelue "2022-10-28"^^xsd:date ;
+            rico:type rico:SingleDate ] ;
+    rico:endDate [ rico:normalizedDateVelue "2023-01-10"^^xsd:date ;
+            rico:type rico:SingleDate ] ;
+    rico:hasCreator agent:066 ;
+    rico:hasOrHadIdentifier [ a rico:Identifier ;
+            rico:hasIdentifierType type:CoteIntellectuelle ;
+            rico:name "066.M.02.01.02" ],
+        [ a rico:Identifier ;
+            rico:hasIdentifierType type:IdRefGD ;
+            rico:name "066:49486" ] ;
+    rico:isAssociatedWithRule [ a rico:Rule ;
+            rico:hasOrHadRuleType type:DonneesPersonnelles ;
+            rico:name "NON" ],
+        [ a rico:Rule ;
+            rdf:value "P1Y"^^xsd:duration ;
+            rico:hasOrHadRuleType type:RegleCloture ],
+        [ a rico:Rule ;
+            rdf:value "P10Y"^^xsd:duration ;
+            rico:hasOrHadRuleType type:DureeUtilite ] ;
+    rico:isOrWasIncludedIn <http://127.0.0.1:8080/rest/refgd/066:1226_1.0.0> ;
+    rico:precedesInTime <http://127.0.0.1:8080/rest/refgd/066:49486_2.0.0> ;
+    rico:recordSetType type:RefGD ;
+    rico:scopeAndContent "Les communes sont différenciées via une métadonnée.Type de demande: liste fermée (p.ex.: GD, calendrier, local, conservation, etc.). Dossier d'affaire: chaque demande, chaque expertise. Nommage: nom de la commune, année d'ouverture, et type de demande. Pas de structure de dossier ni de modèles." ;
+    rico:title "Suivi" .
+

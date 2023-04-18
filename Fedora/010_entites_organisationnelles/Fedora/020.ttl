@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix agent: <http://127.0.0.1:8080/rest/agent/> .
+@prefix  type: <http://127.0.0.1:8080/rest/type/> .
+
+########################################
+### Agents : entités administratives ###
+########################################
+
+agent:020 a rico:CorporateBody, type:PersonneMorale ;
+	rico:isOrWasIncludedIn agent:000 ;
+    rico:name "Département des institutions, du territoire et du sport (DITS)" ;
+    rico:hasBeginningDate [ a rico:SingleDate ;
+        rico:normalizedDateValue "2022-08-01"^^xsd:date ] ;   
+    rico:hasOrHadCorporateBodyType type:department .
+

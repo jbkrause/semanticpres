@@ -1,0 +1,29 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix premis: <http://id.loc.gov/vocabulary/preservation/> .
+@prefix agent: <http://127.0.0.1:8080/rest/agent/> .
+@prefix type: <http://127.0.0.1:8080/rest/type/> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/> .
+@prefix crypHashFunc: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/> .
+
+	
+#####################
+### Instanciation ###
+#####################
+
+<http://127.0.0.1:8080/rest/record/9a3f45/2cf431/i3> a rico:Instantiation, 
+            type:InstantiationAnalogique ;
+        rico:name "document format de préservation analogique" ;
+		rico:hasOrHadIdentifier [ a rico:Idenfier ;
+			rico:hasIdentifierType type:Localisation ;
+			rico:name "2-3-4-5-10" ] ;		
+        rico:isInstantiationOf  <http://127.0.0.1:8080/rest/record/9a3f45/2cf431> ;
+		rico:isDerivedFromInstantiation <http://127.0.0.1:8080/rest/record/9a3f45/2cf431/i1> ;
+    	rico:hasExtent [ a rico:Extent ;
+	    rico:quantity 1  ;
+		rico:hasUnitOfMeasurement type:piece ] ;
+	    rico:creationDate [ a rico:SingleDate ;
+            rico:normalizedDateValue "2023-02-10"^^xsd:date ] .

@@ -1,0 +1,42 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix premis: <http://id.loc.gov/vocabulary/preservation/> .
+@prefix agent: <http://127.0.0.1:8080/rest/agent/acv/> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/> .
+@prefix crypHashFunc: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/> .
+@prefix type: <http://127.0.0.1:8080/rest/type/> .
+
+################
+### Document ###
+################
+
+<http://127.0.0.1:8080/rest/record/9a3f45/2cf431> a rico:Record, type:Document ;
+    rico:isOrWasIncludedIn <http://127.0.0.1:8080/rest/record/9a3f45>;
+    rico:title "Formulaire d'enregistrement d'armoirie" ;
+    rico:hasOrHadIdentifier [ a rico:Identifier ;
+        rico:hasIdentifierType type:IDF ;
+        rico:hasOrHadIdentifier "2cf431a" ] ,
+        [ a rico:Idenfier ;
+        rico:hasIdentifierType type:IdSCP ;
+        rico:hasOrHadIdentifier "DOC-00004321" ] ;
+    rico:hasBeginningDate [ a rico:SingleDate ;
+        rico:normalizedDateValue "2022-12-20"^^xsd:date ] ;
+    rico:hasEndDate [ a rico:SingleDate ;
+        rico:normalizedDateValue "2023-01-04"^^xsd:date ] ;
+    rico:documents _:aboutissement ;
+	rico:recordResourceOrInstantiationIsSourceOfCreationRelation _:creator .
+	
+_:aboutissement a rico:Activity ;
+    rico:hasEventType "abouti" ;
+    rico:date [ a rico:SingleDate ;
+        rico:normalizedDateValue "2023-01-04"^^xsd:date ] ;
+    rico:isOrWasPerformedBy agent:766525 .
+
+_:creator a rico:CreationRelation ;
+    rico:provenanceRelationHasSource <http://127.0.0.1:8080/rest/record/9a3f45/2cf431> ;
+    rico:agentOriginationRelationHasTarget agent:066 .
+
+

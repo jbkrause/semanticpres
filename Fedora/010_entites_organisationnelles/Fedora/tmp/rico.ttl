@@ -1,0 +1,36 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix agent: <https://127.0.0.1/rest/agent/> .
+@prefix  type: <https://127.0.0.1/rest/type/> .
+
+########################################
+### Agents : entités administratives ###
+########################################
+
+agent:000 a rico:CorporateBody ;
+    rico:name "État de Vaud" ;
+    rico:hasOrHadCorporateBodyType type:state .
+
+agent:020 a rico:CorporateBody ;
+	rico:isOrWasIncludedIn agent:000 ;
+    rico:name "Département des institutions, du territoire et du sport (DITS)" ;
+    rico:hasBeginningDate [ a rico:SingleDate ;
+        rico:normalizedDateValue "2022-08-01"^^xsd:date ] ;   
+    rico:hasOrHadCorporateBodyType type:department .
+
+agent:030 a rico:CorporateBody ;
+    rico:name "Chancellerie" ;
+	rico:isOrWasIncludedIn agent:020 ;
+    rico:hasBeginningDate [a rico:SingleDate ;
+        rico:normalizedDateValue "2017-08-01"^^xsd:date ] ;  
+    rico:hasOrHadCorporateBodyType type:service .
+
+agent:066 a rico:CorporateBody ;
+    rico:name "Archives cantonales vaudoises" ;
+	rico:isOrWasIncludedIn agent:030 ;
+    rico:hasBeginningDate [a rico:SingleDate ;
+        rico:normalizedDateValue "2017-08-01"^^xsd:date ] ;   
+    rico:hasOrHadCorporateBodyType type:service .
+
+

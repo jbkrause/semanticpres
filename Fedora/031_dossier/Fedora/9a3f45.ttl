@@ -1,0 +1,81 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix record: <http://127.0.0.1:8080/rest/record/> .
+@prefix agent: <http://127.0.0.1:8080/rest/agent/> .
+@prefix refgd: <http://127.0.0.1:8080/rest/refgd/> .
+@prefix type: <http://127.0.0.1:8080/rest/type/> .
+
+###############
+### Dossier ###
+###############
+
+## Dossier ##
+
+<http://127.0.0.1:8080/rest/record/9a3f45> a rico:RecordSet, type:Dossier ;
+    rico:isOrWasIncludedIn refgd:066:249_1.0.0 ;
+    rico:title "Enregistrement des armoiries de la famille Bilvin" ;
+    rico:hasOrHadIdentifier [ a rico:Identifier ;
+        rico:hasIdentifierType type:IDF ;
+        rico:hasOrHadIdentifier "9a3f45" ] ,
+        [ a rico:Identifier ;
+        rico:hasIdentifierType type:IdSCP ;
+        rico:hasOrHadIdentifier "DOS-0000000034" ] ;
+    rico:hasBeginningDate [ a rico:SingleDate ;
+        rico:normalizedDateValue "2022-12-20"^^xsd:date ] ;
+    rico:hasEndDate [ a rico:SingleDate ;
+        rico:normalizedDateValue "2023-01-04"^^xsd:date ] ;
+    rico:documents _:creation ;
+    rico:documents _:closing ;
+	rico:documents _:beneficiaire ;
+	rico:documents _:demandeur ;
+	rico:recordResourceOrInstantiationIsSourceOfCreationRelation _:creator ;
+    rico:recordResourceIsConnectedToRecordResourceRelation _:rec2recA .	
+	
+
+## Record events ##
+
+_:creation a rico:Activity ;
+    rico:hasActivityType type:Creation ;
+    rico:date [ a rico:SingleDate ;
+        rico:normalizedDateValue "2023-01-05"^^xsd:date] ;
+    rico:isOrWasPerformedBy agent:766525 .
+
+_:closing a rico:Activity ;
+    rico:hasActivityType type:Cloture ;
+    rico:descriptiveNote "Le motif de clôture optionnel va ici." ;
+    rico:date [ a rico:SingleDate ;
+        rico:normalizedDateValue "2023-02-05"^^xsd:date] ;
+    rico:isOrWasPerformedBy agent:766525 .
+
+
+#################
+### Relations ###
+#################
+
+## Record - Agents ##
+
+_:beneficiaire  a rico:Activity ;
+    rico:hasActivityType type:Beneficiaire ;
+    rico:isOrWasPerformedBy agent:666526 ;
+    rico:documentedBy record:9a3f45 .
+
+_:demandeur  a rico:Activity ;
+    rico:hasActivityType type:Demandeur ;
+    rico:isOrWasPerformedBy agent:566522 ;
+    rico:documentedBy record:9a3f45 .
+
+## Record - Producer/Origination ##
+
+_:creator a rico:CreationRelation ;
+    rico:provenanceRelationHasSource record:9a3f45 ;
+    rico:agentOriginationRelationHasTarget agent:066 .
+
+## Record - Record ##
+
+_:rec2recA  a rico:RecordResourceToRecordResourceRelation ;
+    rico:recordResourceRelationConnects record:9a3f45 ,
+                                        record:d35c1a .
+
+
+

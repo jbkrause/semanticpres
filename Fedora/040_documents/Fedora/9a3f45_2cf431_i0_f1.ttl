@@ -1,0 +1,21 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix premis: <http://id.loc.gov/vocabulary/preservation/> .
+@prefix agent: <http://127.0.0.1:8080/rest/agent/> .
+@prefix type: <http://127.0.0.1:8080/rest/type/> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/> .
+@prefix crypHashFunc: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/> .
+
+
+<http://127.0.0.1:8080/rest/record/9a3f45/2cf431/i0/f1> a premis:File, type:Fichier ;
+	    premis:hasCompositionLevel "0" ;				
+	    premis:orginalName "EMPD_109.docx" ;
+	    dct:format [ rico:name "Microsoft Word for Windows 2007 onwards (DOCX)" ;
+	        skos:exactMatch <http://www.nationalarchives.gov.uk/pronom/fmt/412> ;
+	        ebucore:hasMimeType "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ;
+		    ebucore:hasImageFormat "A4" ] ;
+		premis:storedAt "http://127.0.0.1:8080/rest/record/9a3f45/2cf431/i0/f1/binary" .
+
