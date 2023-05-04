@@ -8,7 +8,9 @@
 * rdflib a installer pour les TP
   * pip3 install rdflib 
   * python -m pip install rdflib
-  
+  * ... et sur anaconda...
+ 
+ TP: coriger maxlenght -> maxLenght
   
 ## Exas
 
