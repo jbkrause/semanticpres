@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-050"
 subtitle: "Intégration et discussion"
-date: 2022-05-17
+date: 2023-05-23
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 050-cours.html 050-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 050-cours.pdf 050-cours.md"
 encoding: utf-8
@@ -114,7 +114,7 @@ Autes ontologies descriptives à ne pas rater:
 * [DublinCore](https://www.dublincore.org) : [Element Set](https://www.dublincore.org/specifications/dublin-core/dces/) et [DCMI Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
 * [RDA-U](http://www.rdaregistry.info/Elements/u/) : Research Data Alliance - nombreuses propriétés concernant les records et agents
 * [EBU-core](https://tech.ebu.ch/publications/tech3293) : Eurovision data model - multimedia
-* [IFLA-LRM](https://repository.ifla.org/handle/123456789/40) : Library Reference Model - nouvelle évolution après FRBR
+* [bibframe](https://www.loc.gov/bibframe/) : évolution après FRBR et RDA
 * [CIDOC-CRM](https://www.cidoc-crm.org/) : Musées
 
 ---

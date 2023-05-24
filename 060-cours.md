@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-060"
 subtitle: "Valorisation"
-date: 2022-05-18
+date: 2023-05-24
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 050-cours.html 050-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 050-cours.pdf 050-cours.md"
 encoding: utf-8
@@ -122,116 +122,84 @@ LIMIT 100
 
 ---
 
-### Semantic AIS
+### Archives fédérales - SPARQL
 
-En stade précoce: 
+https://lindas.admin.ch/
 
-* Projet AtoM3 : [accesstomemoryfoundation.org](https://accesstomemoryfoundation.org/development/)
-* Chez [docuteam](https://docuteam.ch)
-  
+```
+PREFIX ac: <http://umbel.org/umbel/ac/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX adm: <https://schema.ld.admin.ch/>
+PREFIX ais: <https://culture.ld.admin.ch/ais/>
+
+SELECT DISTINCT * WHERE {
+    ?record rico:isOrWasIncludedIn* ais:7618405 . 
+    ?record rico:isOrWasIncludedIn ?parent .
+    ?record rico:identifier ?id .
+    ?record rico:title ?title .
+    OPTIONAL { ?record rico:isAssociatedWithDate/rico:beginningDate ?beginningDate . }
+    OPTIONAL { ?record rico:isAssociatedWithDate/rico:beginningDate ?endDate . }
+    OPTIONAL { ?record adm:referenceCode ?referenceCode . }
+}
+LIMIT 100
+```
+
+---
+
+### Archives fédérales - Visualisation
+
+[visualize.admin.ch](https://visualize.admin.ch/)
+
+![image](media/visualize_admin.png)
+
+---
+
+### Démonstrateur des Archives nationales de France
+
+[SPARNATURAL - démonstrateur A](https://sparna-git.github.io/sparnatural-demonstrateur-an/index-A.html)
+
+![image](media/sparnatural_demonstrateur_ANF.png)
+
+
+---
+
+### Graphes - Next Level Access
+
+[exploration de graphes](https://nla.e-periodica.ch/gnd-118977962)
+
+![image](media/next_level_access.png)
+
+---
+
+### Edition de données sémantique
+
+[Invenio ILS](https://invenio-software.org/), exemple d'édition sur [RERO ILS](https://ils.test.rero.ch/professional/records/documents/detail/791).
+
+![image](media/invenio_ils.png)
+
 ---
 
 
+### docuteam : système d'archivage RiC
+
+
+* [outils](https://www.docuteam.ch/fr/software-fur-archive/)
+* [documentation](https://docs.docuteam.ch/fr/)
+  
+---
 
 ### En France
 
 * Prototype PIAAF (France)
   * https://piaaf.demo.logilab.fr/sparql
   * https://piaaf.demo.logilab.fr/editorial/help
-* Archives Nationales: projet ALEGORIA
-  * https://www.alegoria-project.fr/en/Metadata
-  * http://data.alegoria-project.fr/page/anf%2Flapie%2Frecord%2F058220-c-70wu0l12w-14l18b4znre8s
-  * http://data.alegoria-project.fr/sparql
   
   
 [Autres exemples](https://ica-egad.github.io/RiC-O/projects-and-tools.html).
 
----
-
-Fonds iconographique décrivant le territoire français d'entre deux guerres.
-
-Démo: http://data.alegoria-project.fr/sparql
-
-```
-PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT * WHERE {
-  ?sub rico:title ?title .
-  FILTER regex(?title, ".*L[ée]man.*", "i").
-} 
-LIMIT 100
-```
----
-
-***Titre et agents***
-
-```
-PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT * WHERE {
-  ?record rico:title ?title .
-  ?record ?rel ?agent .
-  FILTER (?rel = rico:hasCreator || ?rel = rico:createdBy || ?rel = rico:hasPublisher || ?rel = rico:recordIsSourceOfAuthorshipRelation)
-  ?agent  rico:hasAgentName ?agentName .
-  ?agentName  rico:normalizedValue ?agentLabel .
-} 
-LIMIT 100
-```
-
----
-
-***Lieux et coordonnées***
-
-```
-PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT * WHERE {
-    ?subj     rico:hasOrHadLocation ?place .
-    ?place    rico:hasOrHadPhysicalLocation ?physloc .
-    ?physloc rico:hasOrHadCoordinates ?coordinates .
-}
-LIMIT 100
-
-```
-
----
-
-***Combinaision agent et lieu***
-
-
-```
-PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT * WHERE {
-  ?record rico:title ?title .
-  OPTIONAL { ?record  rico:hasCreator ?agent . }
-  OPTIONAL { ?agent   rdfs:label ?agentLabel . }
-  OPTIONAL { ?record  rico:hasOrHadLocation ?place . }
-  OPTIONAL { ?place   rico:hasOrHadPhysicalLocation ?physloc . }
-  OPTIONAL { ?physloc rico:hasOrHadCoordinates ?coordinates . }
-}
-LIMIT 100
-
-```
-
----
-
-***Liste des prédicats RiC-O utlisés***
-
-```
-PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?pred WHERE {
-  ?sub ?pred ?obj .
-  FILTER(regex(str(?pred), "RiC" ) )
-} 
-LIMIT 100
-```
 
 ---
 
@@ -256,3 +224,4 @@ LIMIT 100
 
 * Conversion en RDF: [RDF Mapping Language](https://rml.io/specs/rml/)
 * Triples stores performants: [Large Triple Stores](https://www.w3.org/wiki/LargeTripleStores)
+* Graph databases : p.ex. [neo4j](https://neo4j.com/fr/) , [vitesse comparées avec BD relationnelle](https://neo4j.com/news/how-much-faster-is-a-graph-database-really/)
