@@ -37,7 +37,7 @@ On peut lire dans le premier paragraphe de la norme [OAIS](https://public.ccsds.
 
 ### AAS Ensemen
 
-Groupe de travail de l'association des archivstes suisse: [ENSEMEN](https://vsa-aas.ch/arbeitsgruppen/projektgruppe-ensemen/)
+Groupe de travail de l'association des archivstes suisse: [ENSEMEN](https://vsa-aas.ch/verein/arbeitsgruppen/ensemen/)
 
 cf. les documents porduits.
 
@@ -65,17 +65,6 @@ La fondation a choisi RiC-O comme schéma de base pour sa salle de lecture virtu
 de bibliothèque (Swisscovery) et d'archives (ScopeArchiv)
 
 ---
-
-![Salle de lecture virtuelle](PTT_archiv_aggregation.png)
-
-Source: [Présentation de Nicolas Kessler, 2022](https://vsa-aas.ch/wp-content/uploads/2022/03/2022-03-25-Pr%C3%A4sentation-2-Nicolas-Kessler-VSA-Projektgruppe-ENSEMEN.pdf)
-
----
-
-* Web: [data.ptt-archiv.ch](https://data.ptt-archiv.ch/archive/record/202776)
-* Code open source: vairante de [www.alod.ch](https://github.com/zazuko/www.alod.ch) , [bar.alod.ch](https://github.com/zazuko/bar.alod.ch)
-  
----
   
 ### Archives du Canton de Bâle-Ville
 
@@ -85,7 +74,7 @@ Source: [Présentation de Nicolas Kessler, 2022](https://vsa-aas.ch/wp-content/u
   * [Mappings - open source code](https://github.com/Staatsarchiv-Basel-Stadt/StABS-scope2RDF)
   * [Stardog triple store docker - open source code](https://github.com/Staatsarchiv-Basel-Stadt/stardog-docker)
  
-Le pipeline ScopeArchi peut être intérassant comme phase de transition.
+Le pipeline scopeArchiv peut être intérassant comme phase de transition.
  
 ---
 
@@ -174,7 +163,7 @@ LIMIT 100
 
 ---
 
-### Edition de données sémantique
+### Edition de données sémantiques
 
 [Invenio ILS](https://invenio-software.org/), exemple d'édition sur [RERO ILS](https://ils.test.rero.ch/professional/records/documents/detail/791).
 
@@ -197,9 +186,7 @@ LIMIT 100
   * https://piaaf.demo.logilab.fr/sparql
   * https://piaaf.demo.logilab.fr/editorial/help
   
-  
 [Autres exemples](https://ica-egad.github.io/RiC-O/projects-and-tools.html).
-
 
 ---
 
@@ -214,7 +201,6 @@ LIMIT 100
 
 
 ### Conversion EAD et EAC en RiC
-
 
 * EAD et EAC [RiC-O converter](https://github.com/ArchivesNationalesFR/rico-converter)
 

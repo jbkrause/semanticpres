@@ -46,11 +46,11 @@ Modélisation de:
 **Exemple:**
 
 ```
-ex:record371			a						rico:Record ;
-						rico:title				'Photo du Cervin' ; 
-						rico:hasInstantiation	ex:instantiation472 .
-ex:instantiation472		a						rico:Instantiation ;
-						rico:name				'20220525_123458.jpg' .
+ex:record371		a						rico:Record ;
+					rico:title				'Photo du Cervin' ; 
+					rico:hasInstantiation	ex:instantiation472 .
+ex:instantiation472	a						rico:Instantiation ;
+					rico:name				'20220525_123458.jpg' .
 ```
 ---
 
@@ -81,17 +81,17 @@ PREMIS peut être combiné à RiC-O:
 ---
 
 ```
-ex:instantiation472		a						rico:Instantiation ;
-						a						premis:Representation;
-						rico:title				'Captured with Fariphone 4' ;
-						premis:includes			ex:file9642 .
-ex:file9642				a						premis:File ;
-						premis:originalName     '20220525_123458.jpg' ;
-						premis:messageDigest    '16a993c472d589f7bc36922...';
-						premis:messageDigestAlgorithm   'SHA512';
-						premis:size             1023 ;
-						premis:formatRegistyKey 'fmt/432' ;
-						premis:formatRegistryName 'PRONOM' .
+ex:instantiation472	a						rico:Instantiation ;
+					a						premis:Representation;
+					rico:title				'Captured with Fariphone 4' ;
+					premis:includes			ex:file9642 .
+ex:file9642			a						premis:File ;
+					premis:originalName     '20220525_123458.jpg' ;
+					premis:messageDigest    '16a993c472d589f7bc36922...';
+					premis:messageDigestAlgorithm   'SHA512';
+					premis:size             1023 ;
+					premis:formatRegistyKey 'fmt/432' ;
+					premis:formatRegistryName 'PRONOM' .
 ```
 ---
 
@@ -149,17 +149,17 @@ ex:InstantiationShape
 
 LDP BasicContainer:
 ```
-ex:record371			a						rico:Record ;
-						rico:title				'Photo du Cervin' ; 
-						rico:hasInstantiation	ex:instantiation472 ;
-						ldp:contains			ex:instantiation472 .
+ex:record371	a						rico:Record ;
+				rico:title				'Photo du Cervin' ; 
+				rico:hasInstantiation	ex:instantiation472 ;
+				ldp:contains			ex:instantiation472 .
 ```	
 					
 LDP BasicContainer:
 ```						
-ex:instantiation472		a						rico:Instantiation ;
-						a						premis:Representation;
-						premis:includes			ex:file9642 .
+ex:instantiation472	a					rico:Instantiation ;
+					a					premis:Representation;
+					premis:includes		ex:file9642 .
 ...
 ```
 
@@ -233,7 +233,7 @@ P.ex. RiC, et les technologies du Web sémantique en général, offre un accès 
 
 * Les "records sets" ne sont plus limités a une structure aborscente bi-dimentionnelle.
 * D'abord, l'arbre peut changer dans le temps => structure tri-dimentionnelle (demo dans Fedora).
-* Plusieurs regroupements intellectuels peuvent être faits et combinés (rico:proxy), exemple de [BodmerLab](https://bodmerlab.unige.ch/fr) et d'[Europeana/Histoires](https://www.europeana.eu/fr/stories) et .
+* Plusieurs regroupements intellectuels peuvent être faits et combinés, exemple de [BodmerLab](https://bodmerlab.unige.ch/fr) et d'[Europeana/Histoires](https://www.europeana.eu/fr/stories) et .
 * L'accès par d'autre types d'objets (agents, sujets, lieux, fonctions, etc.) est facilité.
 
 ---
