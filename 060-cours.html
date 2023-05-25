@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-05-18">
+  <meta name="dcterms.date" content="2023-05-24">
   <title>HEG-796-22-060</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-060</h1>
   <p class="subtitle">Valorisation</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-05-18</p>
+  <p class="date">2023-05-24</p>
 </section>
 
 <section>
@@ -68,7 +68,7 @@
 </section>
 <section id="aas-ensemen" class="slide level3">
 <h3>AAS Ensemen</h3>
-<p>Groupe de travail de l’association des archivstes suisse: <a href="https://vsa-aas.ch/arbeitsgruppen/projektgruppe-ensemen/">ENSEMEN</a></p>
+<p>Groupe de travail de l’association des archivstes suisse: <a href="https://vsa-aas.ch/verein/arbeitsgruppen/ensemen/">ENSEMEN</a></p>
 <p>cf. les documents porduits.</p>
 </section>
 <section id="memoriav" class="slide level3">
@@ -86,20 +86,6 @@
 <p>Le musée de la communication est une fondation financée par La Poste et Swisscom, qui, partagent des archives communes.</p>
 <p>La fondation a choisi RiC-O comme schéma de base pour sa salle de lecture virtuelle (prototype) qui regroupe les collections muséales (MuseumPlus), de bibliothèque (Swisscovery) et d’archives (ScopeArchiv)</p>
 </section>
-<section class="slide level3">
-
-<figure>
-<img data-src="PTT_archiv_aggregation.png" alt="" /><figcaption>Salle de lecture virtuelle</figcaption>
-</figure>
-<p>Source: <a href="https://vsa-aas.ch/wp-content/uploads/2022/03/2022-03-25-Pr%C3%A4sentation-2-Nicolas-Kessler-VSA-Projektgruppe-ENSEMEN.pdf">Présentation de Nicolas Kessler, 2022</a></p>
-</section>
-<section class="slide level3">
-
-<ul>
-<li>Web: <a href="https://data.ptt-archiv.ch/archive/record/202776">data.ptt-archiv.ch</a></li>
-<li>Code open source: vairante de <a href="https://github.com/zazuko/www.alod.ch">www.alod.ch</a> , <a href="https://github.com/zazuko/bar.alod.ch">bar.alod.ch</a></li>
-</ul>
-</section>
 <section id="archives-du-canton-de-bâle-ville" class="slide level3">
 <h3>Archives du Canton de Bâle-Ville</h3>
 <ul>
@@ -111,7 +97,7 @@
 <li><a href="https://github.com/Staatsarchiv-Basel-Stadt/stardog-docker">Stardog triple store docker - open source code</a></li>
 </ul></li>
 </ul>
-<p>Le pipeline ScopeArchi peut être intérassant comme phase de transition.</p>
+<p>Le pipeline scopeArchiv peut être intérassant comme phase de transition.</p>
 </section>
 <section class="slide level3">
 
@@ -140,12 +126,61 @@ SELECT DISTINCT ?pred WHERE {
 } 
 LIMIT 100</code></pre>
 </section>
-<section id="semantic-ais" class="slide level3">
-<h3>Semantic AIS</h3>
-<p>En stade précoce:</p>
+<section id="archives-fédérales---sparql" class="slide level3">
+<h3>Archives fédérales - SPARQL</h3>
+<p>https://lindas.admin.ch/</p>
+<pre><code>PREFIX ac: &lt;http://umbel.org/umbel/ac/&gt;
+PREFIX schema: &lt;http://schema.org/&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
+PREFIX adm: &lt;https://schema.ld.admin.ch/&gt;
+PREFIX ais: &lt;https://culture.ld.admin.ch/ais/&gt;
+
+SELECT DISTINCT * WHERE {
+    ?record rico:isOrWasIncludedIn* ais:7618405 . 
+    ?record rico:isOrWasIncludedIn ?parent .
+    ?record rico:identifier ?id .
+    ?record rico:title ?title .
+    OPTIONAL { ?record rico:isAssociatedWithDate/rico:beginningDate ?beginningDate . }
+    OPTIONAL { ?record rico:isAssociatedWithDate/rico:beginningDate ?endDate . }
+    OPTIONAL { ?record adm:referenceCode ?referenceCode . }
+}
+LIMIT 100</code></pre>
+</section>
+<section id="archives-fédérales---visualisation" class="slide level3">
+<h3>Archives fédérales - Visualisation</h3>
+<p><a href="https://visualize.admin.ch/">visualize.admin.ch</a></p>
+<figure>
+<img data-src="media/visualize_admin.png" alt="" /><figcaption>image</figcaption>
+</figure>
+</section>
+<section id="démonstrateur-des-archives-nationales-de-france" class="slide level3">
+<h3>Démonstrateur des Archives nationales de France</h3>
+<p><a href="https://sparna-git.github.io/sparnatural-demonstrateur-an/index-A.html">SPARNATURAL - démonstrateur A</a></p>
+<figure>
+<img data-src="media/sparnatural_demonstrateur_ANF.png" alt="" /><figcaption>image</figcaption>
+</figure>
+</section>
+<section id="graphes---next-level-access" class="slide level3">
+<h3>Graphes - Next Level Access</h3>
+<p><a href="https://nla.e-periodica.ch/gnd-118977962">exploration de graphes</a></p>
+<figure>
+<img data-src="media/next_level_access.png" alt="" /><figcaption>image</figcaption>
+</figure>
+</section>
+<section id="edition-de-données-sémantiques" class="slide level3">
+<h3>Edition de données sémantiques</h3>
+<p><a href="https://invenio-software.org/">Invenio ILS</a>, exemple d’édition sur <a href="https://ils.test.rero.ch/professional/records/documents/detail/791">RERO ILS</a>.</p>
+<figure>
+<img data-src="media/invenio_ils.png" alt="" /><figcaption>image</figcaption>
+</figure>
+</section>
+<section id="docuteam-système-darchivage-ric" class="slide level3">
+<h3>docuteam : système d’archivage RiC</h3>
 <ul>
-<li>Projet AtoM3 : <a href="https://accesstomemoryfoundation.org/development/">accesstomemoryfoundation.org</a></li>
-<li>Chez <a href="https://docuteam.ch">docuteam</a></li>
+<li><a href="https://www.docuteam.ch/fr/software-fur-archive/">outils</a></li>
+<li><a href="https://docs.docuteam.ch/fr/">documentation</a></li>
 </ul>
 </section>
 <section id="en-france" class="slide level3">
@@ -156,85 +191,8 @@ LIMIT 100</code></pre>
 <li>https://piaaf.demo.logilab.fr/sparql</li>
 <li>https://piaaf.demo.logilab.fr/editorial/help</li>
 </ul></li>
-<li>Archives Nationales: projet ALEGORIA
-<ul>
-<li>https://www.alegoria-project.fr/en/Metadata</li>
-<li>http://data.alegoria-project.fr/page/anf%2Flapie%2Frecord%2F058220-c-70wu0l12w-14l18b4znre8s</li>
-<li>http://data.alegoria-project.fr/sparql</li>
-</ul></li>
 </ul>
 <p><a href="https://ica-egad.github.io/RiC-O/projects-and-tools.html">Autres exemples</a>.</p>
-</section>
-<section class="slide level3">
-
-<p>Fonds iconographique décrivant le territoire français d’entre deux guerres.</p>
-<p>Démo: http://data.alegoria-project.fr/sparql</p>
-<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT * WHERE {
-  ?sub rico:title ?title .
-  FILTER regex(?title, &quot;.*L[ée]man.*&quot;, &quot;i&quot;).
-} 
-LIMIT 100</code></pre>
-</section>
-<section class="slide level3">
-
-<p><strong><em>Titre et agents</em></strong></p>
-<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT * WHERE {
-  ?record rico:title ?title .
-  ?record ?rel ?agent .
-  FILTER (?rel = rico:hasCreator || ?rel = rico:createdBy || ?rel = rico:hasPublisher || ?rel = rico:recordIsSourceOfAuthorshipRelation)
-  ?agent  rico:hasAgentName ?agentName .
-  ?agentName  rico:normalizedValue ?agentLabel .
-} 
-LIMIT 100</code></pre>
-</section>
-<section class="slide level3">
-
-<p><strong><em>Lieux et coordonnées</em></strong></p>
-<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT * WHERE {
-    ?subj     rico:hasOrHadLocation ?place .
-    ?place    rico:hasOrHadPhysicalLocation ?physloc .
-    ?physloc rico:hasOrHadCoordinates ?coordinates .
-}
-LIMIT 100
-</code></pre>
-</section>
-<section class="slide level3">
-
-<p><strong><em>Combinaision agent et lieu</em></strong></p>
-<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT * WHERE {
-  ?record rico:title ?title .
-  OPTIONAL { ?record  rico:hasCreator ?agent . }
-  OPTIONAL { ?agent   rdfs:label ?agentLabel . }
-  OPTIONAL { ?record  rico:hasOrHadLocation ?place . }
-  OPTIONAL { ?place   rico:hasOrHadPhysicalLocation ?physloc . }
-  OPTIONAL { ?physloc rico:hasOrHadCoordinates ?coordinates . }
-}
-LIMIT 100
-</code></pre>
-</section>
-<section class="slide level3">
-
-<p><strong><em>Liste des prédicats RiC-O utlisés</em></strong></p>
-<pre><code>PREFIX rico: &lt;https://www.ica.org/standards/RiC/ontology#&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT DISTINCT ?pred WHERE {
-  ?sub ?pred ?obj .
-  FILTER(regex(str(?pred), &quot;RiC&quot; ) )
-} 
-LIMIT 100</code></pre>
 </section>
 <section id="switch-connectome" class="slide level3">
 <h3>SWITCH Connectome</h3>
@@ -254,6 +212,7 @@ LIMIT 100</code></pre>
 <ul>
 <li>Conversion en RDF: <a href="https://rml.io/specs/rml/">RDF Mapping Language</a></li>
 <li>Triples stores performants: <a href="https://www.w3.org/wiki/LargeTripleStores">Large Triple Stores</a></li>
+<li>Graph databases : p.ex. <a href="https://neo4j.com/fr/">neo4j</a> , <a href="https://neo4j.com/news/how-much-faster-is-a-graph-database-really/">vitesse comparées avec BD relationnelle</a></li>
 </ul>
 </section></section>
     </div>

@@ -54,6 +54,11 @@
 <pre><code>cd Desktop\SHACL\</code></pre>
 <p>Vérifier que le fichier <em>dossier.ttl</em> est conforme aux contraintes <em>shacl.ttl</em>:</p>
 <pre><code>python shacl.py dossier.ttl shacl.ttl</code></pre>
+<p>Remarque: au besoin installer RDFLib</p>
+<p>Sur une installation python classique:</p>
+<pre><code>python -m pip install rdflib</code></pre>
+<p>Sur anaconda:</p>
+<pre><code>conda install -c conda-forge rdflib</code></pre>
 <p><strong><em>A rendre: catprue d’écran de la sortie de la commande tp3ex0.jpg</em></strong></p>
 </section>
 <section class="slide level6">
@@ -66,7 +71,7 @@
 </section>
 <section class="slide level6">
 
-<p>Copier le fichier <em>shacl.ttl</em> dans le fichier <em>tp3ex2_shacl.ttl</em>.</p>
+<p>Copier le fichier <em>shacl.ttl</em> dans le fichier <em>tp3ex1_shacl.ttl</em>.</p>
 <p>Compléter la section de “archvd:DossierShape” du fichier <em>tp3ex1_shacl.ttl</em> en y ajoutant la contrainte suivante:</p>
 <pre><code>sh:property [
     sh:path rico:title;
@@ -150,8 +155,8 @@
 <p>Compéter les <em>sh:property</em> de façon à s’assurer que les documents ont bien:</p>
 <ul>
 <li>exactement un titre (<em>rico:title</em>)</li>
-<li>que le titre est une chaîne de caratètes (utiliser: <em>xsd:string</em>)</li>
-<li>que le titre fait au maximum 200 caractères (utilier: <em>sh:maxlength</em>)</li>
+<li>que le titre est une chaîne de caratères (utiliser: <em>xsd:string</em>)</li>
+<li>que le titre fait au maximum 200 caractères (utilier: <em>sh:maxLength</em>)</li>
 <li>au maximum une description (<em>rico:scopeAndContent</em>)</li>
 <li>exactement une date de fin (<em>rico:hasEndDate</em>)</li>
 </ul>
@@ -195,7 +200,7 @@
 <ul>
 <li>un et un seul identifiant (propriété “rico:identifier”)</li>
 <li>que cette propriété est de type string (xsd:string)</li>
-<li>que ce format est conforme avec l’expression régulaire <strong><em>“^\d{3}\.\d{4}\.\d{4}\.\d{2}$”</em></strong> (en utilisant “sh:pattern”).</li>
+<li>que ce format est conforme avec l’expression régulaire <strong><em>“^\\d{3}\\.\\d{4}\\.\\d{4}\\.\\d{2}$”</em></strong> (en utilisant “sh:pattern”).</li>
 </ul>
 </section>
 <section class="slide level6">

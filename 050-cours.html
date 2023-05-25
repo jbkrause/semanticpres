@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jan Krause-Bilvin">
-  <meta name="dcterms.date" content="2022-05-17">
+  <meta name="dcterms.date" content="2023-05-23">
   <title>HEG-796-22-050</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
   <h1 class="title">HEG-796-22-050</h1>
   <p class="subtitle">Intégration et discussion</p>
   <p class="author">Jan Krause-Bilvin</p>
-  <p class="date">2022-05-17</p>
+  <p class="date">2023-05-23</p>
 </section>
 
 <section>
@@ -83,11 +83,11 @@
 <section class="slide level2">
 
 <p><strong>Exemple:</strong></p>
-<pre><code>ex:record371            a                       rico:Record ;
-                        rico:title              &#39;Photo du Cervin&#39; ; 
-                        rico:hasInstantiation   ex:instantiation472 .
-ex:instantiation472     a                       rico:Instantiation ;
-                        rico:name               &#39;20220525_123458.jpg&#39; .</code></pre>
+<pre><code>ex:record371        a                       rico:Record ;
+                    rico:title              &#39;Photo du Cervin&#39; ; 
+                    rico:hasInstantiation   ex:instantiation472 .
+ex:instantiation472 a                       rico:Instantiation ;
+                    rico:name               &#39;20220525_123458.jpg&#39; .</code></pre>
 </section>
 <section class="slide level2">
 
@@ -141,17 +141,17 @@ ex:instantiation472     a                       rico:Instantiation ;
 </section>
 <section class="slide level2">
 
-<pre><code>ex:instantiation472     a                       rico:Instantiation ;
-                        a                       premis:Representation;
-                        rico:title              &#39;Captured with Fariphone 4&#39; ;
-                        premis:includes         ex:file9642 .
-ex:file9642             a                       premis:File ;
-                        premis:originalName     &#39;20220525_123458.jpg&#39; ;
-                        premis:messageDigest    &#39;16a993c472d589f7bc36922...&#39;;
-                        premis:messageDigestAlgorithm   &#39;SHA512&#39;;
-                        premis:size             1023 ;
-                        premis:formatRegistyKey &#39;fmt/432&#39; ;
-                        premis:formatRegistryName &#39;PRONOM&#39; .</code></pre>
+<pre><code>ex:instantiation472 a                       rico:Instantiation ;
+                    a                       premis:Representation;
+                    rico:title              &#39;Captured with Fariphone 4&#39; ;
+                    premis:includes         ex:file9642 .
+ex:file9642         a                       premis:File ;
+                    premis:originalName     &#39;20220525_123458.jpg&#39; ;
+                    premis:messageDigest    &#39;16a993c472d589f7bc36922...&#39;;
+                    premis:messageDigestAlgorithm   &#39;SHA512&#39;;
+                    premis:size             1023 ;
+                    premis:formatRegistyKey &#39;fmt/432&#39; ;
+                    premis:formatRegistryName &#39;PRONOM&#39; .</code></pre>
 </section>
 <section class="slide level2">
 
@@ -172,7 +172,7 @@ ex:file9642             a                       premis:File ;
 <li><a href="https://www.dublincore.org">DublinCore</a> : <a href="https://www.dublincore.org/specifications/dublin-core/dces/">Element Set</a> et <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">DCMI Terms</a></li>
 <li><a href="http://www.rdaregistry.info/Elements/u/">RDA-U</a> : Research Data Alliance - nombreuses propriétés concernant les records et agents</li>
 <li><a href="https://tech.ebu.ch/publications/tech3293">EBU-core</a> : Eurovision data model - multimedia</li>
-<li><a href="https://repository.ifla.org/handle/123456789/40">IFLA-LRM</a> : Library Reference Model - nouvelle évolution après FRBR</li>
+<li><a href="https://www.loc.gov/bibframe/">bibframe</a> : évolution après FRBR et RDA</li>
 <li><a href="https://www.cidoc-crm.org/">CIDOC-CRM</a> : Musées</li>
 </ul>
 </section>
@@ -204,14 +204,14 @@ ex:file9642             a                       premis:File ;
 <section class="slide level2">
 
 <p>LDP BasicContainer:</p>
-<pre><code>ex:record371            a                       rico:Record ;
-                        rico:title              &#39;Photo du Cervin&#39; ; 
-                        rico:hasInstantiation   ex:instantiation472 ;
-                        ldp:contains            ex:instantiation472 .</code></pre>
+<pre><code>ex:record371    a                       rico:Record ;
+                rico:title              &#39;Photo du Cervin&#39; ; 
+                rico:hasInstantiation   ex:instantiation472 ;
+                ldp:contains            ex:instantiation472 .</code></pre>
 <p>LDP BasicContainer:</p>
-<pre><code>ex:instantiation472     a                       rico:Instantiation ;
-                        a                       premis:Representation;
-                        premis:includes         ex:file9642 .
+<pre><code>ex:instantiation472 a                   rico:Instantiation ;
+                    a                   premis:Representation;
+                    premis:includes     ex:file9642 .
 ...</code></pre>
 </section>
 <section class="slide level2">
@@ -286,7 +286,7 @@ print( r.text )</code></pre>
 <ul>
 <li>Les “records sets” ne sont plus limités a une structure aborscente bi-dimentionnelle.</li>
 <li>D’abord, l’arbre peut changer dans le temps =&gt; structure tri-dimentionnelle (demo dans Fedora).</li>
-<li>Plusieurs regroupements intellectuels peuvent être faits et combinés (rico:proxy), exemple de <a href="https://bodmerlab.unige.ch/fr">BodmerLab</a> et d’<a href="https://www.europeana.eu/fr/stories">Europeana/Histoires</a> et .</li>
+<li>Plusieurs regroupements intellectuels peuvent être faits et combinés, exemple de <a href="https://bodmerlab.unige.ch/fr">BodmerLab</a> et d’<a href="https://www.europeana.eu/fr/stories">Europeana/Histoires</a> et .</li>
 <li>L’accès par d’autre types d’objets (agents, sujets, lieux, fonctions, etc.) est facilité.</li>
 </ul>
 </section>
