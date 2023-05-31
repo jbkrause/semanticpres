@@ -2,7 +2,7 @@
 author: "Jan Krause-Bilvin"
 title: "HEG-796-22-070"
 subtitle: "Valorisation"
-date: 2022-06-08
+date: 2023-05-31
 lang: fr-CH
 presention: "pandoc -t revealjs -s -o 070-cours.html 070-cours.md -V revealjs-url=reveal.js -V theme=league --katex; pandoc -t html5 -o 070-cours.pdf 070-cours.md"
 encoding: utf-8
@@ -128,7 +128,7 @@ Exemples de moteurs de recherche: Solr, ElasticSearch. [Introduction](https://ww
 
 Des règles pour l'indexation via le messaging doivent être définies, p.ex.: rico:title -> index titre.
 
-Cf. [configuration de Solr avec Fedora](https://wiki.lyrasis.org/display/FEDORA6x/Solr+Indexing+Quick+Guide).
+Cf. [configuration de Solr avec Fedora](https://wiki.lyrasis.org/display/FEDORA6x/External+Search).
 
 ---
 
@@ -136,7 +136,7 @@ Cf. [configuration de Solr avec Fedora](https://wiki.lyrasis.org/display/FEDORA6
 
 Nombreux outils disponibles, voir:
 
-* [comparison of triplestores](https://en.wikipedia.org/wiki/Comparison_of_triplestores) et
+* [comparison of triplestores / structured storage](https://en.wikipedia.org/wiki/Comparison_of_structured_storage_software#See_also) et
 * [large triplestores](https://www.w3.org/wiki/LargeTripleStores).
 
 ---
